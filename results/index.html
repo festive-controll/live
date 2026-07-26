@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kauthukam '26 | Results & Standings</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../asset/5Rect.png">
+  <script src="../fest-favicon.js"></script>
+
+  <!-- Meta Tags -->
+  <meta name="description" content="Live program results, candidate toppers, and team point standings for Kauthukam Arts Fest 2026.">
+
+  <!-- Typography -->
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Iconography -->
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+
+  <!-- Tailwind CSS v3 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: '#00A3E0',
+            brandYellow: '#FFC20E',
+            brandRed: '#EA3650',
+            brandGreen: '#E2F8F0',
+            brandGreenBorder: '#D2EFE4',
+            brandOrange: '#EA8F23',
+            darkNav: '#0F172A'
+          },
+          fontFamily: {
+            sans: ['Clash Grotesk', 'Inter', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.4s ease-out forwards',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'spin-slow': 'spin 15s linear infinite',
+            'bounce-gentle': 'bounceGentle 2.5s infinite'
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            bounceGentle: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-6px)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans select-none relative overflow-x-hidden">
+
+  <!-- Clean Header: Only Festival Logo & Name -->
+  <header class="w-full bg-white border-b border-gray-100 py-3.5 px-4 sm:px-8 relative z-50 shadow-xs">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Festival Brand (Logo + Name) -->
+      <a href="../index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 bg-white border border-gray-200 rounded-xl flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform shrink-0">
+          <img src="../asset/5Rect.png" alt="Kauthukam Logo" class="w-6 h-6 object-contain" data-fest="logo">
+        </div>
+        <div>
+          <h1 class="font-sans font-bold text-lg text-slate-900 leading-none" data-fest="name">Kauthukam</h1>
+          <p class="text-[11px] font-semibold text-amber-600 mt-0.5">Arts Fest '26</p>
+        </div>
+      </a>
+
+      <!-- Minimal Navigation (SIBAQ Badge + Home Button) -->
+      <div class="flex items-center gap-3">
+        <div class="hidden sm:flex items-center justify-center border border-slate-200 rounded-xl px-3 py-1.5 bg-slate-50">
+          <img src="../asset/sibaq-logo.svg" alt="SIBAQ" class="h-5 w-auto object-contain" onerror="this.style.display='none'">
+        </div>
+        <a href="../index.html"
+          class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 shadow-xs">
+          <i class="fi fi-rr-home text-xs"></i>
+          <span>Home</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================= -->
+  <!-- SECTION A: COMING SOON VIEW (Displayed when Result Present = OFF) -->
+  <!-- ========================================================= -->
+  <main id="coming-soon-section" class="w-full max-w-4xl mx-auto px-6 py-16 flex-grow flex items-center justify-center animate-fade-in">
+    <div class="w-full bg-white border border-slate-200 rounded-[36px] shadow-sm p-8 md:p-14 text-center flex flex-col items-center relative overflow-hidden">
+      
+      <!-- Ambient Background Glows -->
+      <div class="absolute -top-24 -left-24 w-72 h-72 bg-[#EA8F23]/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-[#00A3E0]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- Status Badge -->
+      <div class="inline-flex items-center gap-2.5 bg-[#FDF3E8] border border-[#EA8F23]/30 px-4 py-1.5 rounded-full text-xs font-semibold text-[#EA8F23] mb-8 shadow-xs">
+        <span class="w-2 h-2 rounded-full bg-[#EA8F23] animate-ping"></span>
+        <span class="uppercase tracking-wider">Results Pending &bull; Coming Soon</span>
+      </div>
+
+      <!-- Icon Graphic -->
+      <div class="relative mb-8">
+        <div class="w-32 h-32 md:w-36 md:h-36 rounded-full border-2 border-dashed border-[#EA8F23]/30 animate-spin-slow flex items-center justify-center"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-24 h-24 md:w-28 md:h-28 rounded-3xl bg-gradient-to-br from-[#FFF8EF] to-[#FDF3E8] border border-[#EA8F23]/20 shadow-md flex items-center justify-center animate-bounce-gentle">
+            <span class="iconify text-5xl md:text-6xl text-[#EA8F23]" data-icon="ph:trophy-duotone"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Heading & Text -->
+      <h2 class="font-sans font-semibold text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight leading-tight mb-4">
+        Results &amp; Standings Coming Soon
+      </h2>
+      <p class="font-body text-slate-500 text-sm md:text-base max-w-xl leading-relaxed mb-8">
+        Official program outcomes, candidate grades, and live team point standings for <span data-fest="name">Kauthukam</span> Arts Fest '26 will be published here as soon as competitions conclude.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full max-w-md">
+        <a href="../index.html"
+          class="w-full sm:w-auto px-7 py-3 bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs rounded-xl shadow-xs transition-all flex items-center justify-center gap-2">
+          <i class="fi fi-rr-home text-sm"></i>
+          <span>Return to Home</span>
+        </a>
+        <a href="../updates.html"
+          class="w-full sm:w-auto px-7 py-3 bg-[#E6F7F6] text-[#09ABB1] border border-[#09ABB1]/30 hover:bg-[#c9f0ee] font-medium text-xs rounded-xl transition-all flex items-center justify-center gap-2">
+          <i class="fi fi-rr-book-alt text-sm"></i>
+          <span>Explore Updates</span>
+        </a>
+      </div>
+
+      <!-- Info Footer -->
+      <div class="mt-10 pt-6 border-t border-slate-100 w-full max-w-md flex items-center justify-center gap-2 text-xs text-slate-400">
+        <i class="fi fi-rr-info text-sm text-[#EA8F23]"></i>
+        <span>Live standings will update automatically in real-time as results are declared.</span>
+      </div>
+
+    </div>
+  </main>
+
+
+  <!-- ========================================================= -->
+  <!-- SECTION B: LIVE RESULTS VIEW (Displayed when Result Present = ON) -->
+  <!-- ========================================================= -->
+  <div id="live-results-section" class="hidden flex-grow flex flex-col w-full animate-fade-in">
+    
+    <!-- Top Hero Banner -->
+    <section class="w-full bg-gradient-to-b from-white to-slate-100/70 pt-8 pb-10 border-b border-slate-200/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider mb-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+              <span>Official Live Leaderboard</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+              Fest <span class="bg-gradient-to-r from-amber-500 via-rose-500 to-sky-500 bg-clip-text text-transparent">Results</span> &amp; Standings
+            </h1>
+            <p class="text-slate-500 text-sm sm:text-base mt-1 font-body">
+              Real-time updates for candidate ranks, team championship points, and program results.
+            </p>
+          </div>
+
+          <!-- Quick Summary Badges -->
+          <div class="flex items-center gap-3">
+            <div class="bg-white border border-slate-200 rounded-2xl px-4 py-2.5 shadow-xs flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold">
+                <span class="iconify text-2xl" data-icon="ph:trophy-fill"></span>
+              </div>
+              <div>
+                <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Total Points</p>
+                <p id="stat-total-points" class="text-lg font-bold text-slate-800">0</p>
+              </div>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-2xl px-4 py-2.5 shadow-xs flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold">
+                <span class="iconify text-2xl" data-icon="ph:flag-checkered-fill"></span>
+              </div>
+              <div>
+                <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Declared</p>
+                <p id="stat-declared-count" class="text-lg font-bold text-slate-800">0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Championship Team Leaderboard Cards Grid -->
+        <div id="team-leaderboard" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Skeleton Loaders -->
+          <div class="h-32 bg-white rounded-2xl border border-slate-200 animate-pulse"></div>
+          <div class="h-32 bg-white rounded-2xl border border-slate-200 animate-pulse"></div>
+          <div class="h-32 bg-white rounded-2xl border border-slate-200 animate-pulse"></div>
+          <div class="h-32 bg-white rounded-2xl border border-slate-200 animate-pulse"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+      <!-- Controls & Filter Toolbar -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-xs mb-8 flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
+        
+        <!-- Search Box -->
+        <div class="relative flex-1">
+          <i class="fi fi-rr-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input type="text" id="search-input" placeholder="Search by program name, candidate, or code..."
+            class="w-full pl-11 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-body text-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:bg-white transition-all">
+        </div>
+
+        <!-- Filters Group -->
+        <div class="flex flex-wrap items-center gap-3">
+          <!-- Section Filter -->
+          <div class="relative">
+            <select id="section-select"
+              class="appearance-none bg-slate-50 border border-slate-200 rounded-xl pl-4 pr-9 py-2.5 text-xs font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-400 cursor-pointer">
+              <option value="ALL">All Sections</option>
+              <option value="Sub-Junior">Sub-Junior</option>
+              <option value="Junior">Junior</option>
+              <option value="Senior">Senior</option>
+              <option value="General">General</option>
+            </select>
+            <i class="fi fi-rr-angle-small-down absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
+          </div>
+
+          <!-- Status Filter Tabs -->
+          <div class="flex items-center bg-slate-100 p-1 rounded-xl">
+            <button data-tab="all" class="tab-btn active px-3 py-1.5 rounded-lg text-xs font-semibold transition-all">All</button>
+            <button data-tab="published" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-600">Published</button>
+            <button data-tab="toppers" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-600">Candidate Toppers</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Display Container -->
+      <div id="results-view-container">
+        
+        <!-- Program Results Grid -->
+        <div id="programs-results-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <!-- Candidate Toppers View -->
+        <div id="toppers-view" class="hidden">
+          <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-xs">
+            <div class="px-6 py-4 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
+              <h3 class="font-bold text-slate-800 text-lg">Top Performing Candidates</h3>
+              <span class="text-xs font-semibold text-slate-400" id="topper-count-badge">0 Candidates</span>
+            </div>
+            <div class="divide-y divide-slate-100" id="toppers-list">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="hidden text-center py-16 bg-white border border-slate-200 rounded-2xl">
+          <div class="w-16 h-16 bg-amber-50 text-amber-500 rounded-full flex items-center justify-center mx-auto mb-3">
+            <span class="iconify text-3xl" data-icon="ph:magnifying-glass"></span>
+          </div>
+          <h4 class="text-lg font-bold text-slate-800">No Results Found</h4>
+          <p class="text-sm text-slate-500 max-w-sm mx-auto mt-1">Try adjusting your search criteria or changing section filters.</p>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Program Details Modal -->
+  <div id="result-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-[100] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div class="bg-white border border-slate-200 rounded-3xl max-w-xl w-full p-6 shadow-2xl transform scale-95 transition-all duration-300 relative overflow-hidden">
+      <div class="flex items-start justify-between mb-4">
+        <div>
+          <span id="modal-category" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800 uppercase tracking-wider mb-1 inline-block">Section</span>
+          <h3 id="modal-title" class="text-xl font-bold text-slate-900 leading-tight">Program Title</h3>
+          <p id="modal-code" class="text-xs font-mono text-slate-400 mt-0.5">Code: #000</p>
+        </div>
+        <button id="modal-close" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors">
+          <i class="fi fi-rr-cross text-xs"></i>
+        </button>
+      </div>
+
+      <div id="modal-winners-list" class="space-y-3 my-4">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <div class="pt-4 border-t border-slate-100 flex justify-end">
+        <button id="modal-close-btn" class="px-5 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold transition-colors">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs font-body text-slate-500 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>&copy; 2026 Kauthukam Arts Fest. All Rights Reserved.</p>
+      <div class="flex items-center gap-4">
+        <a href="../index.html" class="hover:text-amber-600 transition-colors">Home</a>
+        <a href="../downloads.html" class="hover:text-amber-600 transition-colors">Downloads</a>
+        <a href="../updates.html" class="hover:text-amber-600 transition-colors">Updates</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  <!-- Page JS Script -->
+  <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kauthukam | Schedule</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="asset/5Rect.png">
+  <script src="fest-favicon.js"></script>
+  <!-- Fontshare Clash Grotesk Font CDN -->
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700,900&display=swap"
+    rel="stylesheet">
+  <!-- Tailwind CSS v3 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Iconify -->
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: '#00A3E0',
+            brandYellow: '#FFC20E',
+            brandRed: '#EA3650',
+            brandGreen: '#E2F8F0',
+            brandGreenBorder: '#D2EFE4',
+            brandOrange: '#EA8F23'
+          },
+          fontFamily: {
+            sans: ['Clash Grotesk', 'sans-serif'],
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.5s ease-out forwards',
+            'spin-slow': 'spin 12s linear infinite',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'bounce-gentle': 'bounceGentle 2.5s infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(12px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            bounceGentle: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-8px)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="index.css">
+  <!-- Flaticon Uicons -->
+  <link rel='stylesheet'
+    href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
+</head>
+
+<body class="bg-white min-h-screen flex flex-col overflow-x-hidden font-sans select-none relative">
+
+  <!-- Header / Navigation Bar containing the FIFA 26 expandable scorebar -->
+  <header class="w-full bg-white border-b border-gray-100 relative z-50 h-16 flex items-center justify-center">
+    <div id="scorebar"
+      class="absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center bg-white border border-gray-200 shadow-sm justify-center z-50 overflow-hidden">
+
+      <!-- Left Wings (Home, Downloads, Result) -->
+      <div id="scorebar-left" class="scorebar-wing flex items-center justify-end space-x-1.5 pr-2">
+        <!-- Home -->
+        <a href="index.html"
+          class="scorebar-btn bg-[#FDF2F4] text-brandRed border border-brandRed/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#fbdde1] transition-colors">
+          <span>Home</span>
+          <i class="fi fi-rr-home text-lg shrink-0 mt-0.5"></i>
+        </a>
+        <!-- Downloads -->
+        <a href="downloads.html"
+          class="scorebar-btn bg-[#E8F2FA] text-[#2075BC] border border-[#2075BC]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#d5e6f5] transition-colors">
+          <span>Downloads</span>
+          <i class="fi fi-rr-cloud-download text-lg shrink-0 mt-0.5"></i>
+        </a>
+        <!-- Result -->
+        <a href="result.html"
+          class="scorebar-btn bg-[#FDF3E8] text-[#EA8F23] border border-[#EA8F23]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#fbe4cb] transition-colors">
+          <span>Result</span>
+          <i class="fi fi-rr-list text-lg shrink-0 mt-0.5"></i>
+        </a>
+      </div>
+
+      <!-- Center Logo Emblem -->
+      <div id="nav-badge"
+        class="w-10 h-10 bg-white border border-gray-200 rounded-xl flex items-center justify-center cursor-pointer shrink-0 z-50">
+        <img src="asset/5Rect.png" alt="Emblem" class="w-6 h-6 object-contain" data-fest="logo">
+      </div>
+
+      <!-- Right Wings (Updates, Gallery, Contact Us) -->
+      <div id="scorebar-right" class="scorebar-wing flex items-center justify-start space-x-1.5 pl-2">
+        <!-- Updates -->
+        <a href="updates.html"
+          class="scorebar-btn bg-[#E6F7F6] text-[#09ABB1] border border-[#09ABB1]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#c9f0ee] transition-colors">
+          <span>Updates</span>
+          <i class="fi fi-rr-book-alt text-lg shrink-0 mt-0.5"></i>
+        </a>
+        <!-- Gallery -->
+        <a href="gallery.html"
+          class="scorebar-btn bg-[#F1F9E8] text-[#74B816] border border-[#74B816]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#e2f3cd] transition-colors">
+          <span>Gallery</span>
+          <i class="fi fi-rr-folder-camera text-lg shrink-0 mt-0.5"></i>
+        </a>
+        <!-- Contact Us -->
+        <a href="contact.html"
+          class="scorebar-btn bg-[#F6ECFA] text-[#AE3EC9] border border-[#AE3EC9]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#ecd3f7] transition-colors">
+          <span>Contact Us</span>
+          <i class="fi fi-rr-headphones text-lg shrink-0 mt-0.5"></i>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Topbar below navbar -->
+  <div class="w-full bg-white relative z-40 pt-4 pb-2">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 flex items-center justify-between gap-4">
+      <div
+        class="flex items-center justify-center border border-neutral-300 rounded-[1.5rem] px-4 sm:px-6 py-1.5 py-2 shrink-0">
+        <img src="asset/sibaq-logo.svg" alt="SIBAQ Logo" class="h-6 sm:h-7 w-auto object-contain">
+      </div>
+      <h1
+        class="font-sans font-normal text-3xl sm:text-4xl bg-gradient-to-r from-neutral-900 to-neutral-500 bg-clip-text text-transparent tracking-tight text-right">
+        Schedule</h1>
+    </div>
+  </div>
+
+  <!-- Filter Section -->
+  <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 pt-4 pb-2 relative z-30">
+    <div
+      class="bg-gray-50 border border-neutral-100 rounded-[20px] p-4 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
+      <!-- Search Option -->
+      <div class="relative w-full md:w-80">
+        <i class="fi fi-rr-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+        <input type="text" id="search-programs" oninput="filterSchedules()" placeholder="Search program name..."
+          class="w-full pl-10 pr-4 py-2 bg-white border border-neutral-200 rounded-xl text-[14px] focus:outline-none focus:ring-2 focus:ring-brandBlue/20 focus:border-brandBlue transition-all">
+      </div>
+
+      <!-- Topsetted Filters -->
+      <div class="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+        <div class="relative w-full sm:w-52">
+          <select id="filter-section" onchange="filterSchedules()"
+            class="w-full pl-4 pr-10 py-2 bg-white border border-neutral-200 rounded-xl text-[13px] text-neutral-700 font-semibold focus:outline-none focus:ring-2 focus:ring-brandBlue/20 focus:border-brandBlue cursor-pointer appearance-none">
+            <option value="">All Sections</option>
+          </select>
+          <i
+            class="fi fi-rr-angle-small-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-base"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Schedule Timeline View -->
+  <main class="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 pt-2 pb-8 relative z-30 animate-fade-in flex-grow">
+    <!-- Schedule list container -->
+    <div id="schedule-container" class="space-y-10">
+      <!-- Loading Spinner -->
+      <div class="flex justify-center items-center py-32 flex-col gap-4">
+        <span class="iconify text-5xl text-brandBlue animate-spin" data-icon="ph:spinner-gap-bold"></span>
+        <p class="text-neutral-500 text-sm font-medium">Syncing schedules with database...</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile Full-Page Menu Overlay -->
+  <div id="mobile-menu"
+    class="fixed inset-0 bg-white z-[90] flex flex-col items-center justify-center p-6 md:hidden opacity-0 pointer-events-none transition-all duration-500">
+
+    <div class="mb-8 flex flex-col items-center">
+      <div id="mobile-menu-badge"
+        class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center shadow-sm mb-3 cursor-pointer">
+        <img src="asset/5Rect.png" alt="Emblem" class="w-10 h-10 object-contain">
+      </div>
+      <p class="font-sans font-medium text-lg tracking-[0.1em] text-neutral-900 uppercase" data-fest="name">Kauthukam
+      </p>
+    </div>
+
+    <!-- Vertical List stack of 7 Buttons -->
+    <div class="w-full max-w-[290px] flex flex-col space-y-3.5">
+      <a href="index.html"
+        class="mobile-menu-btn bg-[#FDF2F4] text-brandRed border border-brandRed/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        <span>Home</span>
+        <i class="fi fi-rr-home text-lg shrink-0 mt-0.5"></i>
+      </a>
+      <a href="downloads.html"
+        class="mobile-menu-btn bg-[#E8F2FA] text-[#2075BC] border border-[#2075BC]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        <span>Downloads</span>
+        <i class="fi fi-rr-cloud-download text-lg shrink-0 mt-0.5"></i>
+      </a>
+      <a href="result.html"
+        class="mobile-menu-btn bg-[#FDF3E8] text-[#EA8F23] border border-[#EA8F23]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        <span>Result</span>
+        <i class="fi fi-rr-list text-lg shrink-0 mt-0.5"></i>
+      </a>
+
+      <a href="updates.html"
+        class="mobile-menu-btn bg-[#E6F7F6] text-[#09ABB1] border border-[#09ABB1]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        <span>Updates</span>
+        <i class="fi fi-rr-book-alt text-lg shrink-0 mt-0.5"></i>
+      </a>
+      <a href="gallery.html"
+        class="mobile-menu-btn bg-[#F1F9E8] text-[#74B816] border border-[#74B816]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        <span>Gallery</span>
+        <i class="fi fi-rr-folder-camera text-lg shrink-0 mt-0.5"></i>
+      </a>
+      <a href="contact.html"
+        class="mobile-menu-btn bg-[#F6ECFA] text-[#AE3EC9] border border-[#AE3EC9]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        <span>Contact Us</span>
+        <i class="fi fi-rr-headphones text-lg shrink-0 mt-0.5"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script>
+    const firebaseConfig = {
+      authDomain: "festie-s1u2h3.firebaseapp.com",
+      projectId: "festie-s1u2h3",
+      storageBucket: "festie-s1u2h3.firebasestorage.app",
+      messagingSenderId: "1055535560935",
+      appId: "1:1055535560935:web:5317ad5fe9ba3ffcfebff7"
+    };
+    if (typeof firebase !== 'undefined') {
+      if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+      window.db = firebase.firestore();
+    }
+  </script>
+
+  <!-- Main layout control script (Scorebar, mobile menu, emblem rotation) -->
+  <script src="main.js"></script>
+
+  <!-- Realtime Data Retrieval & Grouping Script -->
+  <script>
+    let rawPrograms = [];
+
+    // Format ISO dateTime-local string to "D-M-YYYY" zone-independent format
+    function formatDate(timeString) {
+      if (!timeString) return 'Not Scheduled';
+      const datePart = timeString.split('T')[0];
+      const parts = datePart.split('-');
+      if (parts.length !== 3) return 'Not Scheduled';
+      const year = parts[0];
+      const month = parseInt(parts[1], 10);
+      const day = parseInt(parts[2], 10);
+      return `${day}-${month}-${year}`; // e.g. 22-7-2026 or 1-1-2026
+    }
+
+    // Format ISO dateTime-local string to AM/PM format
+    function formatTime(timeString) {
+      if (!timeString) return '—';
+      const parts = timeString.split('T');
+      if (parts.length < 2) return '—';
+      const [hourStr, minStr] = parts[1].split(':');
+      let hour = parseInt(hourStr, 10);
+      const min = minStr;
+      const ampm = hour >= 12 ? 'PM' : 'AM';
+      hour = hour % 12;
+      hour = hour ? hour : 12; // 0 should be 12
+      return `${hour}:${min} ${ampm}`;
+    }
+
+    // Listen to Firebase updates
+    if (window.db) {
+      window.db.collection('programs').where('status', '==', true).onSnapshot(snap => {
+        rawPrograms = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+        // Sort chronologically by date-time. Empty dates go to the bottom.
+        rawPrograms.sort((a, b) => {
+          const timeA = a.time || '9999-12-31T23:59';
+          const timeB = b.time || '9999-12-31T23:59';
+          return timeA.localeCompare(timeB);
+        });
+
+        // Initialize unique section and skill dropdowns
+        populateFilterDropdowns();
+
+        // Render UI
+        renderSchedules();
+      }, err => {
+        console.error("Firebase read error: ", err);
+        document.getElementById('schedule-container').innerHTML = `
+          <div class="flex justify-center items-center py-20 flex-col gap-2">
+            <span class="iconify text-4xl text-brandRed" data-icon="ph:exclamation-mark-bold"></span>
+            <p class="text-neutral-600 font-medium">Failed to sync schedule data.</p>
+          </div>`;
+      });
+    }
+
+    // Populate Filter Dropdowns dynamically
+    function populateFilterDropdowns() {
+      const selectSection = document.getElementById('filter-section');
+      const savedSec = selectSection.value;
+
+      // Extract unique values
+      const uniqueSections = [...new Set(rawPrograms.map(p => p.section).filter(Boolean))].sort();
+
+      // Populate Section select
+      let sectionHtml = '<option value="">All Sections</option>';
+      uniqueSections.forEach(sec => {
+        sectionHtml += `<option value="${sec}">${sec}</option>`;
+      });
+      selectSection.innerHTML = sectionHtml;
+      selectSection.value = savedSec;
+    }
+
+    // Filter and Render grouped list
+    function filterSchedules() {
+      renderSchedules();
+    }
+
+    function renderSchedules() {
+      const searchVal = document.getElementById('search-programs').value.toLowerCase().trim();
+      const sectionVal = document.getElementById('filter-section').value;
+      const container = document.getElementById('schedule-container');
+
+      // Group filtered programs
+      const grouped = new Map(); // Date string -> Program objects
+
+      let matchCount = 0;
+
+      rawPrograms.forEach(p => {
+        // Apply filters
+        if (sectionVal && p.section !== sectionVal) return;
+        if (searchVal && !p.name.toLowerCase().includes(searchVal)) return;
+
+        matchCount++;
+
+        // Determine date grouping key
+        const dateKey = formatDate(p.time);
+
+        if (!grouped.has(dateKey)) {
+          grouped.set(dateKey, []);
+        }
+        grouped.get(dateKey).push(p);
+      });
+
+      if (matchCount === 0) {
+        container.innerHTML = `
+          <div class="flex flex-col items-center justify-center py-32 text-center">
+            <span class="iconify text-6xl text-neutral-300 mb-4" data-icon="ph:calendar-blank-duotone"></span>
+            <h3 class="font-sans font-medium text-xl text-neutral-900 tracking-tight">No schedules found</h3>
+            <p class="text-neutral-500 text-sm max-w-sm mt-1 leading-relaxed">We couldn't find any programs matching your filter criteria.</p>
+          </div>`;
+        return;
+      }
+
+      // Generate HTML
+      let html = '';
+
+      // Iterating through Map preserves chronological order from rawPrograms.sort()
+      grouped.forEach((programs, dateKey) => {
+        const isNotScheduled = dateKey === 'Not Scheduled';
+
+        // Date Header Section
+        html += `
+          <div class="mb-10">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="${isNotScheduled ? 'bg-neutral-500 text-white' : 'bg-brandBlue text-white'} px-5 py-2.5 rounded-[18px] font-bold text-xs uppercase tracking-wider shadow-sm flex items-center gap-2">
+                <i class="fi ${isNotScheduled ? 'fi-rr-circle-dashed' : 'fi-rr-calendar-clock'} text-sm mt-0.5"></i>
+                <span>${dateKey}</span>
+              </div>
+              <div class="h-[1px] bg-neutral-100 flex-grow"></div>
+            </div>
+
+            <!-- Program Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">`;
+
+        programs.forEach(p => {
+          const timeStr = formatTime(p.time);
+
+          html += `
+              <div class="bg-white border border-neutral-100 rounded-[20px] p-4 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.02)] hover:shadow-md hover:border-neutral-200/50 transition-all duration-300 flex flex-col justify-between hover:-translate-y-0.5 group">
+                <div>
+                  <!-- Card Header: Code & Time -->
+                  <div class="flex justify-between items-center mb-4 gap-2">
+                    <span class="text-[11px] font-mono font-bold bg-neutral-50 text-neutral-500 border border-neutral-200/60 px-3 py-1 rounded-xl shrink-0 uppercase tracking-wide">${p.code || 'PRG'}</span>
+                    ${!isNotScheduled ? `
+                      <span class="text-[11px] font-bold text-brandBlue bg-blue-50/50 border border-brandBlue/10 px-3 py-1 rounded-xl flex items-center gap-1.5 shrink-0">
+                        <i class="fi fi-rr-clock text-[10px] mt-0.5"></i> ${timeStr}
+                      </span>
+                    ` : ''}
+                  </div>
+
+                  <!-- Program Name -->
+                  <h3 class="font-sans font-medium text-lg text-neutral-900 group-hover:text-brandBlue transition-colors mb-3 leading-tight tracking-tight">${p.name || 'Unnamed Program'}</h3>
+
+                  <!-- Metadata Tags -->
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-[10px] font-bold bg-[#E8F2FA] text-[#2075BC] border border-[#2075BC]/10 px-2.5 py-0.5 rounded-full uppercase tracking-wider">${p.section || '—'}</span>
+                  </div>
+                </div>
+
+                <!-- Concept Note Text Area Container -->
+                <div class="mt-2">
+                  ${p.conceptNote ? `
+                    <div class="bg-neutral-50 rounded-[16px] p-3 border border-neutral-100/50">
+                      <div class="text-[9px] uppercase font-bold text-neutral-400 mb-1 tracking-widest">Concept Note</div>
+                      <p class="font-sans text-xs text-neutral-500 leading-relaxed whitespace-pre-line">${p.conceptNote}</p>
+                    </div>
+                  ` : `
+                    <p class="text-xs text-neutral-400 italic font-light">No concept note available</p>
+                  `}
+                </div>
+              </div>`;
+        });
+
+        html += `
+            </div>
+          </div>`;
+      });
+
+      container.innerHTML = html;
+    }
+  </script>
+</body>
+
+</html>

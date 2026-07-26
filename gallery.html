@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kauthukam | Gallery</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="asset/5Rect.png">
+  <script src="fest-favicon.js"></script>
+  <!-- Fontshare Clash Grotesk Font CDN -->
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700,900&display=swap"
+    rel="stylesheet">
+  <!-- Tailwind CSS v3 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Iconify -->
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <!-- Toastify CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: '#00A3E0',
+            brandYellow: '#FFC20E',
+            brandRed: '#EA3650',
+            brandGreen: '#E2F8F0',
+            brandGreenBorder: '#D2EFE4',
+            brandLime: '#74B816'
+          },
+          fontFamily: {
+            sans: ['Clash Grotesk', 'sans-serif'],
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.5s ease-out forwards',
+            'scale-up': 'scaleUp 0.3s ease-out forwards',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            scaleUp: {
+              '0%': { transform: 'scale(0.95)', opacity: '0' },
+              '100%': { transform: 'scale(1)', opacity: '1' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .lightbox-bg {
+      background: rgba(0, 0, 0, 0.95);
+    }
+  </style>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="index.css">
+  <!-- Flaticon Uicons -->
+  <link rel='stylesheet'
+    href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+</head>
+
+<body class="bg-white min-h-screen flex flex-col overflow-x-hidden font-sans select-none relative">
+
+  <!-- Header / Navigation Bar containing the FIFA 26 expandable scorebar -->
+  <header class="w-full bg-white border-b border-gray-100 relative z-50 h-16 flex items-center justify-center">
+    <div id="scorebar"
+      class="absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center bg-white border border-gray-200 shadow-sm justify-center z-50 overflow-hidden">
+
+      <!-- Left Wings (Home, Downloads, Result) -->
+      <div id="scorebar-left" class="scorebar-wing flex items-center justify-end space-x-1.5 pr-2">
+        <!-- Home (Outline Red) -->
+        <a href="index.html"
+          class="scorebar-btn bg-[#FDF2F4] text-brandRed border border-brandRed/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#fbdde1] transition-colors">
+          <span>Home</span>
+          <i class="fi fi-rr-home text-lg shrink-0 mt-0.5"></i>
+        </a>
+        <!-- Downloads (Light Blue Outline Style) -->
+        <a href="downloads.html"
+          class="scorebar-btn bg-[#E8F2FA] text-[#2075BC] border border-[#2075BC]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#d5e6f5] transition-colors">
+          <span>Downloads</span>
+          <i class="fi fi-rr-cloud-download text-lg shrink-0 mt-0.5"></i>
+        </a>
+        <!-- Result (Light Orange Outline Style) -->
+        <a href="result.html"
+          class="scorebar-btn bg-[#FDF3E8] text-[#EA8F23] border border-[#EA8F23]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#fbe4cb] transition-colors">
+          <span>Result</span>
+          <i class="fi fi-rr-list text-lg shrink-0 mt-0.5"></i>
+        </a>
+      </div>
+
+      <!-- Center Logo Emblem -->
+      <div id="nav-badge"
+        class="w-10 h-10 bg-white border border-gray-200 rounded-xl flex items-center justify-center cursor-pointer shrink-0 z-50">
+        <img src="asset/5Rect.png" alt="Emblem" class="w-6 h-6 object-contain" data-fest="logo">
+      </div>
+
+      <!-- Right Wings (Updates, Gallery, Contact Us) -->
+      <div id="scorebar-right" class="scorebar-wing flex items-center justify-start space-x-1.5 pl-2">
+        <!-- Updates (Light Teal Outline Style) -->
+        <a href="updates.html"
+          class="scorebar-btn bg-[#E6F7F6] text-[#09ABB1] border border-[#09ABB1]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#c9f0ee] transition-colors">
+          <span>Updates</span>
+          <i class="fi fi-rr-book-alt text-lg shrink-0 mt-0.5"></i>
+        </a>
+        <!-- Gallery (Solid Green - Active) -->
+        <a href="gallery.html"
+          class="scorebar-btn bg-[#74B816] border border-[#74B816] text-white flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide">
+          <span>Gallery</span>
+          <i class="fi fi-rr-folder-camera text-lg shrink-0 mt-0.5"></i>
+        </a>
+        <!-- Contact Us (Light Purple Outline Style) -->
+        <a href="contact.html"
+          class="scorebar-btn bg-[#F6ECFA] text-[#AE3EC9] border border-[#AE3EC9]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#ecd3f7] transition-colors">
+          <span>Contact Us</span>
+          <i class="fi fi-rr-headphones text-lg shrink-0 mt-0.5"></i>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Topbar below navbar -->
+  <div class="w-full bg-white relative z-40 pt-4 pb-2">
+    <div
+      class="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+
+      <!-- Top Row on Mobile: Logo on Left, Page Title on Right -->
+      <div class="flex items-center justify-between w-full sm:w-auto gap-4">
+        <div
+          class="flex items-center justify-center border border-neutral-300 rounded-[1.5rem] px-4 sm:px-5 py-1.5 sm:py-2 shrink-0">
+          <img src="asset/sibaq-logo.svg" alt="SIBAQ Logo" class="h-6 sm:h-7 w-auto object-contain">
+        </div>
+        <h1 id="gallery-title"
+          class="font-sans font-normal text-3xl md:text-4xl bg-gradient-to-r from-neutral-900 to-neutral-500 bg-clip-text text-transparent tracking-tight text-right">
+          Gallery</h1>
+      </div>
+
+      <!-- Right Controls: Fitted 3 Buttons + Folder Dropdown Below -->
+      <div class="flex flex-col items-start sm:items-end gap-3 w-full sm:w-auto">
+
+        <!-- Category Filter Tabs (3 Buttons Grid - 33.3% each) -->
+        <div class="p-1 bg-white border border-gray-200/90 rounded-2xl shadow-sm grid grid-cols-3 gap-1 w-full sm:w-80">
+          <button id="cat-btn-image" onclick="setGalleryCategory('image')"
+            class="cat-btn w-full py-2.5 rounded-xl bg-[#134E8E] text-white text-xs md:text-sm font-bold flex items-center justify-center gap-1.5 shadow-sm transition-all cursor-pointer">
+            <i class="fi fi-rr-picture text-xs sm:text-sm"></i>
+            <span>Image</span>
+          </button>
+          <button id="cat-btn-reel" onclick="setGalleryCategory('reel')"
+            class="cat-btn w-full py-2.5 rounded-xl bg-white text-gray-700 hover:bg-gray-50 border border-gray-100 text-xs md:text-sm font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer">
+            <i class="fi fi-rr-play-alt text-xs sm:text-sm"></i>
+            <span>Reel</span>
+          </button>
+          <button id="cat-btn-radio" onclick="setGalleryCategory('radio')"
+            class="cat-btn w-full py-2.5 rounded-xl bg-white text-gray-700 hover:bg-gray-50 border border-gray-100 text-xs md:text-sm font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer">
+            <i class="fi fi-rr-broadcast text-xs sm:text-sm"></i>
+            <span>Radio</span>
+          </button>
+        </div>
+
+        <!-- Folder Dropdown Filter (Positioned BELOW 3 buttons) -->
+        <div id="folder-dropdown-container" class="relative">
+          <select id="gallery-folder-filter" onchange="onFolderFilterChange(this.value)"
+            class="appearance-none bg-white border border-gray-200/90 rounded-2xl px-5 py-2 pr-10 text-xs md:text-sm font-semibold text-gray-700 shadow-sm focus:outline-none focus:border-[#134E8E] transition-all cursor-pointer">
+            <option value="all">All Folders</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-gray-400">
+            <i class="fi fi-rr-angle-small-down text-base"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Gallery Area -->
+  <main class="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-6 pb-16 relative z-30 animate-fade-in flex-grow">
+
+    <!-- Direct Media Grid Container -->
+    <div id="photos-view-grid">
+      <div id="photos-content-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <!-- JS Populated media cards directly -->
+      </div>
+
+      <!-- Empty Media State -->
+      <div id="album-media-empty"
+        class="hidden flex-col items-center justify-center py-20 text-center bg-gray-50/30 rounded-3xl border border-gray-100/50">
+        <svg class="w-10 h-10 text-gray-300 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M2.25 15.75l5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5Z" />
+        </svg>
+        <p class="text-sm font-medium text-gray-400">No media items found matching the selected filter.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="w-full bg-white pt-16 pb-12 relative z-20 overflow-hidden">
+    <!-- Background blurred glow for aesthetic behind the card -->
+    <div
+      class="absolute right-[5%] top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#f2fafa] rounded-full blur-[80px] -z-10 pointer-events-none hidden lg:block">
+    </div>
+
+    <!-- Decorative Animated Background Rings -->
+    <div
+      class="absolute right-[12%] top-1/2 -translate-y-1/2 pointer-events-none -z-10 hidden lg:flex items-center justify-center opacity-70">
+      <div
+        class="absolute w-[450px] h-[450px] rounded-[80px] border border-gray-100 rotate-12 animate-[pulse_3s_ease-in-out_infinite]">
+      </div>
+      <div
+        class="absolute w-[650px] h-[650px] rounded-[120px] border border-gray-100/70 rotate-12 animate-[pulse_3s_ease-in-out_infinite_1s]">
+      </div>
+      <div
+        class="absolute w-[850px] h-[850px] rounded-[160px] border border-gray-100/40 rotate-12 animate-[pulse_3s_ease-in-out_infinite_2s]">
+      </div>
+    </div>
+
+    <!-- Floating Decorative Dots -->
+    <div
+      class="absolute left-1/3 top-1/4 w-3 h-3 bg-brandBlue/20 rounded-full animate-bounce pointer-events-none hidden lg:block"
+      style="animation-duration: 3s;"></div>
+    <div
+      class="absolute right-1/2 bottom-1/4 w-4 h-4 bg-brandYellow/20 rounded-full animate-pulse pointer-events-none hidden lg:block"
+      style="animation-duration: 4s;"></div>
+    <div
+      class="absolute left-1/2 top-1/3 w-2 h-2 bg-brandRed/20 rounded-full animate-bounce pointer-events-none hidden lg:block"
+      style="animation-duration: 2.5s;"></div>
+
+    <div
+      class="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12">
+      <!-- Left: Logo & Info -->
+      <div class="flex flex-col max-w-[400px] w-full text-center lg:text-left items-center lg:items-start">
+        <div class="mb-6 relative">
+          <div class="absolute -inset-4 bg-gray-50/50 rounded-full blur-xl -z-10"></div>
+          <img src="asset/sibaq-logo.svg" alt="SIBAQ Logo" class="h-16 md:h-20 w-auto object-contain relative z-10">
+        </div>
+        <p class="font-sans font-light text-[14px] md:text-[15px] text-neutral-500 leading-relaxed mb-8">
+          Darul Huda Islamic University, Hidaya Nagar,<br>Chemmad, Tirurangadi PO, Malappuram Dist.<br>Pin: 676306,
+          Kerala, India
+        </p>
+        <div class="flex space-x-3 mb-10">
+          <a href="#"
+            class="w-10 h-10 rounded-full bg-[#EBF3FB] text-[#1877F2] flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md">
+            <span class="iconify w-5 h-5" data-icon="ic:baseline-facebook"></span>
+          </a>
+          <a href="#"
+            class="w-10 h-10 rounded-full bg-[#FCECF0] text-[#E4405F] flex items-center justify-center hover:bg-[#E4405F] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md">
+            <span class="iconify w-5 h-5" data-icon="mdi:instagram"></span>
+          </a>
+          <a href="#"
+            class="w-10 h-10 rounded-full bg-[#E9F9F0] text-[#25D366] flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md">
+            <span class="iconify w-5 h-5" data-icon="ic:baseline-whatsapp"></span>
+          </a>
+          <a href="#"
+            class="w-10 h-10 rounded-full bg-[#FFEDED] text-[#FF0000] flex items-center justify-center hover:bg-[#FF0000] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md">
+            <span class="iconify w-5 h-5" data-icon="mdi:youtube"></span>
+          </a>
+        </div>
+        <p class="font-sans text-[13px] text-neutral-400">
+          © All rights reserved | Sibaq Committee <span data-fest="copyright-year">2026</span>
+        </p>
+      </div>
+
+      <!-- Right: Subscription Card -->
+      <div
+        class="bg-white/80 backdrop-blur-md rounded-[40px] shadow-[0_8px_40px_-12px_rgba(0,0,0,0.08)] border border-gray-50/80 p-8 md:p-10 max-w-md w-full text-center relative z-30 transition-transform duration-500 hover:-translate-y-1 hover:shadow-[0_15px_50px_-12px_rgba(0,0,0,0.12)] group">
+        <div class="flex justify-center mb-5 relative">
+          <img src="asset/5Rect.png" alt="Icon"
+            class="w-10 h-10 object-contain relative z-10 animate-[spin_8s_linear_infinite]">
+        </div>
+        <h3 class="font-sans font-medium text-[22px] md:text-2xl text-neutral-800 mb-3">Never Miss Anything</h3>
+        <p class="font-sans font-light text-sm text-neutral-400 mb-8 leading-relaxed px-2">
+          Keep Tracking Sibaq Events and be part of the<br>prestigious Art Fest
+        </p>
+        <div class="flex flex-col space-y-3.5 relative z-10">
+          <input type="email" placeholder="Enter your email"
+            class="w-full bg-[#F0F9F9] border-none rounded-full px-6 py-4 text-sm font-sans focus:ring-2 focus:ring-[#09ABB1] focus:outline-none placeholder-neutral-400 text-center text-neutral-700 transition-all">
+          <button
+            class="w-full bg-[#09ABB1] hover:bg-[#07999F] text-white rounded-full px-6 py-4 text-[15px] font-sans font-medium transition-colors shadow-lg shadow-[#09ABB1]/20">
+            Subscribe
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Fullscreen Photo Lightroom Slideshow Lightbox Modal -->
+  <div id="lightbox-modal"
+    class="fixed inset-0 z-[100] lightbox-bg flex flex-col items-center justify-between p-4 md:p-6 opacity-0 pointer-events-none transition-all duration-300">
+    <!-- Top toolbar -->
+    <div class="w-full flex items-center justify-between z-10 text-white select-none">
+      <span id="lightbox-counter"
+        class="text-sm font-semibold tracking-wider bg-black/45 px-4 py-1.5 rounded-full backdrop-blur-sm border border-white/5">0
+        / 0</span>
+      <button id="close-lightbox"
+        class="w-10 h-10 rounded-full bg-black/45 hover:bg-brandRed hover:text-white border border-white/10 flex items-center justify-center backdrop-blur-sm transition-colors text-white">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Center Content Slider -->
+    <div class="relative w-full max-w-5xl flex-1 flex items-center justify-center py-4">
+      <!-- Left arrow -->
+      <button id="prev-photo"
+        class="absolute left-0 w-12 h-12 rounded-full bg-black/50 hover:bg-white hover:text-black flex items-center justify-center border border-white/10 backdrop-blur-sm transition-colors text-white z-10 select-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+
+      <!-- Viewer Card -->
+      <div id="lightbox-viewer"
+        class="w-full h-full flex items-center justify-center overflow-hidden scale-95 transition-transform duration-300">
+        <!-- Renders image or video tag dynamically -->
+      </div>
+
+      <!-- Right arrow -->
+      <button id="next-photo"
+        class="absolute right-0 w-12 h-12 rounded-full bg-black/50 hover:bg-white hover:text-black flex items-center justify-center border border-white/10 backdrop-blur-sm transition-colors text-white z-10 select-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Bottom Caption Bar -->
+    <div
+      class="w-full max-w-2xl bg-black/60 border border-white/5 rounded-2xl p-4 text-center backdrop-blur-sm text-white select-none mb-2 z-10">
+      <h4 id="lightbox-caption" class="text-base font-bold truncate">Media Title</h4>
+      <p id="lightbox-album-tag" class="text-xs text-gray-400 mt-1 font-semibold uppercase tracking-widest">Album Tag
+      </p>
+    </div>
+  </div>
+
+  <!-- Mobile Full-Page Menu Overlay -->
+  <div id="mobile-menu"
+    class="fixed inset-0 bg-white z-[90] flex flex-col items-center justify-center p-6 md:hidden opacity-0 pointer-events-none transition-all duration-500">
+    <div class="mb-8 flex flex-col items-center">
+      <div id="mobile-menu-badge"
+        class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center shadow-sm mb-3 cursor-pointer">
+        <img src="asset/5Rect.png" alt="Emblem" class="w-10 h-10 object-contain">
+      </div>
+      <p class="font-sans font-medium text-lg tracking-[0.1em] text-neutral-900 uppercase">Kauthukam</p>
+    </div>
+
+    <!-- Vertical List stack of 6 Buttons -->
+    <div class="w-full max-w-[290px] flex flex-col space-y-3.5">
+      <a href="index.html"
+        class="mobile-menu-btn bg-[#FDF2F4] text-brandRed border border-brandRed/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        <span>Home</span>
+        <i class="fi fi-rr-home text-lg shrink-0 mt-0.5"></i>
+      </a>
+      <a href="downloads.html"
+        class="mobile-menu-btn bg-[#E8F2FA] text-[#2075BC] border border-[#2075BC]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        <span>Downloads</span>
+        <i class="fi fi-rr-cloud-download text-lg shrink-0 mt-0.5"></i>
+      </a>
+      <a href="result.html"
+        class="mobile-menu-btn bg-[#FDF3E8] text-[#EA8F23] border border-[#EA8F23]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        <span>Result</span>
+        <i class="fi fi-rr-list text-lg shrink-0 mt-0.5"></i>
+      </a>
+      <a href="updates.html"
+        class="mobile-menu-btn bg-[#E6F7F6] text-[#09ABB1] border border-[#09ABB1]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        <span>Updates</span>
+        <i class="fi fi-rr-book-alt text-lg shrink-0 mt-0.5"></i>
+      </a>
+      <a href="gallery.html"
+        class="mobile-menu-btn bg-[#74B816] border border-[#74B816] text-white flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide shadow-sm">
+        <span>Gallery</span>
+        <i class="fi fi-rr-folder-camera text-lg shrink-0 mt-0.5"></i>
+      </a>
+      <a href="contact.html"
+        class="mobile-menu-btn bg-[#F6ECFA] text-[#AE3EC9] border border-[#AE3EC9]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        <span>Contact Us</span>
+        <i class="fi fi-rr-headphones text-lg shrink-0 mt-0.5"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  <!-- Script Logic -->
+  <script>
+    // Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCKA0k_9UgoJX_RBgEsIeNdiW2w0Okko1o",
+      authDomain: "festie-s1u2h3.firebaseapp.com",
+      projectId: "festie-s1u2h3",
+      storageBucket: "festie-s1u2h3.firebasestorage.app",
+      messagingSenderId: "794049194885",
+      appId: "1:794049194885:web:8f75f0df4c15cde15eb2ec"
+    };
+    let albumsData = [];
+    let mediaGalleryData = [];
+    let activeMediaList = [];
+    let currentLightboxIdx = 0;
+    let currentCategory = 'image';
+    let selectedFolderId = 'all';
+
+    // Initialize Firebase
+    try {
+      if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+      window.db = firebase.firestore();
+    } catch (e) {
+      console.warn("Firebase failed to load, falling back to mock data.", e);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Connect database
+      if (window.db) {
+        window.db.collection('galleryAlbums').orderBy('updatedAt', 'desc').onSnapshot(snap => {
+          albumsData = snap.docs.map(doc => ({ id: doc.id, ...doc.data() })).filter(a => a.isPublic !== false);
+          populateFolderDropdown();
+          renderGalleryMedia();
+        }, err => {
+          console.error("Firestore loading albums failed: ", err);
+          loadMockAlbums();
+        });
+
+        window.db.collection('mediaGallery').orderBy('createdAt', 'desc').onSnapshot(snap => {
+          mediaGalleryData = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+          renderGalleryMedia();
+        });
+      } else {
+        loadMockAlbums();
+      }
+
+      // Close lightbox listener
+      const lightbox = document.getElementById('lightbox-modal');
+      const closeBtn = document.getElementById('close-lightbox');
+      const prevBtn = document.getElementById('prev-photo');
+      const nextBtn = document.getElementById('next-photo');
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+          lightbox.classList.remove('active');
+          lightbox.classList.add('opacity-0', 'pointer-events-none');
+          document.getElementById('lightbox-viewer').classList.add('scale-95');
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          navigateLightbox(-1);
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          navigateLightbox(1);
+        });
+      }
+
+      if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox || e.target === document.getElementById('lightbox-viewer')) {
+            closeBtn.click();
+          }
+        });
+      }
+
+      // Keyboard control
+      document.addEventListener('keydown', (e) => {
+        if (lightbox && lightbox.classList.contains('active')) {
+          if (e.key === 'ArrowLeft') navigateLightbox(-1);
+          if (e.key === 'ArrowRight') navigateLightbox(1);
+          if (e.key === 'Escape') closeBtn.click();
+        }
+      });
+    });
+
+    function loadMockAlbums() {
+      albumsData = [
+        { id: 'mock-album-1', name: "Arts Fest Inauguration", category: "image" },
+        { id: 'mock-album-2', name: "Stage Performances", category: "image" },
+        { id: 'mock-album-3', name: "Reels & Highlights", category: "reel" }
+      ];
+
+      mediaGalleryData = [
+        { id: 'm1', albumId: 'mock-album-1', name: 'Lighting the lamp', url: 'asset/fest_showcase.png', type: 'image' },
+        { id: 'm2', albumId: 'mock-album-1', name: 'Welcome speech assembly', url: 'asset/fest_showcase.png', type: 'image' },
+        { id: 'm3', albumId: 'mock-album-2', name: 'Speech competitors', url: 'asset/fest_showcase.png', type: 'image' }
+      ];
+
+      populateFolderDropdown();
+      renderGalleryMedia();
+    }
+
+    function populateFolderDropdown() {
+      const select = document.getElementById('gallery-folder-filter');
+      if (!select) return;
+      const currentVal = select.value || 'all';
+
+      let html = '<option value="all">All Folders</option>';
+      albumsData.forEach(album => {
+        html += `<option value="${album.id}">${album.name}</option>`;
+      });
+
+      select.innerHTML = html;
+      select.value = currentVal;
+    }
+
+    window.onFolderFilterChange = function (val) {
+      selectedFolderId = val;
+      renderGalleryMedia();
+    };
+
+    window.setGalleryCategory = function (cat) {
+      currentCategory = cat;
+      const categories = ['image', 'reel', 'radio'];
+      categories.forEach(c => {
+        const btn = document.getElementById('cat-btn-' + c);
+        if (btn) {
+          if (c === cat) {
+            btn.className = "cat-btn w-full py-2.5 rounded-xl bg-[#134E8E] text-white text-xs md:text-sm font-bold flex items-center justify-center gap-1.5 shadow-sm transition-all cursor-pointer";
+          } else {
+            btn.className = "cat-btn w-full py-2.5 rounded-xl bg-white text-gray-700 hover:bg-gray-50 border border-gray-100 text-xs md:text-sm font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer";
+          }
+        }
+      });
+
+      // Show folder dropdown ONLY for Image category
+      const dropdown = document.getElementById('folder-dropdown-container');
+      if (dropdown) {
+        if (cat === 'image') {
+          dropdown.classList.remove('hidden');
+        } else {
+          dropdown.classList.add('hidden');
+          selectedFolderId = 'all';
+        }
+      }
+
+      renderGalleryMedia();
+    };
+
+    function renderGalleryMedia() {
+      const grid = document.getElementById('photos-content-grid');
+      const emptyState = document.getElementById('album-media-empty');
+      if (!grid) return;
+
+      let filtered = mediaGalleryData;
+
+      // 1. Category Filter
+      if (currentCategory === 'image') {
+        filtered = filtered.filter(m => !m.type || m.type === 'image' || m.type === 'photo');
+      } else if (currentCategory === 'reel') {
+        filtered = filtered.filter(m => m.type === 'video' || m.type === 'reel');
+      } else if (currentCategory === 'radio') {
+        filtered = filtered.filter(m => m.type === 'audio' || m.type === 'radio');
+      }
+
+      // 2. Folder Dropdown Filter
+      if (selectedFolderId !== 'all') {
+        filtered = filtered.filter(m => m.albumId === selectedFolderId);
+      }
+
+      activeMediaList = filtered;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        if (emptyState) {
+          emptyState.classList.remove('hidden');
+          emptyState.classList.add('flex');
+        }
+        return;
+      }
+
+      if (emptyState) {
+        emptyState.classList.add('hidden');
+        emptyState.classList.remove('flex');
+      }
+
+      grid.innerHTML = filtered.map((media, index) => {
+        const albumObj = albumsData.find(a => a.id === media.albumId);
+        const folderName = albumObj ? albumObj.name : 'Gallery Item';
+
+        const preview = media.type === 'video'
+          ? `<div class="absolute inset-0 bg-black/20 flex items-center justify-center z-10"><svg class="w-10 h-10 text-white filter drop-shadow-md" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><video src="${media.url}" class="w-full h-full object-cover"></video>`
+          : `<img src="${media.url}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`;
+
+        return `
+          <div onclick="launchLightbox(${index})" class="bg-gray-50 aspect-square rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md cursor-pointer relative group">
+            ${preview}
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-3.5 flex flex-col justify-end z-20">
+              <span class="text-xs font-bold text-white truncate w-full block">${media.name || 'View File'}</span>
+              <span class="text-[10px] text-gray-300 font-medium truncate uppercase tracking-wider block mt-0.5">${folderName}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function launchLightbox(index) {
+      currentLightboxIdx = index;
+      const lightbox = document.getElementById('lightbox-modal');
+
+      updateLightboxViewer();
+
+      if (lightbox) {
+        lightbox.classList.remove('opacity-0', 'pointer-events-none');
+        lightbox.classList.add('active');
+        setTimeout(() => {
+          document.getElementById('lightbox-viewer').classList.remove('scale-95');
+        }, 50);
+      }
+    }
+
+    function navigateLightbox(dir) {
+      currentLightboxIdx += dir;
+      if (currentLightboxIdx < 0) currentLightboxIdx = activeMediaList.length - 1;
+      if (currentLightboxIdx >= activeMediaList.length) currentLightboxIdx = 0;
+      updateLightboxViewer();
+    }
+
+    function updateLightboxViewer() {
+      const media = activeMediaList[currentLightboxIdx];
+      if (!media) return;
+
+      const viewer = document.getElementById('lightbox-viewer');
+      const counter = document.getElementById('lightbox-counter');
+      const caption = document.getElementById('lightbox-caption');
+      const albumTag = document.getElementById('lightbox-album-tag');
+
+      const albumObj = albumsData.find(a => a.id === media.albumId);
+      const folderName = albumObj ? albumObj.name : 'Gallery Folder';
+
+      // Populate text
+      if (counter) counter.innerText = `${currentLightboxIdx + 1} / ${activeMediaList.length}`;
+      if (caption) caption.innerText = media.name || 'Untitled Showcase';
+      if (albumTag) albumTag.innerText = folderName;
+
+      // Load media content
+      if (viewer) {
+        viewer.innerHTML = '<div class="text-white text-sm animate-pulse">Loading item...</div>';
+        setTimeout(() => {
+          if (media.type === 'video') {
+            viewer.innerHTML = `<video src="${media.url}" controls autoplay class="max-w-full max-h-[70vh] rounded-lg border border-white/5 shadow-2xl"></video>`;
+          } else {
+            viewer.innerHTML = `<img src="${media.url}" alt="${media.name}" class="max-w-full max-h-[75vh] object-contain rounded-lg border border-white/5 shadow-2xl animate-scale-up">`;
+          }
+        }, 100);
+      }
+    }
+  </script>
+  <!-- Main layout control script -->
+  <script src="main.js"></script>
+</body>
+
+</html>

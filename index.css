@@ -1,0 +1,240 @@
+/* Custom Styling for Kauthukam Arts Fest Website - Scorebar Edition */
+
+/* Reset and Core Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: #111111;
+  font-family: 'Clash Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* FIFA 26 Scorebar transition styling */
+#scorebar {
+  width: 3.5rem;
+  /* Matches w-14 closed state */
+  height: 3.5rem;
+  /* Matches h-14 closed state */
+  border-radius: 9999px;
+  /* Circle when closed */
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    border-radius 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease;
+}
+
+#scorebar.active {
+  width: 800px;
+  /* Full expanded desktop width matching the screenshot proportion with left/right spacing */
+  border-radius: 12px;
+  /* Small rounded like buttons (rounded-xl) */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Wings containing the scorebar buttons */
+.scorebar-wing {
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.4s ease;
+}
+
+#scorebar.active .scorebar-wing {
+  width: 368px;
+  /* 3 buttons of 116px + space gaps */
+  opacity: 1;
+}
+
+/* Scorebar buttons styling */
+.scorebar-btn {
+  width: 116px;
+  /* Expanded button width */
+  height: 38px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.scorebar-btn:active {
+  transform: scale(0.97);
+}
+
+/* Rotates emblem logo on active */
+#scorebar.active #nav-badge img {
+  transform: rotate(45deg);
+}
+
+#nav-badge img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Responsive adjustments for mobile scorebar */
+@media (max-width: 768px) {
+  #scorebar.active {
+    width: 94%;
+    padding-left: 4px;
+    padding-right: 4px;
+    height: 48px;
+  }
+
+  #scorebar.active .scorebar-wing {
+    width: calc(50% - 22px);
+    /* Scale width to fit layout */
+  }
+
+  .scorebar-wing {
+    gap: 4px;
+    space-x: 0 !important;
+    /* Reset tailwind space-x */
+  }
+
+  .scorebar-btn {
+    width: 31%;
+    flex-grow: 1;
+    height: 36px;
+    font-size: 8px;
+    border-radius: 8px;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .scorebar-btn svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* Static styling, no hover animations or custom shadow shifts */
+.hover-scale {
+  display: inline-block;
+}
+
+#btn-celebrate {
+  cursor: pointer;
+}
+
+/* Video Modal states */
+#video-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#video-modal.active #video-container {
+  transform: scale(1);
+}
+
+/* Custom styles for logo badge in header */
+#nav-badge {
+  position: relative;
+}
+
+#nav-badge::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 12px;
+  /* rounded-xl matches badge */
+  padding: 1px;
+  background: linear-gradient(135deg, #00A3E0, #FFC20E, #EA3650);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Mobile Menu Overlay Styles */
+#mobile-menu {
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  visibility: hidden;
+}
+
+#mobile-menu.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Rotates mobile menu emblem logo on active */
+#mobile-menu.active img {
+  transform: rotate(45deg);
+}
+
+#mobile-menu img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Mobile Menu buttons stagger slide-up animation */
+.mobile-menu-btn {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#mobile-menu.active .mobile-menu-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays to cascade button appearance */
+#mobile-menu.active .mobile-menu-btn:nth-child(1) { transition-delay: 0.05s; }
+#mobile-menu.active .mobile-menu-btn:nth-child(2) { transition-delay: 0.10s; }
+#mobile-menu.active .mobile-menu-btn:nth-child(3) { transition-delay: 0.15s; }
+#mobile-menu.active .mobile-menu-btn:nth-child(4) { transition-delay: 0.20s; }
+#mobile-menu.active .mobile-menu-btn:nth-child(5) { transition-delay: 0.25s; }
+#mobile-menu.active .mobile-menu-btn:nth-child(6) { transition-delay: 0.30s; }
+
+/* Force scorebar to remain circular badge on mobile screens */
+@media (max-width: 767px) {
+  #scorebar {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+  }
+  
+  .scorebar-wing {
+    display: none !important;
+  }
+}
+
+/* Modal Open Transitions & Keyframes */
+#details-modal.active,
+#lightbox-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#details-modal.active > div,
+#lightbox-modal.active > div {
+  transform: scale(1);
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseSlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .7; }
+}
+
+/* Custom scrollbars inside modals */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f9fafb;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
