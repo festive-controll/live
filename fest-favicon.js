@@ -1,7 +1,7 @@
 (function() {
-    // Check if this page is a public website page
+    const publicPaths = ['/', '/index.html', '/downloads.html', '/gallery.html', '/updates.html', '/schedule.html', '/contact.html', '/result.html', '/results/index.html'];
     const isPublicPage = window.location.pathname.includes('/public/') || 
-                         (window.location.pathname.endsWith('index.html') && !document.querySelector('meta[name="admin-page"]')) ||
+                         publicPaths.includes(window.location.pathname) ||
                          (document.body && document.body.classList.contains('public-site'));
 
     // Only inject 80% zoom CSS on Admin Panel pages, NOT on public website pages
@@ -154,13 +154,13 @@
                 {
                     "src": icon192Url,
                     "sizes": "192x192",
-                    "type": logo192 ? "image/png" : "image/svg+xml",
+                    "type": logo192 ? (logo192.includes('image/webp') ? 'image/webp' : 'image/png') : "image/svg+xml",
                     "purpose": "any maskable"
                 },
                 {
                     "src": icon512Url,
                     "sizes": "512x512",
-                    "type": logo512 ? "image/png" : "image/svg+xml",
+                    "type": logo512 ? (logo512.includes('image/webp') ? 'image/webp' : 'image/png') : "image/svg+xml",
                     "purpose": "any maskable"
                 }
             ]

@@ -7,7 +7,7 @@
   <title>Kauthukam | Updates</title>
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="asset/5Rect.png">
-  <script src="fest-favicon.js"></script>
+  <script src="../fest-favicon.js"></script>
   <!-- Fontshare Clash Grotesk Font CDN -->
   <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700,900&display=swap"
     rel="stylesheet">
@@ -464,7 +464,7 @@
               </button>
             </div>
             <div class="w-full md:w-1/2">
-              <img src="${featured.imageUrl || 'asset/clg.jpg'}" alt="Featured News" class="w-full h-auto rounded-[3rem] object-cover shadow-sm">
+              <img src="${featured.imageUrl || ''}" alt="Featured News" class="w-full h-auto rounded-[3rem] object-cover shadow-sm">
             </div>
           </div>
         `;
@@ -502,7 +502,7 @@
       gridContainer.innerHTML = gridItems.map(item => {
         return `
           <div onclick="openAlertDetail('${item.id}')" class="flex flex-col items-center text-center group cursor-pointer hover:-translate-y-2 transition-transform duration-300 mt-8">
-            <img src="${item.imageUrl || 'asset/clg.jpg'}" alt="News Image" class="w-full aspect-[4/3] object-cover rounded-[3rem] mb-6 shadow-sm">
+            <img src="${item.imageUrl || ''}" alt="News Image" class="w-full aspect-[4/3] object-cover rounded-[3rem] mb-6 shadow-sm">
             <p class="text-gray-400 text-[13px] font-medium mb-2">${item.date || formatDateForFeatured(item.createdAt?.seconds)}</p>
             <h3 class="text-[22px] font-medium text-[#2075BC] leading-tight mb-5 px-4 line-clamp-3 group-hover:text-brandBlue transition-colors">${item.title}</h3>
             <button class="flex items-center gap-2 border border-gray-200 rounded-full py-1.5 px-4 hover:bg-gray-50 transition-colors">

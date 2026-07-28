@@ -177,18 +177,53 @@ function useFallbackData() {
   processDataAndRender();
 }
 
+function getNumericPosition(r) {
+  if (!r) return 99;
+
+  if (r.position !== undefined && r.position !== null && r.position !== '' && !isNaN(parseInt(r.position))) {
+    const pos = parseInt(r.position);
+    if (pos > 0 && pos <= 50) return pos;
+  }
+
+  if (r.positionLabel && typeof r.positionLabel === 'string') {
+    const label = r.positionLabel.toLowerCase();
+    if (label.includes('1st') || label.startsWith('1')) return 1;
+    if (label.includes('2nd') || label.startsWith('2')) return 2;
+    if (label.includes('3rd') || label.startsWith('3')) return 3;
+    const match = label.match(/\d+/);
+    if (match) return parseInt(match[0]);
+  }
+
+  if (r.positionPoints !== undefined && r.positionPoints !== null) {
+    const pts = parseInt(r.positionPoints);
+    if (pts === 3) return 1;
+    if (pts === 2) return 2;
+    if (pts === 1) return 3;
+  }
+
+  return 99;
+}
+
+function parseGradeLabel(grade) {
+  if (!grade) return 'A';
+  const str = String(grade).trim();
+  const clean = str.replace(/\s*\(.*?\)/g, '').replace(/grade/i, '').trim();
+  return clean || str || 'A';
+}
+
 function processDataAndRender() {
   allPrograms.forEach(prog => {
     const matchingResults = allResults.filter(r => r.programId === prog.id || r.programCode === prog.code);
+    prog.isPublished = prog.resultsPublished === true;
+    
     if (matchingResults.length > 0) {
-      prog.isPublished = true;
       prog.winners = matchingResults.map(r => ({
-        position: parseInt(r.position) || 99,
+        position: getNumericPosition(r),
         candidateName: r.candidateName || r.name || 'Candidate',
         candidateId: r.candidateId || r.code || '',
         team: r.team || r.teamName || 'Unassigned',
-        grade: r.grade || 'A',
-        points: parseInt(r.totalPoints || r.points) || 0
+        grade: parseGradeLabel(r.gradeLabel || r.grade),
+        points: parseInt(r.totalPoints || r.points || (parseInt(r.gradePoints || 0) + parseInt(r.positionPoints || 0))) || 0
       })).sort((a, b) => a.position - b.position);
     }
   });
