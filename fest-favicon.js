@@ -127,6 +127,16 @@
             el.textContent = 'Experience ' + name + ' ' + yearShort;
         });
 
+        if (data.address) {
+            document.querySelectorAll('[data-fest="address"]').forEach(el => {
+                el.innerHTML = data.address.replace(/\n/g, '<br>');
+            });
+        }
+
+        document.querySelectorAll('[data-fest="title"]').forEach(el => {
+            el.textContent = name + ' ' + yearShort;
+        });
+
         if (logo512 || logo192 || data.logo) {
             const logoUrl = data.logo || logo512 || logo192;
             document.querySelectorAll('[data-fest="logo"], #nav-badge img').forEach(img => {
@@ -142,6 +152,9 @@
         const icon192Url = logo192 ? logo192 : new URL("./logo-192.svg", window.location.href).href;
         const icon512Url = logo512 ? logo512 : new URL("./logo-512.svg", window.location.href).href;
 
+        const is192Svg = !logo192 || logo192.includes('.svg') || logo192.includes('image/svg+xml');
+        const is512Svg = !logo512 || logo512.includes('.svg') || logo512.includes('image/svg+xml');
+
         const manifestObj = {
             "name": name + " Admin Panel",
             "short_name": name,
@@ -153,13 +166,13 @@
             "icons": [
                 {
                     "src": icon192Url,
-                    "sizes": "192x192",
+                    "sizes": is192Svg ? "any" : "192x192",
                     "type": logo192 ? (logo192.includes('image/webp') ? 'image/webp' : 'image/png') : "image/svg+xml",
                     "purpose": "any maskable"
                 },
                 {
                     "src": icon512Url,
-                    "sizes": "512x512",
+                    "sizes": is512Svg ? "any" : "512x512",
                     "type": logo512 ? (logo512.includes('image/webp') ? 'image/webp' : 'image/png') : "image/svg+xml",
                     "purpose": "any maskable"
                 }

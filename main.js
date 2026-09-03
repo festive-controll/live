@@ -13,13 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const celebrationCanvas = document.getElementById('celebration-canvas');
   const navBadge = document.getElementById('nav-badge');
 
-  // Festival Color Palette (matching 5Rect.png and SIBAQ logo)
+  // Festival Color Palette
   const colors = [
-    '#00A3E0', // Cyan-blue
-    '#FFC20E', // Gold-yellow
-    '#EA3650', // Red/Pink
-    '#2075BC', // Blue
-    '#09ABB1'  // Teal
+    '#37314F', // Dark Indigo
+    '#C0912B', // Warm Gold
+    '#17635F', // Deep Teal
+    '#92205D'  // Deep Berry
   ];
 
   // ==========================================
@@ -136,12 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Trigger automatically on page load / refresh
-  if (document.readyState === 'complete') {
-    autoCelebrateOnRefresh();
-  } else {
-    window.addEventListener('load', autoCelebrateOnRefresh);
-  }
+  // Automatic confetti on page load has been disabled by request.
+  // autoCelebrateOnRefresh();
 
   // Export globally for page interactions
   window.launchConfetti = launchConfetti;
@@ -200,15 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   let visualizerActive = false;
 
-  if (mediaCard) {
-    mediaCard.addEventListener('click', () => {
-      if (videoModal) {
-        videoModal.classList.add('active');
-        visualizerActive = true;
-        startVisualizer();
-      }
-    });
-  }
+
 
   function closeVideoModal() {
     if (videoModal) videoModal.classList.remove('active');

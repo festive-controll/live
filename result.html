@@ -20,12 +20,15 @@
       theme: {
         extend: {
           colors: {
-            brandBlue: '#00A3E0',
-            brandYellow: '#FFC20E',
-            brandRed: '#EA3650',
-            brandGreen: '#E2F8F0',
-            brandGreenBorder: '#D2EFE4',
-            brandOrange: '#EA8F23'
+            brandBlue: '#37314F',
+            brandYellow: '#C0912B',
+            brandRed: '#92205D',
+            brandGreen: '#17635F',
+            brandGreenBorder: '#17635F33',
+            brandTeal: '#17635F',
+            brandPurple: '#37314F',
+            brandOrange: '#C0912B',
+            brandMagenta: '#92205D',
           },
           fontFamily: {
             sans: ['Clash Grotesk', 'sans-serif'],
@@ -68,19 +71,19 @@
       <div id="scorebar-left" class="scorebar-wing flex items-center justify-end space-x-1.5 pr-2">
         <!-- Home -->
         <a href="index.html"
-          class="scorebar-btn bg-[#FDF2F4] text-brandRed border border-brandRed/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#fbdde1] transition-colors">
+          class="scorebar-btn bg-[#F9ECF2] text-[#92205D] border border-[#92205D]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f2d8e4] transition-colors">
           <span>Home</span>
           <i class="fi fi-rr-home text-lg shrink-0 mt-0.5"></i>
         </a>
         <!-- Downloads -->
         <a href="downloads.html"
-          class="scorebar-btn bg-[#E8F2FA] text-[#2075BC] border border-[#2075BC]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#d5e6f5] transition-colors">
+          class="scorebar-btn bg-[#F2F0F6] text-[#37314F] border border-[#37314F]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#e4e0ec] transition-colors">
           <span>Downloads</span>
           <i class="fi fi-rr-cloud-download text-lg shrink-0 mt-0.5"></i>
         </a>
-        <!-- Result (Solid Orange - Active) -->
-        <a href="result.html"
-          class="scorebar-btn bg-[#EA8F23] border border-[#EA8F23] text-white flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide">
+        <!-- Result (Solid Gold - Active) -->
+        <a href="results/index.html"
+          class="scorebar-btn bg-[#C0912B] border border-[#C0912B] text-white flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide">
           <span>Result</span>
           <i class="fi fi-rr-list text-lg shrink-0 mt-0.5"></i>
         </a>
@@ -96,19 +99,19 @@
       <div id="scorebar-right" class="scorebar-wing flex items-center justify-start space-x-1.5 pl-2">
         <!-- Updates -->
         <a href="updates.html"
-          class="scorebar-btn bg-[#E6F7F6] text-[#09ABB1] border border-[#09ABB1]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#c9f0ee] transition-colors">
+          class="scorebar-btn bg-[#EBF3F2] text-[#17635F] border border-[#17635F]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#d5e7e5] transition-colors">
           <span>Updates</span>
           <i class="fi fi-rr-book-alt text-lg shrink-0 mt-0.5"></i>
         </a>
         <!-- Gallery -->
         <a href="gallery.html"
-          class="scorebar-btn bg-[#F1F9E8] text-[#74B816] border border-[#74B816]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#e2f3cd] transition-colors">
+          class="scorebar-btn bg-[#FAF5EA] text-[#C0912B] border border-[#C0912B]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f3e7ce] transition-colors">
           <span>Gallery</span>
           <i class="fi fi-rr-folder-camera text-lg shrink-0 mt-0.5"></i>
         </a>
         <!-- Contact Us -->
         <a href="contact.html"
-          class="scorebar-btn bg-[#F6ECFA] text-[#AE3EC9] border border-[#AE3EC9]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#ecd3f7] transition-colors">
+          class="scorebar-btn bg-[#F9ECF2] text-[#92205D] border border-[#92205D]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f2d8e4] transition-colors">
           <span>Contact Us</span>
           <i class="fi fi-rr-headphones text-lg shrink-0 mt-0.5"></i>
         </a>
@@ -122,7 +125,7 @@
     <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex items-center justify-between gap-4">
       <div
         class="flex items-center justify-center border border-neutral-300 rounded-[1.5rem] px-4 sm:px-6 py-1.5 sm:py-2 shrink-0">
-        <img src="asset/sibaq-logo.svg" alt="SIBAQ Logo" class="h-6 sm:h-7 w-auto object-contain">
+        <img src="asset/logo-logo.png" alt="SIBAQ Logo" class="h-6 sm:h-7 w-auto object-contain">
       </div>
       <h1
         class="font-sans font-normal text-3xl sm:text-4xl bg-gradient-to-r from-neutral-900 to-neutral-500 bg-clip-text text-transparent tracking-tight text-right">
@@ -137,30 +140,26 @@
     <div
       class="w-full bg-white border border-gray-100 rounded-[36px] shadow-sm p-8 md:p-16 text-center flex flex-col items-center relative overflow-hidden">
 
-      <!-- Ambient Glow Backgrounds -->
-      <div class="absolute -top-24 -left-24 w-72 h-72 bg-[#EA8F23]/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-[#00A3E0]/10 rounded-full blur-3xl pointer-events-none">
-      </div>
+      <!-- Ambient Background Glows -->
+      <div class="absolute -top-24 -left-24 w-72 h-72 bg-[#C0912B]/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-[#37314F]/10 rounded-full blur-3xl pointer-events-none"></div>
 
-      <!-- Live Status Badge -->
+      <!-- Status Badge -->
       <div
-        class="inline-flex items-center gap-2.5 bg-[#FDF3E8] border border-[#EA8F23]/30 px-4 py-1.5 rounded-full text-xs font-semibold text-[#EA8F23] mb-8 shadow-sm">
-        <span class="w-2 h-2 rounded-full bg-[#EA8F23] animate-pulse"></span>
-        <span class="uppercase tracking-wider">Coming Soon</span>
+        class="inline-flex items-center gap-2.5 bg-[#FAF5EA] border border-[#C0912B]/30 px-4 py-1.5 rounded-full text-xs font-semibold text-[#C0912B] mb-8 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-[#C0912B] animate-pulse"></span>
+        <span class="uppercase tracking-wider">Results Pending &bull; Coming Soon</span>
       </div>
 
-      <!-- Central Icon Graphic -->
+      <!-- Icon Graphic -->
       <div class="relative mb-8">
-        <!-- Outer Rotating Ring -->
         <div
-          class="w-32 h-32 md:w-36 md:h-36 rounded-full border-2 border-dashed border-[#EA8F23]/30 animate-spin-slow flex items-center justify-center">
+          class="w-32 h-32 md:w-36 md:h-36 rounded-full border-2 border-dashed border-[#C0912B]/30 animate-spin-slow flex items-center justify-center">
         </div>
-
-        <!-- Inner Icon Badge -->
         <div class="absolute inset-0 flex items-center justify-center">
           <div
-            class="w-24 h-24 md:w-28 md:h-28 rounded-3xl bg-gradient-to-br from-[#FFF8EF] to-[#FDF3E8] border border-[#EA8F23]/20 shadow-md flex items-center justify-center animate-bounce-gentle">
-            <span class="iconify text-5xl md:text-6xl text-[#EA8F23]" data-icon="ph:trophy-duotone"></span>
+            class="w-24 h-24 md:w-28 md:h-28 rounded-3xl bg-gradient-to-br from-[#FAF5EA] to-[#FAF5EA] border border-[#C0912B]/20 shadow-md flex items-center justify-center animate-bounce-gentle">
+            <span class="iconify text-5xl md:text-6xl text-[#C0912B]" data-icon="ph:trophy-duotone"></span>
           </div>
         </div>
       </div>
@@ -189,16 +188,15 @@
 
         <!-- Check Updates Button -->
         <a href="updates.html"
-          class="w-full sm:w-auto px-8 py-3.5 bg-[#E6F7F6] hover:bg-[#c9f0ee] text-[#09ABB1] border border-[#09ABB1]/30 font-medium text-sm rounded-2xl transition-colors duration-300 flex items-center justify-center gap-2">
+          class="w-full sm:w-auto px-8 py-3.5 bg-[#EBF3F2] hover:bg-[#d5e7e5] text-[#17635F] border border-[#17635F]/30 font-medium text-sm rounded-2xl transition-colors duration-300 flex items-center justify-center gap-2">
           <i class="fi fi-rr-book-alt text-base"></i>
           <span>Explore Updates</span>
         </a>
       </div>
 
-      <!-- Info Footer Badge -->
-      <div
-        class="mt-12 pt-8 border-t border-gray-100 w-full max-w-lg flex items-center justify-center gap-2 text-xs font-light text-neutral-400">
-        <i class="fi fi-rr-info text-sm text-[#EA8F23]"></i>
+      <!-- Extra Note -->
+      <div class="mt-12 flex items-center justify-center gap-2 text-xs text-slate-400">
+        <i class="fi fi-rr-info text-sm text-[#C0912B]"></i>
         <span>Live standings will update automatically in real-time as results are declared.</span>
       </div>
 
@@ -222,32 +220,32 @@
     <!-- Vertical List stack of 6 Buttons -->
     <div class="w-full max-w-[290px] flex flex-col space-y-3.5">
       <a href="index.html"
-        class="mobile-menu-btn bg-[#FDF2F4] text-brandRed border border-brandRed/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        class="mobile-menu-btn bg-[#F9ECF2] text-[#92205D] border border-[#92205D]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
         <span>Home</span>
         <i class="fi fi-rr-home text-lg shrink-0 mt-0.5"></i>
       </a>
       <a href="downloads.html"
-        class="mobile-menu-btn bg-[#E8F2FA] text-[#2075BC] border border-[#2075BC]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        class="mobile-menu-btn bg-[#F2F0F6] text-[#37314F] border border-[#37314F]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
         <span>Downloads</span>
         <i class="fi fi-rr-cloud-download text-lg shrink-0 mt-0.5"></i>
       </a>
-      <a href="result.html"
-        class="mobile-menu-btn bg-[#EA8F23] border border-[#EA8F23] text-white flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide shadow-sm">
+      <a href="results/index.html"
+        class="mobile-menu-btn bg-[#C0912B] border border-[#C0912B] text-white flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide shadow-sm">
         <span>Result</span>
         <i class="fi fi-rr-list text-lg shrink-0 mt-0.5"></i>
       </a>
       <a href="updates.html"
-        class="mobile-menu-btn bg-[#E6F7F6] text-[#09ABB1] border border-[#09ABB1]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        class="mobile-menu-btn bg-[#EBF3F2] text-[#17635F] border border-[#17635F]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
         <span>Updates</span>
         <i class="fi fi-rr-book-alt text-lg shrink-0 mt-0.5"></i>
       </a>
       <a href="gallery.html"
-        class="mobile-menu-btn bg-[#F1F9E8] text-[#74B816] border border-[#74B816]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        class="mobile-menu-btn bg-[#FAF5EA] text-[#C0912B] border border-[#C0912B]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
         <span>Gallery</span>
         <i class="fi fi-rr-folder-camera text-lg shrink-0 mt-0.5"></i>
       </a>
       <a href="contact.html"
-        class="mobile-menu-btn bg-[#F6ECFA] text-[#AE3EC9] border border-[#AE3EC9]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        class="mobile-menu-btn bg-[#F9ECF2] text-[#92205D] border border-[#92205D]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
         <span>Contact Us</span>
         <i class="fi fi-rr-headphones text-lg shrink-0 mt-0.5"></i>
       </a>

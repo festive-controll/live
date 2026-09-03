@@ -20,12 +20,15 @@
       theme: {
         extend: {
           colors: {
-            brandBlue: '#00A3E0', 
-            brandYellow: '#FFC20E', 
-            brandRed: '#EA3650', 
-            brandGreen: '#E2F8F0', 
-            brandGreenBorder: '#D2EFE4',
-            brandPurple: '#AE3EC9'
+            brandBlue: '#37314F', 
+            brandYellow: '#C0912B', 
+            brandRed: '#92205D', 
+            brandGreen: '#17635F', 
+            brandGreenBorder: '#17635F33',
+            brandTeal: '#17635F',
+            brandPurple: '#37314F',
+            brandOrange: '#C0912B',
+            brandMagenta: '#92205D'
           },
           fontFamily: {
             sans: ['Clash Grotesk', 'sans-serif'],
@@ -57,41 +60,36 @@
       <!-- Left Wings (Home, Downloads, Result) -->
       <div id="scorebar-left" class="scorebar-wing flex items-center justify-end space-x-1.5 pr-2">
         <!-- Home (Outline Red) -->
-        <a href="index.html" class="scorebar-btn bg-[#FDF2F4] text-brandRed border border-brandRed/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#fbdde1] transition-colors">
+        <a href="index.html" class="scorebar-btn bg-[#F9ECF2] text-[#92205D] border border-[#92205D]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f2d8e4] transition-colors">
           <span>Home</span>
           <i class="fi fi-rr-home text-lg shrink-0 mt-0.5"></i>
         </a>
-        <!-- Downloads (Light Blue Outline Style) -->
-        <a href="downloads.html" class="scorebar-btn bg-[#E8F2FA] text-[#2075BC] border border-[#2075BC]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#d5e6f5] transition-colors">
+        <a href="downloads.html" class="scorebar-btn bg-[#F2F0F6] text-[#37314F] border border-[#37314F]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#e4e0ec] transition-colors">
           <span>Downloads</span>
           <i class="fi fi-rr-cloud-download text-lg shrink-0 mt-0.5"></i>
         </a>
-        <!-- Result (Light Orange Outline Style) -->
-        <a href="result.html" class="scorebar-btn bg-[#FDF3E8] text-[#EA8F23] border border-[#EA8F23]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#fbe4cb] transition-colors">
+        <a href="results/index.html" class="scorebar-btn bg-[#FAF5EA] text-[#C0912B] border border-[#C0912B]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f3e7ce] transition-colors">
           <span>Result</span>
           <i class="fi fi-rr-list text-lg shrink-0 mt-0.5"></i>
         </a>
       </div>
 
-      <!-- Center Logo Emblem -->
+      <!-- Center Logo Badge -->
       <div id="nav-badge" class="w-10 h-10 bg-white border border-gray-200 rounded-xl flex items-center justify-center cursor-pointer shrink-0 z-50">
         <img src="asset/5Rect.png" alt="Emblem" class="w-6 h-6 object-contain" data-fest="logo">
       </div>
 
       <!-- Right Wings (Updates, Gallery, Contact Us) -->
       <div id="scorebar-right" class="scorebar-wing flex items-center justify-start space-x-1.5 pl-2">
-        <!-- Updates (Light Teal Outline Style) -->
-        <a href="updates.html" class="scorebar-btn bg-[#E6F7F6] text-[#09ABB1] border border-[#09ABB1]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#c9f0ee] transition-colors">
+        <a href="updates.html" class="scorebar-btn bg-[#EBF3F2] text-[#17635F] border border-[#17635F]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#d5e7e5] transition-colors">
           <span>Updates</span>
           <i class="fi fi-rr-book-alt text-lg shrink-0 mt-0.5"></i>
         </a>
-        <!-- Gallery (Light Green Outline Style) -->
-        <a href="gallery.html" class="scorebar-btn bg-[#F1F9E8] text-[#74B816] border border-[#74B816]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#e2f3cd] transition-colors">
+        <a href="gallery.html" class="scorebar-btn bg-[#FAF5EA] text-[#C0912B] border border-[#C0912B]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f3e7ce] transition-colors">
           <span>Gallery</span>
           <i class="fi fi-rr-folder-camera text-lg shrink-0 mt-0.5"></i>
         </a>
-        <!-- Contact Us (Solid Purple - Active) -->
-        <a href="contact.html" class="scorebar-btn bg-[#AE3EC9] border border-[#AE3EC9] text-white flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide">
+        <a href="contact.html" class="scorebar-btn bg-brandRed border border-brandRed text-white flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide">
           <span>Contact Us</span>
           <i class="fi fi-rr-headphones text-lg shrink-0 mt-0.5"></i>
         </a>
@@ -104,7 +102,7 @@
   <div class="w-full bg-white relative z-40 pt-4 pb-2">
     <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex items-center justify-between gap-4">
       <div class="flex items-center justify-center border border-neutral-300 rounded-[1.5rem] px-4 sm:px-6 py-1.5 sm:py-2 shrink-0">
-        <img src="asset/sibaq-logo.svg" alt="SIBAQ Logo" class="h-6 sm:h-7 w-auto object-contain">
+        <img src="asset/logo-logo.png" alt="SIBAQ Logo" class="h-6 sm:h-7 w-auto object-contain">
       </div>
       <h1 class="font-sans font-normal text-3xl sm:text-4xl bg-gradient-to-r from-neutral-900 to-neutral-500 bg-clip-text text-transparent tracking-tight text-right">Contact Us</h1>
     </div>
@@ -218,10 +216,10 @@
       <div class="flex flex-col max-w-[400px] w-full text-center lg:text-left items-center lg:items-start">
         <div class="mb-6 relative">
           <div class="absolute -inset-4 bg-gray-50/50 rounded-full blur-xl -z-10"></div>
-          <img src="asset/sibaq-logo.svg" alt="SIBAQ Logo" class="h-16 md:h-20 w-auto object-contain relative z-10">
+          <img src="asset/logo-logo.png" alt="SIBAQ Logo" class="h-16 md:h-20 w-auto object-contain relative z-10">
         </div>
-        <p class="font-sans font-light text-[14px] md:text-[15px] text-neutral-500 leading-relaxed mb-8">
-          Darul Huda Islamic University, Hidaya Nagar,<br>Chemmad, Tirurangadi PO, Malappuram Dist.<br>Pin: 676306, Kerala, India
+        <p class="font-sans font-light text-[14px] md:text-[15px] text-neutral-500 leading-relaxed mb-8" data-fest="address">
+          Sheikh Fareed Auliya Da'wa College (SFADC),<br>Odamala, Malappuram Dist.<br>Kerala, India
         </p>
         <div class="flex space-x-3 mb-10">
           <a href="#" class="w-10 h-10 rounded-full bg-[#EBF3FB] text-[#1877F2] flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md">
@@ -238,7 +236,7 @@
           </a>
         </div>
         <p class="font-sans text-[13px] text-neutral-400">
-          © All rights reserved | Sibaq Committee <span data-fest="copyright-year">2026</span>
+          © All rights reserved | <span data-fest="name">Festival</span> Committee <span data-fest="copyright-year">2026</span>
         </p>
       </div>
 
@@ -249,7 +247,7 @@
         </div>
         <h3 class="font-sans font-medium text-[22px] md:text-2xl text-neutral-800 mb-3">Never Miss Anything</h3>
         <p class="font-sans font-light text-sm text-neutral-400 mb-8 leading-relaxed px-2">
-          Keep Tracking Sibaq Events and be part of the<br>prestigious Art Fest
+          Keep Tracking <span data-fest="name">Festival</span> Events and be part of the<br>prestigious Art Fest
         </p>
         <div class="flex flex-col space-y-3.5 relative z-10">
           <input type="email" placeholder="Enter your email" class="w-full bg-[#F0F9F9] border-none rounded-full px-6 py-4 text-sm font-sans focus:ring-2 focus:ring-[#09ABB1] focus:outline-none placeholder-neutral-400 text-center text-neutral-700 transition-all">

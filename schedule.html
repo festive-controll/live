@@ -20,12 +20,15 @@
       theme: {
         extend: {
           colors: {
-            brandBlue: '#00A3E0',
-            brandYellow: '#FFC20E',
-            brandRed: '#EA3650',
-            brandGreen: '#E2F8F0',
-            brandGreenBorder: '#D2EFE4',
-            brandOrange: '#EA8F23'
+            brandBlue: '#37314F',
+            brandYellow: '#C0912B',
+            brandRed: '#92205D',
+            brandGreen: '#17635F',
+            brandGreenBorder: '#17635F33',
+            brandTeal: '#17635F',
+            brandPurple: '#37314F',
+            brandOrange: '#C0912B',
+            brandMagenta: '#92205D',
           },
           fontFamily: {
             sans: ['Clash Grotesk', 'sans-serif'],
@@ -69,19 +72,19 @@
       <div id="scorebar-left" class="scorebar-wing flex items-center justify-end space-x-1.5 pr-2">
         <!-- Home -->
         <a href="index.html"
-          class="scorebar-btn bg-[#FDF2F4] text-brandRed border border-brandRed/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#fbdde1] transition-colors">
+          class="scorebar-btn bg-[#F9ECF2] text-[#92205D] border border-[#92205D]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f2d8e4] transition-colors">
           <span>Home</span>
           <i class="fi fi-rr-home text-lg shrink-0 mt-0.5"></i>
         </a>
         <!-- Downloads -->
         <a href="downloads.html"
-          class="scorebar-btn bg-[#E8F2FA] text-[#2075BC] border border-[#2075BC]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#d5e6f5] transition-colors">
+          class="scorebar-btn bg-[#F2F0F6] text-[#37314F] border border-[#37314F]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#e4e0ec] transition-colors">
           <span>Downloads</span>
           <i class="fi fi-rr-cloud-download text-lg shrink-0 mt-0.5"></i>
         </a>
         <!-- Result -->
-        <a href="result.html"
-          class="scorebar-btn bg-[#FDF3E8] text-[#EA8F23] border border-[#EA8F23]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#fbe4cb] transition-colors">
+        <a href="results/index.html"
+          class="scorebar-btn bg-[#FAF5EA] text-[#C0912B] border border-[#C0912B]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f3e7ce] transition-colors">
           <span>Result</span>
           <i class="fi fi-rr-list text-lg shrink-0 mt-0.5"></i>
         </a>
@@ -97,19 +100,19 @@
       <div id="scorebar-right" class="scorebar-wing flex items-center justify-start space-x-1.5 pl-2">
         <!-- Updates -->
         <a href="updates.html"
-          class="scorebar-btn bg-[#E6F7F6] text-[#09ABB1] border border-[#09ABB1]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#c9f0ee] transition-colors">
+          class="scorebar-btn bg-[#EBF3F2] text-[#17635F] border border-[#17635F]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#d5e7e5] transition-colors">
           <span>Updates</span>
           <i class="fi fi-rr-book-alt text-lg shrink-0 mt-0.5"></i>
         </a>
         <!-- Gallery -->
         <a href="gallery.html"
-          class="scorebar-btn bg-[#F1F9E8] text-[#74B816] border border-[#74B816]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#e2f3cd] transition-colors">
+          class="scorebar-btn bg-[#FAF5EA] text-[#C0912B] border border-[#C0912B]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f3e7ce] transition-colors">
           <span>Gallery</span>
           <i class="fi fi-rr-folder-camera text-lg shrink-0 mt-0.5"></i>
         </a>
         <!-- Contact Us -->
         <a href="contact.html"
-          class="scorebar-btn bg-[#F6ECFA] text-[#AE3EC9] border border-[#AE3EC9]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#ecd3f7] transition-colors">
+          class="scorebar-btn bg-[#F9ECF2] text-[#92205D] border border-[#92205D]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f2d8e4] transition-colors">
           <span>Contact Us</span>
           <i class="fi fi-rr-headphones text-lg shrink-0 mt-0.5"></i>
         </a>
@@ -123,7 +126,7 @@
     <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 flex items-center justify-between gap-4">
       <div
         class="flex items-center justify-center border border-neutral-300 rounded-[1.5rem] px-4 sm:px-6 py-1.5 py-2 shrink-0">
-        <img src="asset/sibaq-logo.svg" alt="SIBAQ Logo" class="h-6 sm:h-7 w-auto object-contain">
+        <img src="asset/logo-logo.png" alt="SIBAQ Logo" class="h-6 sm:h-7 w-auto object-contain">
       </div>
       <h1
         class="font-sans font-normal text-3xl sm:text-4xl bg-gradient-to-r from-neutral-900 to-neutral-500 bg-clip-text text-transparent tracking-tight text-right">
@@ -132,26 +135,59 @@
   </div>
 
   <!-- Filter Section -->
-  <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 pt-4 pb-2 relative z-30">
-    <div
-      class="bg-gray-50 border border-neutral-100 rounded-[20px] p-4 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
-      <!-- Search Option -->
-      <div class="relative w-full md:w-80">
-        <i class="fi fi-rr-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
-        <input type="text" id="search-programs" oninput="filterSchedules()" placeholder="Search program name..."
-          class="w-full pl-10 pr-4 py-2 bg-white border border-neutral-200 rounded-xl text-[14px] focus:outline-none focus:ring-2 focus:ring-brandBlue/20 focus:border-brandBlue transition-all">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 pt-6 pb-6 relative z-30">
+    <div class="bg-gray-50/90 border border-gray-200/60 rounded-3xl p-5 md:p-6 shadow-xs space-y-4">
+      <!-- Top Row: Search Input & Dropdown Selects -->
+      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+        <!-- Search Input Box -->
+        <div class="relative flex-1">
+          <i class="fi fi-rr-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-base"></i>
+          <input type="text" id="search-programs" oninput="filterSchedules()" placeholder="Search events..."
+            class="w-full pl-11 pr-4 py-3 bg-white border border-gray-200/80 rounded-2xl text-sm font-medium text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#17635F]/20 focus:border-[#17635F] transition-all shadow-2xs">
+        </div>
+
+        <!-- Filter Dropdowns Row -->
+        <div class="grid grid-cols-3 gap-3 w-full lg:w-auto shrink-0">
+          <!-- Date Dropdown -->
+          <div class="relative">
+            <select id="filter-date" onchange="filterSchedules()"
+              class="w-full pl-9 pr-8 py-3 bg-white border border-gray-200/80 rounded-2xl text-xs font-bold text-gray-700 cursor-pointer appearance-none shadow-2xs hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#17635F]/20 transition-all">
+              <option value="">Date</option>
+            </select>
+            <i class="fi fi-rr-calendar absolute left-3 top-1/2 -translate-y-1/2 text-[#92205D] text-sm pointer-events-none"></i>
+            <i class="fi fi-rr-angle-small-down absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-sm"></i>
+          </div>
+
+          <!-- Venue Dropdown -->
+          <div class="relative">
+            <select id="filter-venue" onchange="filterSchedules()"
+              class="w-full pl-9 pr-8 py-3 bg-white border border-gray-200/80 rounded-2xl text-xs font-bold text-gray-700 cursor-pointer appearance-none shadow-2xs hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#17635F]/20 transition-all">
+              <option value="">Venue</option>
+            </select>
+            <i class="fi fi-rr-marker absolute left-3 top-1/2 -translate-y-1/2 text-[#C0912B] text-sm pointer-events-none"></i>
+            <i class="fi fi-rr-angle-small-down absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-sm"></i>
+          </div>
+
+          <!-- Category / Section Dropdown -->
+          <div class="relative">
+            <select id="filter-section" onchange="filterSchedules()"
+              class="w-full pl-9 pr-8 py-3 bg-white border border-gray-200/80 rounded-2xl text-xs font-bold text-gray-700 cursor-pointer appearance-none shadow-2xs hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#17635F]/20 transition-all">
+              <option value="">Category</option>
+            </select>
+            <i class="fi fi-rr-label absolute left-3 top-1/2 -translate-y-1/2 text-[#17635F] text-sm pointer-events-none"></i>
+            <i class="fi fi-rr-angle-small-down absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-sm"></i>
+          </div>
+        </div>
       </div>
 
-      <!-- Topsetted Filters -->
-      <div class="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
-        <div class="relative w-full sm:w-52">
-          <select id="filter-section" onchange="filterSchedules()"
-            class="w-full pl-4 pr-10 py-2 bg-white border border-neutral-200 rounded-xl text-[13px] text-neutral-700 font-semibold focus:outline-none focus:ring-2 focus:ring-brandBlue/20 focus:border-brandBlue cursor-pointer appearance-none">
-            <option value="">All Sections</option>
-          </select>
-          <i
-            class="fi fi-rr-angle-small-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-base"></i>
-        </div>
+      <!-- Bottom Row: Date Quick Filter Pills -->
+      <div class="flex items-center gap-2 pt-1 border-t border-gray-100">
+        <button onclick="setDateQuickFilter('all')" id="btn-filter-all"
+          class="px-5 py-1.5 rounded-full text-xs font-bold transition-all bg-[#92205D] text-white shadow-xs">All</button>
+        <button onclick="setDateQuickFilter('today')" id="btn-filter-today"
+          class="px-5 py-1.5 rounded-full text-xs font-bold transition-all bg-white text-gray-600 border border-gray-200/80 hover:bg-gray-100">Today</button>
+        <button onclick="setDateQuickFilter('tomorrow')" id="btn-filter-tomorrow"
+          class="px-5 py-1.5 rounded-full text-xs font-bold transition-all bg-white text-gray-600 border border-gray-200/80 hover:bg-gray-100">Tomorrow</button>
       </div>
     </div>
   </div>
@@ -162,7 +198,7 @@
     <div id="schedule-container" class="space-y-10">
       <!-- Loading Spinner -->
       <div class="flex justify-center items-center py-32 flex-col gap-4">
-        <span class="iconify text-5xl text-brandBlue animate-spin" data-icon="ph:spinner-gap-bold"></span>
+        <span class="iconify text-5xl text-[#17635F] animate-spin" data-icon="ph:spinner-gap-bold"></span>
         <p class="text-neutral-500 text-sm font-medium">Syncing schedules with database...</p>
       </div>
     </div>
@@ -181,36 +217,35 @@
       </p>
     </div>
 
-    <!-- Vertical List stack of 7 Buttons -->
+    <!-- Vertical List stack of 6 Buttons -->
     <div class="w-full max-w-[290px] flex flex-col space-y-3.5">
       <a href="index.html"
-        class="mobile-menu-btn bg-[#FDF2F4] text-brandRed border border-brandRed/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        class="mobile-menu-btn bg-[#F9ECF2] text-[#92205D] border border-[#92205D]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
         <span>Home</span>
         <i class="fi fi-rr-home text-lg shrink-0 mt-0.5"></i>
       </a>
       <a href="downloads.html"
-        class="mobile-menu-btn bg-[#E8F2FA] text-[#2075BC] border border-[#2075BC]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        class="mobile-menu-btn bg-[#F2F0F6] text-[#37314F] border border-[#37314F]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
         <span>Downloads</span>
         <i class="fi fi-rr-cloud-download text-lg shrink-0 mt-0.5"></i>
       </a>
-      <a href="result.html"
-        class="mobile-menu-btn bg-[#FDF3E8] text-[#EA8F23] border border-[#EA8F23]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+      <a href="results/index.html"
+        class="mobile-menu-btn bg-[#FAF5EA] text-[#C0912B] border border-[#C0912B]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
         <span>Result</span>
         <i class="fi fi-rr-list text-lg shrink-0 mt-0.5"></i>
       </a>
-
       <a href="updates.html"
-        class="mobile-menu-btn bg-[#E6F7F6] text-[#09ABB1] border border-[#09ABB1]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        class="mobile-menu-btn bg-[#EBF3F2] text-[#17635F] border border-[#17635F]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
         <span>Updates</span>
         <i class="fi fi-rr-book-alt text-lg shrink-0 mt-0.5"></i>
       </a>
       <a href="gallery.html"
-        class="mobile-menu-btn bg-[#F1F9E8] text-[#74B816] border border-[#74B816]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        class="mobile-menu-btn bg-[#FAF5EA] text-[#C0912B] border border-[#C0912B]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
         <span>Gallery</span>
         <i class="fi fi-rr-folder-camera text-lg shrink-0 mt-0.5"></i>
       </a>
       <a href="contact.html"
-        class="mobile-menu-btn bg-[#F6ECFA] text-[#AE3EC9] border border-[#AE3EC9]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        class="mobile-menu-btn bg-[#F9ECF2] text-[#92205D] border border-[#92205D]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
         <span>Contact Us</span>
         <i class="fi fi-rr-headphones text-lg shrink-0 mt-0.5"></i>
       </a>
@@ -240,24 +275,58 @@
   <!-- Realtime Data Retrieval & Grouping Script -->
   <script>
     let rawPrograms = [];
+    let currentQuickFilter = 'all';
 
-    // Format ISO dateTime-local string to "D-M-YYYY" zone-independent format
-    function formatDate(timeString) {
-      if (!timeString) return 'Not Scheduled';
-      const datePart = timeString.split('T')[0];
-      const parts = datePart.split('-');
-      if (parts.length !== 3) return 'Not Scheduled';
-      const year = parts[0];
-      const month = parseInt(parts[1], 10);
-      const day = parseInt(parts[2], 10);
-      return `${day}-${month}-${year}`; // e.g. 22-7-2026 or 1-1-2026
+    function setDateQuickFilter(filter) {
+      currentQuickFilter = filter;
+      ['all', 'today', 'tomorrow'].forEach(f => {
+        const btn = document.getElementById('btn-filter-' + f);
+        if (btn) {
+          if (f === filter) {
+            btn.className = 'px-5 py-1.5 rounded-full text-xs font-bold transition-all bg-[#92205D] text-white shadow-xs';
+          } else {
+            btn.className = 'px-5 py-1.5 rounded-full text-xs font-bold transition-all bg-white text-gray-600 border border-gray-200/80 hover:bg-gray-100';
+          }
+        }
+      });
+      filterSchedules();
+    }
+
+    // Dynamic brand color palette for Section badges
+    function getSectionBadgeColor(sectionName) {
+      if (!sectionName) return 'bg-[#37314F] text-white';
+      const sec = sectionName.toUpperCase();
+      if (sec.includes('BIDĀYA') || sec.includes('BIDAYA')) return 'bg-[#92205D] text-white';
+      if (sec.includes('ŪLĀ') || sec.includes('ULA')) return 'bg-[#17635F] text-white';
+      if (sec.includes('THĀNIYA') || sec.includes('THANIYA')) return 'bg-[#37314F] text-white';
+      if (sec.includes('THĀNAWIYYA') || sec.includes('THANAWIYYA')) return 'bg-[#C0912B] text-white';
+      if (sec.includes('ĀLIYA') || sec.includes('ALIYA')) return 'bg-[#92205D] text-white';
+      if (sec.includes('KULLIYYA') || sec.includes('KULLIYYAH')) return 'bg-[#17635F] text-white';
+      return 'bg-[#C0912B] text-white';
+    }
+
+    // Format ISO dateTime-local string to "Aug 31, 2026"
+    function formatDateNice(timeString) {
+      if (!timeString) return 'TBA';
+      try {
+        const datePart = timeString.split('T')[0];
+        const parts = datePart.split('-');
+        if (parts.length === 3) {
+          const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+          const year = parts[0];
+          const month = months[parseInt(parts[1], 10) - 1] || parts[1];
+          const day = parseInt(parts[2], 10);
+          return `${month} ${day}, ${year}`;
+        }
+      } catch (e) {}
+      return 'TBA';
     }
 
     // Format ISO dateTime-local string to AM/PM format
     function formatTime(timeString) {
-      if (!timeString) return '—';
+      if (!timeString) return 'TBA';
       const parts = timeString.split('T');
-      if (parts.length < 2) return '—';
+      if (parts.length < 2) return 'TBA';
       const [hourStr, minStr] = parts[1].split(':');
       let hour = parseInt(hourStr, 10);
       const min = minStr;
@@ -265,6 +334,16 @@
       hour = hour % 12;
       hour = hour ? hour : 12; // 0 should be 12
       return `${hour}:${min} ${ampm}`;
+    }
+
+    // Date comparison helper for Today / Tomorrow
+    function isSameDate(timeString, targetDate) {
+      if (!timeString) return false;
+      const pDate = timeString.split('T')[0];
+      const yyyy = targetDate.getFullYear();
+      const mm = String(targetDate.getMonth() + 1).padStart(2, '0');
+      const dd = String(targetDate.getDate()).padStart(2, '0');
+      return pDate === `${yyyy}-${mm}-${dd}`;
     }
 
     // Listen to Firebase updates
@@ -279,7 +358,7 @@
           return timeA.localeCompare(timeB);
         });
 
-        // Initialize unique section and skill dropdowns
+        // Initialize unique section, date, and venue dropdowns
         populateFilterDropdowns();
 
         // Render UI
@@ -288,7 +367,7 @@
         console.error("Firebase read error: ", err);
         document.getElementById('schedule-container').innerHTML = `
           <div class="flex justify-center items-center py-20 flex-col gap-2">
-            <span class="iconify text-4xl text-brandRed" data-icon="ph:exclamation-mark-bold"></span>
+            <span class="iconify text-4xl text-[#92205D]" data-icon="ph:exclamation-mark-bold"></span>
             <p class="text-neutral-600 font-medium">Failed to sync schedule data.</p>
           </div>`;
       });
@@ -297,21 +376,43 @@
     // Populate Filter Dropdowns dynamically
     function populateFilterDropdowns() {
       const selectSection = document.getElementById('filter-section');
+      const selectDate = document.getElementById('filter-date');
+      const selectVenue = document.getElementById('filter-venue');
+
       const savedSec = selectSection.value;
+      const savedDate = selectDate.value;
+      const savedVenue = selectVenue.value;
 
-      // Extract unique values
       const uniqueSections = [...new Set(rawPrograms.map(p => p.section).filter(Boolean))].sort();
+      const uniqueDates = [...new Set(rawPrograms.map(p => formatDateNice(p.time)).filter(d => d && d !== 'TBA'))].sort();
+      const uniqueVenues = [...new Set(rawPrograms.map(p => p.venue).filter(Boolean))].sort();
 
-      // Populate Section select
-      let sectionHtml = '<option value="">All Sections</option>';
+      // Category / Section
+      let secHtml = '<option value="">Category</option>';
       uniqueSections.forEach(sec => {
-        sectionHtml += `<option value="${sec}">${sec}</option>`;
+        secHtml += `<option value="${sec}">${sec}</option>`;
       });
-      selectSection.innerHTML = sectionHtml;
+      selectSection.innerHTML = secHtml;
       selectSection.value = savedSec;
+
+      // Date
+      let dateHtml = '<option value="">Date</option>';
+      uniqueDates.forEach(d => {
+        dateHtml += `<option value="${d}">${d}</option>`;
+      });
+      selectDate.innerHTML = dateHtml;
+      selectDate.value = savedDate;
+
+      // Venue
+      let venueHtml = '<option value="">Venue</option>';
+      uniqueVenues.forEach(v => {
+        venueHtml += `<option value="${v}">${v}</option>`;
+      });
+      selectVenue.innerHTML = venueHtml;
+      selectVenue.value = savedVenue;
     }
 
-    // Filter and Render grouped list
+    // Filter and Render
     function filterSchedules() {
       renderSchedules();
     }
@@ -319,104 +420,89 @@
     function renderSchedules() {
       const searchVal = document.getElementById('search-programs').value.toLowerCase().trim();
       const sectionVal = document.getElementById('filter-section').value;
+      const dateVal = document.getElementById('filter-date').value;
+      const venueVal = document.getElementById('filter-venue').value;
       const container = document.getElementById('schedule-container');
 
-      // Group filtered programs
-      const grouped = new Map(); // Date string -> Program objects
+      const today = new Date();
+      const tomorrow = new Date();
+      tomorrow.setDate(today.getDate() + 1);
 
-      let matchCount = 0;
+      const filtered = rawPrograms.filter(p => {
+        if (sectionVal && p.section !== sectionVal) return false;
+        if (searchVal && !p.name.toLowerCase().includes(searchVal)) return false;
+        if (venueVal && p.venue !== venueVal) return false;
+        if (dateVal && formatDateNice(p.time) !== dateVal) return false;
 
-      rawPrograms.forEach(p => {
-        // Apply filters
-        if (sectionVal && p.section !== sectionVal) return;
-        if (searchVal && !p.name.toLowerCase().includes(searchVal)) return;
+        if (currentQuickFilter === 'today' && !isSameDate(p.time, today)) return false;
+        if (currentQuickFilter === 'tomorrow' && !isSameDate(p.time, tomorrow)) return false;
 
-        matchCount++;
-
-        // Determine date grouping key
-        const dateKey = formatDate(p.time);
-
-        if (!grouped.has(dateKey)) {
-          grouped.set(dateKey, []);
-        }
-        grouped.get(dateKey).push(p);
+        return true;
       });
 
-      if (matchCount === 0) {
+      if (filtered.length === 0) {
         container.innerHTML = `
-          <div class="flex flex-col items-center justify-center py-32 text-center">
+          <div class="flex flex-col items-center justify-center py-28 text-center">
             <span class="iconify text-6xl text-neutral-300 mb-4" data-icon="ph:calendar-blank-duotone"></span>
-            <h3 class="font-sans font-medium text-xl text-neutral-900 tracking-tight">No schedules found</h3>
-            <p class="text-neutral-500 text-sm max-w-sm mt-1 leading-relaxed">We couldn't find any programs matching your filter criteria.</p>
+            <h3 class="font-sans font-medium text-xl text-neutral-900 tracking-tight">No events found</h3>
+            <p class="text-neutral-500 text-sm max-w-sm mt-1 leading-relaxed">We couldn't find any events matching your filter criteria.</p>
           </div>`;
         return;
       }
 
-      // Generate HTML
-      let html = '';
+      let html = '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">';
 
-      // Iterating through Map preserves chronological order from rawPrograms.sort()
-      grouped.forEach((programs, dateKey) => {
-        const isNotScheduled = dateKey === 'Not Scheduled';
+      filtered.forEach(p => {
+        const timeStr = formatTime(p.time);
+        const dateStr = formatDateNice(p.time);
+        const sectionTag = p.section || p.category || 'GENERAL';
+        const badgeClass = getSectionBadgeColor(sectionTag);
+        const descText = p.conceptNote || p.description || 'No description available';
+        const venueText = p.venue || 'TBA';
+        const durationText = p.duration || '30 min';
 
-        // Date Header Section
         html += `
-          <div class="mb-10">
-            <div class="flex items-center gap-4 mb-6">
-              <div class="${isNotScheduled ? 'bg-neutral-500 text-white' : 'bg-brandBlue text-white'} px-5 py-2.5 rounded-[18px] font-bold text-xs uppercase tracking-wider shadow-sm flex items-center gap-2">
-                <i class="fi ${isNotScheduled ? 'fi-rr-circle-dashed' : 'fi-rr-calendar-clock'} text-sm mt-0.5"></i>
-                <span>${dateKey}</span>
+          <div class="bg-white border border-gray-100 rounded-2xl p-5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] hover:shadow-md hover:border-[#17635F]/30 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <!-- Header: Program Name & Category Tag -->
+              <div class="flex justify-between items-start mb-2 gap-3">
+                <h3 class="font-sans font-extrabold text-base md:text-lg text-gray-900 uppercase tracking-tight leading-snug group-hover:text-[#17635F] transition-colors">${p.name || 'UNNAMED PROGRAM'}</h3>
+                <span class="text-[10px] font-extrabold ${badgeClass} px-3 py-1 rounded-lg uppercase tracking-wider shrink-0 shadow-2xs">${sectionTag}</span>
               </div>
-              <div class="h-[1px] bg-neutral-100 flex-grow"></div>
+
+              <!-- Subtitle / Concept note -->
+              <p class="text-xs text-gray-400 font-normal mb-5 line-clamp-2">${descText}</p>
             </div>
 
-            <!-- Program Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">`;
-
-        programs.forEach(p => {
-          const timeStr = formatTime(p.time);
-
-          html += `
-              <div class="bg-white border border-neutral-100 rounded-[20px] p-4 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.02)] hover:shadow-md hover:border-neutral-200/50 transition-all duration-300 flex flex-col justify-between hover:-translate-y-0.5 group">
-                <div>
-                  <!-- Card Header: Code & Time -->
-                  <div class="flex justify-between items-center mb-4 gap-2">
-                    <span class="text-[11px] font-mono font-bold bg-neutral-50 text-neutral-500 border border-neutral-200/60 px-3 py-1 rounded-xl shrink-0 uppercase tracking-wide">${p.code || 'PRG'}</span>
-                    ${!isNotScheduled ? `
-                      <span class="text-[11px] font-bold text-brandBlue bg-blue-50/50 border border-brandBlue/10 px-3 py-1 rounded-xl flex items-center gap-1.5 shrink-0">
-                        <i class="fi fi-rr-clock text-[10px] mt-0.5"></i> ${timeStr}
-                      </span>
-                    ` : ''}
-                  </div>
-
-                  <!-- Program Name -->
-                  <h3 class="font-sans font-medium text-lg text-neutral-900 group-hover:text-brandBlue transition-colors mb-3 leading-tight tracking-tight">${p.name || 'Unnamed Program'}</h3>
-
-                  <!-- Metadata Tags -->
-                  <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="text-[10px] font-bold bg-[#E8F2FA] text-[#2075BC] border border-[#2075BC]/10 px-2.5 py-0.5 rounded-full uppercase tracking-wider">${p.section || '—'}</span>
-                  </div>
+            <!-- Meta Info Cards Grid -->
+            <div class="space-y-2 mt-auto">
+              <!-- Date & Time Row -->
+              <div class="grid grid-cols-2 gap-2">
+                <!-- Date Pill -->
+                <div class="flex items-center gap-2 bg-gray-50 border border-gray-100/80 px-3 py-2 rounded-xl text-xs font-semibold text-gray-700">
+                  <i class="fi fi-rr-calendar text-[#92205D] text-sm"></i>
+                  <span class="truncate">${dateStr}</span>
                 </div>
-
-                <!-- Concept Note Text Area Container -->
-                <div class="mt-2">
-                  ${p.conceptNote ? `
-                    <div class="bg-neutral-50 rounded-[16px] p-3 border border-neutral-100/50">
-                      <div class="text-[9px] uppercase font-bold text-neutral-400 mb-1 tracking-widest">Concept Note</div>
-                      <p class="font-sans text-xs text-neutral-500 leading-relaxed whitespace-pre-line">${p.conceptNote}</p>
-                    </div>
-                  ` : `
-                    <p class="text-xs text-neutral-400 italic font-light">No concept note available</p>
-                  `}
+                <!-- Time Pill -->
+                <div class="flex items-center gap-2 bg-gray-50 border border-gray-100/80 px-3 py-2 rounded-xl text-xs font-semibold text-gray-700">
+                  <i class="fi fi-rr-clock text-[#17635F] text-sm"></i>
+                  <span class="truncate">${timeStr}</span>
                 </div>
-              </div>`;
-        });
+              </div>
 
-        html += `
+              <!-- Venue & Duration Row -->
+              <div class="flex items-center justify-between bg-gray-50 border border-gray-100/80 px-3 py-2 rounded-xl text-xs font-semibold text-gray-700">
+                <div class="flex items-center gap-2 truncate">
+                  <i class="fi fi-rr-marker text-[#C0912B] text-sm shrink-0"></i>
+                  <span class="truncate">${venueText}</span>
+                </div>
+                <span class="text-[11px] font-medium text-gray-400 shrink-0 ml-2">${durationText}</span>
+              </div>
             </div>
           </div>`;
       });
 
+      html += '</div>';
       container.innerHTML = html;
     }
   </script>

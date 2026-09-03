@@ -138,7 +138,7 @@ body {
   border-radius: 12px;
   /* rounded-xl matches badge */
   padding: 1px;
-  background: linear-gradient(135deg, #00A3E0, #FFC20E, #EA3650);
+  background: linear-gradient(135deg, #37314F, #C0912B, #17635F, #92205D);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -237,4 +237,50 @@ body {
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #9ca3af;
+}
+
+/* Splash Screen Animations */
+#splash-screen {
+  position: fixed;
+  inset: 0;
+  background-color: #17635F;
+  background-image: radial-gradient(circle at center, #1e7c77 0%, #17635F 70%, #114c49 100%);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-100%);
+  animation: splashSequence 5s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+  pointer-events: auto; /* Allow blocking clicks while visible */
+}
+
+/* Once animation completes, it's off screen, but let's ensure it doesn't block */
+@keyframes splashSequence {
+  0% { transform: translateY(-100%); pointer-events: auto; }
+  15% { transform: translateY(0); pointer-events: auto; }
+  85% { transform: translateY(0); pointer-events: auto; }
+  100% { transform: translateY(100%); pointer-events: none; }
+}
+
+#splash-logo {
+  height: 120px;
+  width: auto;
+  filter: brightness(0) invert(1); /* Makes the logo white */
+  animation: logoZoom 5s ease-in-out forwards;
+}
+
+@keyframes logoZoom {
+  0% { transform: scale(0.5); opacity: 0; }
+  20% { transform: scale(1); opacity: 1; }
+  80% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Custom 5-color gradient matching the 'temp' text design */
+.custom-temp-gradient {
+  background: linear-gradient(to right, #37314F, #17635F, #C0912B, #92205D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }

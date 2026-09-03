@@ -24,11 +24,15 @@
       theme: {
         extend: {
           colors: {
-            brandBlue: '#00A3E0', // Cyan-blue matching mockup
-            brandYellow: '#FFC20E', // Gold-yellow matching mockup
-            brandRed: '#EA3650', // Vibrant pink-red matching mockup
-            brandGreen: '#E2F8F0', // Mint/light green banner
-            brandGreenBorder: '#D2EFE4',
+            brandBlue: '#37314F',
+            brandYellow: '#C0912B',
+            brandRed: '#92205D',
+            brandGreen: '#17635F',
+            brandGreenBorder: '#17635F33',
+            brandTeal: '#17635F',
+            brandPurple: '#37314F',
+            brandOrange: '#C0912B',
+            brandMagenta: '#92205D',
           },
           fontFamily: {
             sans: ['Clash Grotesk', 'sans-serif'],
@@ -60,6 +64,11 @@
 
 <body class="bg-white min-h-screen flex flex-col overflow-x-hidden font-sans select-none relative">
 
+  <!-- Splash Screen -->
+  <div id="splash-screen">
+    <img id="splash-logo" src="asset/logo-logo.png" alt="Festival Logo">
+  </div>
+
   <!-- Header / Navigation Bar containing the FIFA 26 expandable scorebar -->
   <header class="w-full bg-white border-b border-gray-100 relative z-50 h-16 flex items-center justify-center">
     <!-- Centered Scorebar bridging the navbar bottom border (Fully rounded-full pill) -->
@@ -74,15 +83,15 @@
           <span>Home</span>
           <i class="fi fi-rr-home text-lg shrink-0 mt-0.5"></i>
         </a>
-        <!-- Downloads (Light Blue Outline Style) -->
+        <!-- Downloads (Light Purple Outline Style) -->
         <a href="downloads.html"
-          class="scorebar-btn bg-[#E8F2FA] text-[#2075BC] border border-[#2075BC]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#d5e6f5] transition-colors">
+          class="scorebar-btn bg-[#F2F0F6] text-[#37314F] border border-[#37314F]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#e4e0ec] transition-colors">
           <span>Downloads</span>
           <i class="fi fi-rr-cloud-download text-lg shrink-0 mt-0.5"></i>
         </a>
-        <!-- Result (Light Orange Outline Style) -->
+        <!-- Result (Light Gold Outline Style) -->
         <a href="results/index.html"
-          class="scorebar-btn bg-[#FDF3E8] text-[#EA8F23] border border-[#EA8F23]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#fbe4cb] transition-colors">
+          class="scorebar-btn bg-[#FAF5EA] text-[#C0912B] border border-[#C0912B]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f3e7ce] transition-colors">
           <span>Result</span>
           <i class="fi fi-rr-list text-lg shrink-0 mt-0.5"></i>
         </a>
@@ -91,26 +100,26 @@
       <!-- Center Logo Badge -->
       <div id="nav-badge"
         class="w-10 h-10 bg-white border border-gray-200 rounded-xl flex items-center justify-center cursor-pointer shrink-0 z-50">
-        <img src="asset/5Rect.png" alt="Emblem" class="w-6 h-6 object-contain" data-fest="logo">
+        <img src="asset/logoR.png" alt="Emblem" class="w-6 h-6 object-contain" data-fest="logo">
       </div>
 
       <!-- Right Wings (Updates, Gallery, Contact Us) -->
       <div id="scorebar-right" class="scorebar-wing flex items-center justify-start space-x-1.5 pl-2">
         <!-- Updates (Light Teal Outline Style) -->
         <a href="updates.html"
-          class="scorebar-btn bg-[#E6F7F6] text-[#09ABB1] border border-[#09ABB1]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#c9f0ee] transition-colors">
+          class="scorebar-btn bg-[#EBF3F2] text-[#17635F] border border-[#17635F]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#d5e7e5] transition-colors">
           <span>Updates</span>
           <i class="fi fi-rr-book-alt text-lg shrink-0 mt-0.5"></i>
         </a>
-        <!-- Gallery (Light Green Outline Style) -->
+        <!-- Gallery (Light Gold Outline Style) -->
         <a href="gallery.html"
-          class="scorebar-btn bg-[#F1F9E8] text-[#74B816] border border-[#74B816]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#e2f3cd] transition-colors">
+          class="scorebar-btn bg-[#FAF5EA] text-[#C0912B] border border-[#C0912B]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f3e7ce] transition-colors">
           <span>Gallery</span>
           <i class="fi fi-rr-folder-camera text-lg shrink-0 mt-0.5"></i>
         </a>
-        <!-- Contact Us (Light Purple Outline Style) -->
+        <!-- Contact Us (Light Magenta Outline Style) -->
         <a href="contact.html"
-          class="scorebar-btn bg-[#F6ECFA] text-[#AE3EC9] border border-[#AE3EC9]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#ecd3f7] transition-colors">
+          class="scorebar-btn bg-[#F9ECF2] text-[#92205D] border border-[#92205D]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f2d8e4] transition-colors">
           <span>Contact Us</span>
           <i class="fi fi-rr-headphones text-lg shrink-0 mt-0.5"></i>
         </a>
@@ -128,15 +137,13 @@
       <div class="lg:col-span-5 flex flex-col items-start text-left">
         <!-- SIBAQ Logo -->
         <div class="logo-container cursor-pointer">
-          <img src="asset/sibaq-logo.svg" alt="SIBAQ Logo" class="h-20 w-auto">
+          <img src="asset/logo-logo.png" alt="SIBAQ Logo" class="h-20 w-auto">
         </div>
 
         <!-- Colorful Title Kauthukam -->
         <h1
           class="flex flex-wrap font-sans font-medium text-6xl sm:text-7xl md:text-[5.5rem] tracking-[-0.04em] leading-[0.9] py-1 mt-5 mb-4">
-          <span
-            class="bg-gradient-to-r from-brandBlue via-brandYellow to-brandRed bg-clip-text text-transparent hover-scale inline-block"
-            data-fest="name">Kauthukam</span>
+          <span class="custom-temp-gradient hover-scale inline-block" data-fest="name">Kauthukam</span>
         </h1>
 
         <!-- Subtitles -->
@@ -146,13 +153,13 @@
         </div>
 
         <!-- Action Buttons -->
-        <div class="flex flex-wrap items-center gap-4">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
           <button id="btn-celebrate"
-            class="border border-brandRed px-11 py-3 rounded-full text-lg md:text-xl font-light text-gray-900 tracking-wide transition-all duration-300">
+            class="w-full sm:w-auto border border-brandRed px-8 md:px-11 py-3 rounded-full text-lg md:text-xl font-light text-gray-900 tracking-wide transition-all duration-300 text-center">
             Celebrate
           </button>
           <a href="schedule.html"
-            class="bg-brandBlue hover:bg-[#0091c7] text-white px-11 py-3.5 rounded-full text-lg md:text-xl font-normal tracking-wide transition-all duration-300 flex items-center gap-2.5 shadow-md shadow-brandBlue/10 hover:shadow-lg">
+            class="w-full sm:w-auto bg-brandBlue hover:bg-[#2a253d] text-white px-8 md:px-11 py-3.5 rounded-full text-lg md:text-xl font-normal tracking-wide transition-all duration-300 flex items-center justify-center gap-2.5 shadow-md shadow-brandBlue/10 hover:shadow-lg">
             <span>Schedule</span>
             <i class="fi fi-rr-calendar-clock text-lg"></i>
           </a>
@@ -167,7 +174,8 @@
           id="media-card">
 
           <!-- Dynamic Hero Slider Container -->
-          <div id="hero-slider-container" class="w-full h-full relative overflow-hidden flex items-center justify-center">
+          <div id="hero-slider-container"
+            class="w-full h-full relative overflow-hidden flex items-center justify-center">
             <div class="w-10 h-10 border-4 border-slate-800 border-t-brandBlue rounded-full animate-spin"></div>
           </div>
 
@@ -201,11 +209,10 @@
     </div>
   </main>
 
-  <!-- Divider Green Bar Section -->
-  <section class="w-full bg-brandGreen border-t border-b border-brandGreenBorder py-2 overflow-hidden relative z-20">
+  <section class="w-full bg-[#17635F] border-t border-b border-[#17635F]/20 py-2.5 overflow-hidden relative z-20">
     <div class="flex whitespace-nowrap select-none overflow-hidden py-0.5">
       <div
-        class="flex items-center space-x-6 text-xs md:text-sm font-semibold tracking-normal font-sans text-[#087752] animate-marquee">
+        class="flex items-center space-x-6 text-xs md:text-sm font-medium tracking-normal font-sans text-white animate-marquee">
         <!-- Set 1 -->
         <span>Files</span>
         <img src="asset/5Rect.png" alt="Logo" class="w-5 h-5 object-contain shrink-0">
@@ -312,7 +319,7 @@
 
       <!-- SIBAQ Logo -->
       <div class="mb-8 shrink-0">
-        <img src="asset/sibaq-logo.svg" alt="SIBAQ Logo" class="h-20 md:h-24 w-auto object-contain">
+        <img src="asset/logo-logo.png" alt="SIBAQ Logo" class="h-20 md:h-24 w-auto object-contain">
       </div>
 
       <!-- Heading -->
@@ -341,38 +348,38 @@
 
         <!-- Card 1: Candidates -->
         <div
-          class="bg-[#FFF8EF] rounded-[32px] p-8 relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-all duration-300">
+          class="bg-[#FAF5EA] rounded-[32px] p-8 relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-all duration-300">
           <div>
-            <div id="count-candidates" class="text-5xl md:text-6xl font-light tracking-tight text-[#EA8F23] mb-1">...
+            <div id="count-candidates" class="text-5xl md:text-6xl font-light tracking-tight text-[#C0912B] mb-1">...
             </div>
             <div class="text-lg md:text-xl font-light text-neutral-700">Candidates</div>
           </div>
           <!-- Watermark -->
           <div
-            class="absolute bottom-[-16px] right-[-16px] text-[#EA8F23] opacity-[0.08] pointer-events-none group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+            class="absolute bottom-[-16px] right-[-16px] text-[#C0912B] opacity-[0.08] pointer-events-none group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
             <span class="iconify text-[144px]" data-icon="ph:student-light"></span>
           </div>
         </div>
 
         <!-- Card 2: Teams -->
         <div
-          class="bg-[#F0F9FA] rounded-[32px] p-8 relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-all duration-300">
+          class="bg-[#EBF3F2] rounded-[32px] p-8 relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-all duration-300">
           <div>
-            <div id="count-teams" class="text-5xl md:text-6xl font-light tracking-tight text-[#09ABB1] mb-1">...</div>
+            <div id="count-teams" class="text-5xl md:text-6xl font-light tracking-tight text-[#17635F] mb-1">...</div>
             <div class="text-lg md:text-xl font-light text-neutral-700">Teams</div>
           </div>
           <!-- Watermark -->
           <div
-            class="absolute bottom-[-16px] right-[-16px] text-[#09ABB1] opacity-[0.08] pointer-events-none group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+            class="absolute bottom-[-16px] right-[-16px] text-[#17635F] opacity-[0.08] pointer-events-none group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
             <span class="iconify text-[144px]" data-icon="ph:users-three-light"></span>
           </div>
         </div>
 
         <!-- Card 3: Programs -->
         <a href="schedule.html"
-          class="bg-[#EFF5FC] rounded-[32px] p-8 relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-all duration-300 block">
+          class="bg-[#F2F0F6] rounded-[32px] p-8 relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-all duration-300 block">
           <div>
-            <div id="count-programs" class="text-5xl md:text-6xl font-light tracking-tight text-[#2075BC] mb-1">...
+            <div id="count-programs" class="text-5xl md:text-6xl font-light tracking-tight text-[#37314F] mb-1">...
             </div>
             <div class="text-lg md:text-xl font-light text-neutral-700 flex items-center gap-1.5">
               <span>Programs</span>
@@ -381,22 +388,22 @@
           </div>
           <!-- Watermark -->
           <div
-            class="absolute bottom-[-16px] right-[-16px] text-[#2075BC] opacity-[0.08] pointer-events-none group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+            class="absolute bottom-[-16px] right-[-16px] text-[#37314F] opacity-[0.08] pointer-events-none group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
             <span class="iconify text-[144px]" data-icon="ph:microphone-stage-light"></span>
           </div>
         </a>
 
         <!-- Card 4: Completed -->
         <div
-          class="bg-[#FDF0F2] rounded-[32px] p-8 relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-all duration-300">
+          class="bg-[#F9ECF2] rounded-[32px] p-8 relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-all duration-300">
           <div>
-            <div id="count-completed" class="text-5xl md:text-6xl font-light tracking-tight text-[#EA3650] mb-1">...
+            <div id="count-completed" class="text-5xl md:text-6xl font-light tracking-tight text-[#92205D] mb-1">...
             </div>
             <div class="text-lg md:text-xl font-light text-neutral-700">Completed</div>
           </div>
           <!-- Watermark -->
           <div
-            class="absolute bottom-[-16px] right-[-16px] text-[#EA3650] opacity-[0.08] pointer-events-none group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+            class="absolute bottom-[-16px] right-[-16px] text-[#92205D] opacity-[0.08] pointer-events-none group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
             <span class="iconify text-[144px]" data-icon="ph:map-trifold-light"></span>
           </div>
         </div>
@@ -409,139 +416,229 @@
   <section class="w-full bg-white pb-24 relative z-20">
     <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
 
-      <!-- Grid Layout -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-
-        <!-- Left Title Column -->
-        <div class="lg:col-span-4 flex flex-col justify-center text-left">
-          <span class="text-sm font-light text-neutral-400 uppercase tracking-widest mb-2 font-sans">Festival</span>
-          <h2 class="font-sans font-light text-4xl md:text-5xl leading-tight tracking-tight text-neutral-900">
-            <span class="text-brandRed font-medium">Coordinators</span> &amp; <br>
-            <span class="text-[#09ABB1] font-medium">Controllers</span>
+      <!-- Section Title Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-gray-100 pb-6 gap-4">
+        <div>
+          <span
+            class="text-xs font-bold text-neutral-400 uppercase tracking-widest block mb-1 font-sans">Festival</span>
+          <h2 class="font-sans font-light text-3xl md:text-5xl leading-tight tracking-tight text-neutral-900">
+            <span class="text-[#92205D] font-bold">Coordinators</span> &amp;
+            <span class="text-[#17635F] font-bold">Controllers</span>
           </h2>
         </div>
+        <p class="text-xs text-neutral-500 max-w-xs">Dedicated festival leadership team managing festival venues,
+          programs, media &amp; operations.</p>
+      </div>
 
-        <!-- Right Redesigned Column -->
-        <div class="lg:col-span-8">
-          <div class="grid grid-cols-1 sm:grid-cols-5 gap-8 items-start">
+      <div class="space-y-12">
+        <!-- 1. Controllers Block -->
+        <div>
+          <div class="relative flex items-center justify-center mb-6">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+              <div class="w-full border-t border-neutral-200"></div>
+            </div>
+            <div class="relative flex justify-center bg-white px-4">
+              <span class="text-xs font-bold tracking-[0.2em] text-[#17635F] uppercase flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#17635F]"></span> Controllers
+              </span>
+            </div>
+          </div>
 
-            <!-- Controllers Section (3 columns) -->
-            <div class="sm:col-span-3 flex flex-col">
-              <!-- Divider Header -->
-              <div class="relative flex items-center justify-center mb-6">
-                <div class="absolute inset-0 flex items-center" aria-hidden="true">
-                  <div class="w-full border-t border-[#EA3650]"></div>
-                </div>
-                <div class="relative flex justify-center bg-white px-3">
-                  <span
-                    class="text-xs font-sans font-light tracking-[0.2em] text-neutral-900 uppercase">Controllers</span>
+          <!-- Controllers Grid -->
+          <div id="controllers-container" class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-4">
+            <!-- Card 1 -->
+            <div class="flex flex-col">
+              <div
+                class="w-full aspect-[3/4] bg-[#92205D] rounded-xl sm:rounded-2xl md:rounded-[20px] shadow-sm relative overflow-hidden">
+                <div
+                  class="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-white text-neutral-900 text-[8px] sm:text-[9px] md:text-[10px] font-sans font-normal tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">
+                  Cheif
                 </div>
               </div>
-
-              <!-- Cards Grid -->
-              <div id="controllers-container" class="grid grid-cols-3 gap-3 md:gap-4">
-                <!-- Card 1: Chief Controller -->
-                <div class="flex flex-col">
-                  <div class="w-full aspect-[3/4] bg-[#EA3650] rounded-2xl md:rounded-[20px] shadow-sm relative">
-                    <!-- Chief Pill Badge -->
-                    <div
-                      class="absolute bottom-3 right-3 bg-white text-neutral-900 text-[9px] md:text-[10px] font-sans font-light tracking-wider px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">
-                      Cheif
-                    </div>
-                  </div>
-                  <div class="mt-3 text-left">
-                    <p class="text-[12px] md:text-sm font-sans font-light text-neutral-800 leading-tight">Fulan Hudawi
-                    </p>
-                    <p class="text-[12px] md:text-sm font-sans font-light text-neutral-800 leading-tight">Odamala</p>
-                  </div>
-                </div>
-
-                <!-- Card 2: Controller -->
-                <div class="flex flex-col">
-                  <div class="w-full aspect-[3/4] bg-[#EA8F23] rounded-2xl md:rounded-[20px] shadow-sm relative">
-                    <!-- Assistant Pill Badge -->
-                    <div
-                      class="absolute bottom-3 right-3 bg-white text-neutral-900 text-[9px] md:text-[10px] font-sans font-light tracking-wider px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">
-                      Assistant
-                    </div>
-                  </div>
-                  <div class="mt-3 text-left">
-                    <p class="text-[12px] md:text-sm font-sans font-light text-neutral-800 leading-tight">Fulan Hudawi
-                    </p>
-                    <p class="text-[12px] md:text-sm font-sans font-light text-neutral-800 leading-tight">Odamala</p>
-                  </div>
-                </div>
-
-                <!-- Card 3: Controller -->
-                <div class="flex flex-col">
-                  <div class="w-full aspect-[3/4] bg-[#00A3E0] rounded-2xl md:rounded-[20px] shadow-sm relative">
-                    <!-- Assistant Pill Badge -->
-                    <div
-                      class="absolute bottom-3 right-3 bg-white text-neutral-900 text-[9px] md:text-[10px] font-sans font-light tracking-wider px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">
-                      Assistant
-                    </div>
-                  </div>
-                  <div class="mt-3 text-left">
-                    <p class="text-[12px] md:text-sm font-sans font-light text-neutral-800 leading-tight">Fulan Hudawi
-                    </p>
-                    <p class="text-[12px] md:text-sm font-sans font-light text-neutral-800 leading-tight">Odamala</p>
-                  </div>
-                </div>
+              <div class="mt-2 sm:mt-3 text-left">
+                <p
+                  class="text-[11px] sm:text-xs md:text-sm font-sans font-semibold text-neutral-800 leading-tight truncate">
+                  Fayiz Hudawi</p>
+                <p class="text-[9px] sm:text-[11px] md:text-xs font-sans text-neutral-500 leading-tight truncate">
+                  Manjeri</p>
               </div>
             </div>
-
-            <!-- Coordinators Section (2 columns) -->
-            <div class="sm:col-span-2 flex flex-col">
-              <!-- Divider Header -->
-              <div class="relative flex items-center justify-center mb-6">
-                <div class="absolute inset-0 flex items-center" aria-hidden="true">
-                  <div class="w-full border-t border-[#EA3650]"></div>
-                </div>
-                <div class="relative flex justify-center bg-white px-3">
-                  <span
-                    class="text-xs font-sans font-light tracking-[0.2em] text-neutral-900 uppercase">Coordinators</span>
+            <!-- Card 2 -->
+            <div class="flex flex-col">
+              <div
+                class="w-full aspect-[3/4] bg-[#37314F] rounded-xl sm:rounded-2xl md:rounded-[20px] shadow-sm relative overflow-hidden">
+                <div
+                  class="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-white text-neutral-900 text-[8px] sm:text-[9px] md:text-[10px] font-sans font-normal tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">
+                  Assistant
                 </div>
               </div>
-
-              <!-- Cards Grid -->
-              <div id="coordinators-container" class="grid grid-cols-2 gap-3 md:gap-4">
-                <!-- Card 4: Coordinator -->
-                <div class="flex flex-col">
-                  <div class="w-full aspect-[3/4] bg-[#09ABB1] rounded-2xl md:rounded-[20px] shadow-sm relative">
-                    <!-- Coordinator Pill Badge -->
-                    <div
-                      class="absolute bottom-3 right-3 bg-white text-neutral-900 text-[9px] md:text-[10px] font-sans font-light tracking-wider px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">
-                      Coordinator
-                    </div>
-                  </div>
-                  <div class="mt-3 text-left">
-                    <p class="text-[12px] md:text-sm font-sans font-light text-neutral-800 leading-tight">Fulan Hudawi
-                    </p>
-                    <p class="text-[12px] md:text-sm font-sans font-light text-neutral-800 leading-tight">Odamala</p>
-                  </div>
-                </div>
-
-                <!-- Card 5: Coordinator -->
-                <div class="flex flex-col">
-                  <div class="w-full aspect-[3/4] bg-[#2075BC] rounded-2xl md:rounded-[20px] shadow-sm relative">
-                    <!-- Coordinator Pill Badge -->
-                    <div
-                      class="absolute bottom-3 right-3 bg-white text-neutral-900 text-[9px] md:text-[10px] font-sans font-light tracking-wider px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">
-                      Coordinator
-                    </div>
-                  </div>
-                  <div class="mt-3 text-left">
-                    <p class="text-[12px] md:text-sm font-sans font-light text-neutral-800 leading-tight">Fulan Hudawi
-                    </p>
-                    <p class="text-[12px] md:text-sm font-sans font-light text-neutral-800 leading-tight">Odamala</p>
-                  </div>
-                </div>
+              <div class="mt-2 sm:mt-3 text-left">
+                <p
+                  class="text-[11px] sm:text-xs md:text-sm font-sans font-semibold text-neutral-800 leading-tight truncate">
+                  Saheer Hudawi</p>
+                <p class="text-[9px] sm:text-[11px] md:text-xs font-sans text-neutral-500 leading-tight truncate">Pang
+                </p>
               </div>
             </div>
+            <!-- Card 3 -->
+            <div class="flex flex-col">
+              <div
+                class="w-full aspect-[3/4] bg-[#C0912B] rounded-xl sm:rounded-2xl md:rounded-[20px] shadow-sm relative overflow-hidden">
+                <div
+                  class="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-white text-neutral-900 text-[8px] sm:text-[9px] md:text-[10px] font-sans font-normal tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">
+                  Assistant
+                </div>
+              </div>
+              <div class="mt-2 sm:mt-3 text-left">
+                <p
+                  class="text-[11px] sm:text-xs md:text-sm font-sans font-semibold text-neutral-800 leading-tight truncate">
+                  Fayiz Nujoomi</p>
+                <p class="text-[9px] sm:text-[11px] md:text-xs font-sans text-neutral-500 leading-tight truncate">
+                  Vadakara</p>
+              </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="flex flex-col">
+              <div
+                class="w-full aspect-[3/4] bg-[#92205D] rounded-xl sm:rounded-2xl md:rounded-[20px] shadow-sm relative overflow-hidden">
+                <div
+                  class="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-white text-neutral-900 text-[8px] sm:text-[9px] md:text-[10px] font-sans font-normal tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">
+                  Assistant
+                </div>
+              </div>
+              <div class="mt-2 sm:mt-3 text-left">
+                <p
+                  class="text-[11px] sm:text-xs md:text-sm font-sans font-semibold text-neutral-800 leading-tight truncate">
+                  Misfer Wafy</p>
+                <p class="text-[9px] sm:text-[11px] md:text-xs font-sans text-neutral-500 leading-tight truncate">
+                  Thazhekkode</p>
+              </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="flex flex-col">
+              <div
+                class="w-full aspect-[3/4] bg-[#37314F] rounded-xl sm:rounded-2xl md:rounded-[20px] shadow-sm relative overflow-hidden">
+                <div
+                  class="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-white text-neutral-900 text-[8px] sm:text-[9px] md:text-[10px] font-sans font-normal tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">
+                  Financial
+                </div>
+              </div>
+              <div class="mt-2 sm:mt-3 text-left">
+                <p
+                  class="text-[11px] sm:text-xs md:text-sm font-sans font-semibold text-neutral-800 leading-tight truncate">
+                  Jaleel Hudawi</p>
+                <p class="text-[9px] sm:text-[11px] md:text-xs font-sans text-neutral-500 leading-tight truncate">
+                  Koottilangadi</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <!-- 2. Coordinators Block -->
+        <div>
+          <div class="relative flex items-center justify-center mb-6">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+              <div class="w-full border-t border-neutral-200"></div>
+            </div>
+            <div class="relative flex justify-center bg-white px-4">
+              <span class="text-xs font-bold tracking-[0.2em] text-[#92205D] uppercase flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#92205D]"></span> Coordinators
+              </span>
+            </div>
+          </div>
+
+          <!-- Coordinators Grid -->
+          <div id="coordinators-container" class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-4">
+            <!-- Card 1 -->
+            <div class="flex flex-col">
+              <div
+                class="w-full aspect-[3/4] bg-[#92205D] rounded-xl sm:rounded-2xl md:rounded-[20px] shadow-sm relative overflow-hidden">
+                <div
+                  class="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-white text-neutral-900 text-[8px] sm:text-[9px] md:text-[10px] font-sans font-normal tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">
+                  Student
+                </div>
+              </div>
+              <div class="mt-2 sm:mt-3 text-left">
+                <p
+                  class="text-[11px] sm:text-xs md:text-sm font-sans font-semibold text-neutral-800 leading-tight truncate">
+                  Amjed Khan</p>
+                <p class="text-[9px] sm:text-[11px] md:text-xs font-sans text-neutral-500 leading-tight truncate">
+                  Makkaraparamba</p>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="flex flex-col">
+              <div
+                class="w-full aspect-[3/4] bg-[#92205D] rounded-xl sm:rounded-2xl md:rounded-[20px] shadow-sm relative overflow-hidden">
+                <div
+                  class="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-white text-neutral-900 text-[8px] sm:text-[9px] md:text-[10px] font-sans font-normal tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">
+                  Student
+                </div>
+              </div>
+              <div class="mt-2 sm:mt-3 text-left">
+                <p
+                  class="text-[11px] sm:text-xs md:text-sm font-sans font-semibold text-neutral-800 leading-tight truncate">
+                  Muhammed Sinan</p>
+                <p class="text-[9px] sm:text-[11px] md:text-xs font-sans text-neutral-500 leading-tight truncate">Aripra
+                </p>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="flex flex-col">
+              <div
+                class="w-full aspect-[3/4] bg-[#C0912B] rounded-xl sm:rounded-2xl md:rounded-[20px] shadow-sm relative overflow-hidden">
+                <div
+                  class="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-white text-neutral-900 text-[8px] sm:text-[9px] md:text-[10px] font-sans font-normal tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">
+                  Media
+                </div>
+              </div>
+              <div class="mt-2 sm:mt-3 text-left">
+                <p
+                  class="text-[11px] sm:text-xs md:text-sm font-sans font-semibold text-neutral-800 leading-tight truncate">
+                  Muhammed Ismaeel</p>
+                <p class="text-[9px] sm:text-[11px] md:text-xs font-sans text-neutral-500 leading-tight truncate">
+                  Puthanangadi</p>
+              </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="flex flex-col">
+              <div
+                class="w-full aspect-[3/4] bg-[#C0912B] rounded-xl sm:rounded-2xl md:rounded-[20px] shadow-sm relative overflow-hidden">
+                <div
+                  class="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-white text-neutral-900 text-[8px] sm:text-[9px] md:text-[10px] font-sans font-normal tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">
+                  Media
+                </div>
+              </div>
+              <div class="mt-2 sm:mt-3 text-left">
+                <p
+                  class="text-[11px] sm:text-xs md:text-sm font-sans font-semibold text-neutral-800 leading-tight truncate">
+                  Muhammed Rasal</p>
+                <p class="text-[9px] sm:text-[11px] md:text-xs font-sans text-neutral-500 leading-tight truncate">
+                  Nattukal</p>
+              </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="flex flex-col">
+              <div
+                class="w-full aspect-[3/4] bg-[#17635F] rounded-xl sm:rounded-2xl md:rounded-[20px] shadow-sm relative overflow-hidden">
+                <div
+                  class="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-white text-neutral-900 text-[8px] sm:text-[9px] md:text-[10px] font-sans font-normal tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">
+                  Web
+                </div>
+              </div>
+              <div class="mt-2 sm:mt-3 text-left">
+                <p
+                  class="text-[11px] sm:text-xs md:text-sm font-sans font-semibold text-neutral-800 leading-tight truncate">
+                  Web Team</p>
+                <p class="text-[9px] sm:text-[11px] md:text-xs font-sans text-neutral-500 leading-tight truncate">
+                  Odamala</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+    </div>
   </section>
 
   <!-- Team Captains Section -->
@@ -552,8 +649,8 @@
       <span
         class="text-sm font-light text-neutral-400 uppercase tracking-widest mb-1.5 font-sans block animate-fade-in">Fest</span>
       <h2
-        class="font-sans font-light text-4xl md:text-5xl leading-tight tracking-tight text-[#09ABB1] mb-12 animate-fade-in">
-        Our <span class="font-medium text-[#2075BC]">Teams</span>
+        class="font-sans font-light text-4xl md:text-5xl leading-tight tracking-tight text-[#17635F] mb-12 animate-fade-in">
+        Our <span class="font-medium text-[#37314F]">Teams</span>
       </h2>
 
       <!-- Captains Grid -->
@@ -582,7 +679,7 @@
         <div class="w-full lg:w-[55%] flex flex-col text-left py-4 lg:pr-6">
           <span class="text-neutral-400 font-sans font-light text-sm mb-1">About</span>
           <h2
-            class="text-3xl md:text-4xl lg:text-[2.75rem] font-sans font-light text-[#09ABB1] leading-tight mb-6 tracking-tight">
+            class="text-3xl md:text-4xl lg:text-[2.75rem] font-sans font-light text-[#17635F] leading-tight mb-6 tracking-tight">
             SFADC Odamala</h2>
 
           <p class="font-sans font-light text-[14px] md:text-[15px] text-neutral-500 leading-[1.8] mb-6">
@@ -641,11 +738,11 @@
       <div class="flex flex-col max-w-[400px] w-full text-center lg:text-left items-center lg:items-start">
         <div class="mb-6 relative">
           <div class="absolute -inset-4 bg-gray-50/50 rounded-full blur-xl -z-10"></div>
-          <img src="asset/sibaq-logo.svg" alt="SIBAQ Logo" class="h-16 md:h-20 w-auto object-contain relative z-10">
+          <img src="asset/logo-logo.png" alt="SIBAQ Logo" class="h-16 md:h-20 w-auto object-contain relative z-10">
         </div>
-        <p class="font-sans font-light text-[14px] md:text-[15px] text-neutral-500 leading-relaxed mb-8">
-          Darul Huda Islamic University, Hidaya Nagar,<br>Chemmad, Tirurangadi PO, Malappuram Dist.<br>Pin: 676306,
-          Kerala, India
+        <p class="font-sans font-light text-[14px] md:text-[15px] text-neutral-500 leading-relaxed mb-8"
+          data-fest="address">
+          Sheikh Fareed Auliya Da'wa College (SFADC),<br>Odamala, Malappuram Dist.<br>Kerala, India
         </p>
         <div class="flex space-x-3 mb-10">
           <a href="#"
@@ -666,7 +763,8 @@
           </a>
         </div>
         <p class="font-sans text-[13px] text-neutral-400">
-          © All rights reserved | Sibaq Committee <span data-fest="copyright-year">2026</span>
+          © All rights reserved | <span data-fest="name">Festival</span> Committee <span
+            data-fest="copyright-year">2026</span>
         </p>
       </div>
 
@@ -677,116 +775,77 @@
           <img src="asset/5Rect.png" alt="Icon"
             class="w-10 h-10 object-contain relative z-10 animate-[spin_8s_linear_infinite]">
         </div>
+        <!-- Right: Subscription Card -->
         <h3 class="font-sans font-medium text-[22px] md:text-2xl text-neutral-800 mb-3">Never Miss Anything</h3>
         <p class="font-sans font-light text-sm text-neutral-400 mb-8 leading-relaxed px-2">
-          Keep Tracking Sibaq Events and be part of the<br>prestigious Art Fest
+          Keep Tracking <span data-fest="name">Festival</span> Events and be part of the<br>prestigious Art Fest
         </p>
         <div class="flex flex-col space-y-3.5 relative z-10">
           <input type="email" placeholder="Enter your email"
-            class="w-full bg-[#F0F9F9] border-none rounded-full px-6 py-4 text-sm font-sans focus:ring-2 focus:ring-[#09ABB1] focus:outline-none placeholder-neutral-400 text-center text-neutral-700 transition-all">
-          <button
-            class="w-full bg-[#09ABB1] hover:bg-[#07999F] text-white rounded-full px-6 py-4 text-[15px] font-sans font-medium transition-colors shadow-lg shadow-[#09ABB1]/20">
-            Subscribe
-          </button>
+            class="w-full bg-[#F0F9F9] border-none rounded-full px-6 py-4 text-sm font-sans focus:ring-2 focus:ring-[#17635F] focus:outline-none placeholder-neutral-400 text-center text-neutral-700 transition-all">
         </div>
+        <button
+          class="w-full bg-[#17635F] hover:bg-[#13514E] text-white rounded-full px-6 py-4 text-[15px] font-sans font-medium transition-colors shadow-lg shadow-[#17635F]/20">
+          Subscribe Now
+        </button>
+        </form>
       </div>
+
     </div>
   </footer>
 
-  <!-- Bottom Empty Space to mimic layout structure -->
-  <div class="h-6 bg-white"></div>
-
-  <!-- Mobile Full-Page Menu Overlay -->
-  <div id="mobile-menu"
-    class="fixed inset-0 bg-white z-[90] flex flex-col items-center justify-center p-6 md:hidden opacity-0 pointer-events-none transition-all duration-500">
-
-    <!-- Center Emblem at Top -->
-    <div class="mb-8 flex flex-col items-center">
-      <div id="mobile-menu-badge"
-        class="w-16 h-16 bg-white border border-gray-200 rounded-2xl flex items-center justify-center shadow-sm mb-3 cursor-pointer">
-        <img src="asset/5Rect.png" alt="Emblem" class="w-10 h-10 object-contain">
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[9999] flex flex-col justify-between p-6">
+    <!-- Top Header inside overlay: Emblem Logo + Close Button -->
+    <div class="flex items-center justify-between border-b border-gray-100 pb-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-white border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
+          <img src="asset/5Rect.png" alt="Emblem" class="w-6 h-6 object-contain" data-fest="logo">
+        </div>
+        <span class="font-sans font-semibold text-lg text-gray-900 tracking-tight" data-fest="title"><span
+            data-fest="name">Festival</span> <span data-fest="year-short">'26</span></span>
       </div>
-      <p class="font-sans font-medium text-lg tracking-[0.1em] text-neutral-900 uppercase">Kauthukam</p>
+      <button id="mobile-menu-close" class="p-2 text-gray-500 hover:text-gray-900 transition-colors">
+        <i class="fi fi-rr-cross text-xl"></i>
+      </button>
     </div>
 
-    <!-- Vertical List stack of 6 Buttons -->
-    <div class="w-full max-w-[290px] flex flex-col space-y-3.5">
-      <!-- Home (Solid Red) -->
+    <!-- Middle Staggered Navigation Buttons Grid -->
+    <div class="grid grid-cols-1 gap-3 py-6 my-auto">
       <a href="index.html"
         class="mobile-menu-btn bg-brandRed border border-brandRed text-white flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide shadow-sm">
         <span>Home</span>
-        <i class="fi fi-rr-home text-lg shrink-0 mt-0.5"></i>
+        <i class="fi fi-rr-home text-xl"></i>
       </a>
-      <!-- Downloads (Light Blue Outline Style) -->
       <a href="downloads.html"
-        class="mobile-menu-btn bg-[#E8F2FA] text-[#2075BC] border border-[#2075BC]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        class="mobile-menu-btn bg-[#F2F0F6] text-[#37314F] border border-[#37314F]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
         <span>Downloads</span>
-        <i class="fi fi-rr-cloud-download text-lg shrink-0 mt-0.5"></i>
+        <i class="fi fi-rr-cloud-download text-xl"></i>
       </a>
-      <!-- Result (Light Orange Outline Style) -->
       <a href="results/index.html"
-        class="mobile-menu-btn bg-[#FDF3E8] text-[#EA8F23] border border-[#EA8F23]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        class="mobile-menu-btn bg-[#FAF5EA] text-[#C0912B] border border-[#C0912B]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
         <span>Result</span>
-        <i class="fi fi-rr-list text-lg shrink-0 mt-0.5"></i>
+        <i class="fi fi-rr-list text-xl"></i>
       </a>
-      <!-- Updates (Light Teal Outline Style) -->
       <a href="updates.html"
-        class="mobile-menu-btn bg-[#E6F7F6] text-[#09ABB1] border border-[#09ABB1]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        class="mobile-menu-btn bg-[#EBF3F2] text-[#17635F] border border-[#17635F]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
         <span>Updates</span>
-        <i class="fi fi-rr-book-alt text-lg shrink-0 mt-0.5"></i>
+        <i class="fi fi-rr-book-alt text-xl"></i>
       </a>
-      <!-- Gallery (Light Green Outline Style) -->
       <a href="gallery.html"
-        class="mobile-menu-btn bg-[#F1F9E8] text-[#74B816] border border-[#74B816]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        class="mobile-menu-btn bg-[#FAF5EA] text-[#C0912B] border border-[#C0912B]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
         <span>Gallery</span>
-        <i class="fi fi-rr-folder-camera text-lg shrink-0 mt-0.5"></i>
+        <i class="fi fi-rr-folder-camera text-xl"></i>
       </a>
-      <!-- Contact Us (Light Purple Outline Style) -->
       <a href="contact.html"
-        class="mobile-menu-btn bg-[#F6ECFA] text-[#AE3EC9] border border-[#AE3EC9]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
+        class="mobile-menu-btn bg-[#F9ECF2] text-[#92205D] border border-[#92205D]/30 flex items-center justify-between px-5 h-12 rounded-2xl font-medium text-sm tracking-wide">
         <span>Contact Us</span>
-        <i class="fi fi-rr-headphones text-lg shrink-0 mt-0.5"></i>
+        <i class="fi fi-rr-headphones text-xl"></i>
       </a>
     </div>
   </div>
 
-  <!-- Interactive Video Overlay Modal -->
-  <div id="video-modal"
-    class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-8 opacity-0 pointer-events-none transition-all duration-500">
-    <button id="close-modal"
-      class="absolute top-6 right-6 text-white hover:text-brandRed transition-colors duration-300">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-        class="w-10 h-10">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-      </svg>
-    </button>
-    <div
-      class="w-full max-w-4xl aspect-video bg-neutral-950 rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 scale-95 transition-transform duration-500"
-      id="video-container">
-      <!-- Embedded Video Player / Interactive Arts Visualizer -->
-      <div class="w-full h-full flex flex-col items-center justify-center relative text-white bg-black">
-        <canvas id="visualizer-canvas" class="absolute inset-0 w-full h-full z-0 opacity-40"></canvas>
-        <div class="z-10 flex flex-col items-center text-center px-6">
-          <div
-            class="w-16 h-16 rounded-full bg-brandRed/20 border border-brandRed/50 flex items-center justify-center mb-4 animate-bounce">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-              stroke="currentColor" class="w-8 h-8 text-brandRed">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M9 9l10.5-3m0 0L21 9M19.5 6l-10.5 3m0 0L3 9m6 6l10.5-3m-10.5 3L3 15m6-6v6" />
-            </svg>
-          </div>
-          <h3 class="font-sans font-bold text-2xl md:text-3xl mb-2 text-white" data-fest="name-experience">Experience
-            Kauthukam '26</h3>
-          <p class="text-gray-400 text-sm md:text-base max-w-md mb-6">Let the colors of culture, music, and art take
-            over. The grand celebration has officially started!</p>
-          <button id="modal-action-btn"
-            class="bg-brandRed hover:bg-brandRed/90 text-white font-semibold font-sans px-8 py-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95">
-            Enter Festival Hall
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <!-- Confetti / Celebration Canvas -->
   <canvas id="celebration-canvas" class="fixed inset-0 pointer-events-none z-[80]"></canvas>
@@ -892,6 +951,21 @@
         renderFallbackTeamCaptains();
       }
 
+      function getRoleRank(role) {
+        const r = (role || '').toLowerCase().trim();
+        if (r.includes('chief') || r.includes('cheif')) return 1;
+        if (r.includes('assistant') || r.includes('asst')) return 2;
+        if (r.includes('financial') || r.includes('finance') || r.includes('finiancial')) return 3;
+        return 4;
+      }
+
+      function getItemSortScore(item, index = 0) {
+        if (typeof item.order === 'number' && !isNaN(item.order)) {
+          return item.order;
+        }
+        return (getRoleRank(item.role) * 100) + index;
+      }
+
       function renderCoordinatorsAndControllers(items) {
         const ctrlContainer = document.getElementById('controllers-container');
         const coordContainer = document.getElementById('coordinators-container');
@@ -899,26 +973,29 @@
         const controllers = items.filter(i => (i.group || '').toLowerCase() === 'controller');
         const coordinators = items.filter(i => (i.group || '').toLowerCase() === 'coordinator');
 
+        controllers.sort((a, b) => getItemSortScore(a) - getItemSortScore(b));
+        coordinators.sort((a, b) => getItemSortScore(a) - getItemSortScore(b));
+
         if (ctrlContainer && controllers.length > 0) {
           ctrlContainer.innerHTML = controllers.map(c => {
             const bgStyle = c.imageUrl
-              ? "background-image: url('" + c.imageUrl + "'); background-size: cover; background-position: center;"
-              : "background-color: " + (c.color || '#EA3650') + ";";
+              ? "background-color: " + (c.color || '#92205D') + "; background-image: url('" + c.imageUrl + "'); background-size: cover; background-position: center;"
+              : "background-color: " + (c.color || '#92205D') + ";";
             const roleText = c.role || 'CONTROLLER';
             const nameText = c.name || '';
             const locText = c.location || 'Odamala';
             const overlayHTML = c.imageUrl ? '<div class="absolute inset-0 bg-black/10"></div>' : '';
 
             return '<div class="flex flex-col">' +
-              '<div class="w-full aspect-[3/4] rounded-2xl md:rounded-[20px] shadow-sm relative overflow-hidden" style="' + bgStyle + '">' +
+              '<div class="w-full aspect-[3/4] rounded-xl sm:rounded-2xl md:rounded-[20px] shadow-sm relative overflow-hidden" style="' + bgStyle + '">' +
               overlayHTML +
-              '<div class="absolute bottom-3 right-3 bg-white text-neutral-900 text-[9px] md:text-[10px] font-sans font-light tracking-wider px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">' +
+              '<div class="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-white text-neutral-900 text-[8px] sm:text-[9px] md:text-[10px] font-sans font-normal tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">' +
               roleText +
               '</div>' +
               '</div>' +
-              '<div class="mt-3 text-left">' +
-              '<p class="text-[12px] md:text-sm font-sans font-light text-neutral-800 leading-tight">' + nameText + '</p>' +
-              '<p class="text-[12px] md:text-sm font-sans font-light text-neutral-800 leading-tight">' + locText + '</p>' +
+              '<div class="mt-2 sm:mt-3 text-left">' +
+              '<p class="text-[11px] sm:text-xs md:text-sm font-sans font-semibold text-neutral-800 leading-tight truncate">' + nameText + '</p>' +
+              '<p class="text-[9px] sm:text-[11px] md:text-xs font-sans text-neutral-500 leading-tight truncate">' + locText + '</p>' +
               '</div>' +
               '</div>';
           }).join('');
@@ -927,23 +1004,23 @@
         if (coordContainer && coordinators.length > 0) {
           coordContainer.innerHTML = coordinators.map(c => {
             const bgStyle = c.imageUrl
-              ? "background-image: url('" + c.imageUrl + "'); background-size: cover; background-position: center;"
-              : "background-color: " + (c.color || '#09ABB1') + ";";
+              ? "background-color: " + (c.color || '#17635F') + "; background-image: url('" + c.imageUrl + "'); background-size: cover; background-position: center;"
+              : "background-color: " + (c.color || '#17635F') + ";";
             const roleText = c.role || 'COORDINATOR';
             const nameText = c.name || '';
             const locText = c.location || 'Odamala';
             const overlayHTML = c.imageUrl ? '<div class="absolute inset-0 bg-black/10"></div>' : '';
 
             return '<div class="flex flex-col">' +
-              '<div class="w-full aspect-[3/4] rounded-2xl md:rounded-[20px] shadow-sm relative overflow-hidden" style="' + bgStyle + '">' +
+              '<div class="w-full aspect-[3/4] rounded-xl sm:rounded-2xl md:rounded-[20px] shadow-sm relative overflow-hidden" style="' + bgStyle + '">' +
               overlayHTML +
-              '<div class="absolute bottom-3 right-3 bg-white text-neutral-900 text-[9px] md:text-[10px] font-sans font-light tracking-wider px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">' +
+              '<div class="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-white text-neutral-900 text-[8px] sm:text-[9px] md:text-[10px] font-sans font-normal tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full select-none shadow-sm uppercase leading-none">' +
               roleText +
               '</div>' +
               '</div>' +
-              '<div class="mt-3 text-left">' +
-              '<p class="text-[12px] md:text-sm font-sans font-light text-neutral-800 leading-tight">' + nameText + '</p>' +
-              '<p class="text-[12px] md:text-sm font-sans font-light text-neutral-800 leading-tight">' + locText + '</p>' +
+              '<div class="mt-2 sm:mt-3 text-left">' +
+              '<p class="text-[11px] sm:text-xs md:text-sm font-sans font-semibold text-neutral-800 leading-tight truncate">' + nameText + '</p>' +
+              '<p class="text-[9px] sm:text-[11px] md:text-xs font-sans text-neutral-500 leading-tight truncate">' + locText + '</p>' +
               '</div>' +
               '</div>';
           }).join('');
@@ -979,10 +1056,10 @@
         if (!container) return;
 
         const fallbackTeams = [
-          { name: 'Team 01', color: '#EA3650' },
-          { name: 'Team 02', color: '#EA8F23' },
-          { name: 'Team 03', color: '#2075BC' },
-          { name: 'Team 04', color: '#09ABB1' }
+          { name: 'Team 01', color: '#92205D' },
+          { name: 'Team 02', color: '#C0912B' },
+          { name: 'Team 03', color: '#37314F' },
+          { name: 'Team 04', color: '#17635F' }
         ];
 
         let html = '';

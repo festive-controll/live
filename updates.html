@@ -22,12 +22,15 @@
       theme: {
         extend: {
           colors: {
-            brandBlue: '#00A3E0',
-            brandYellow: '#FFC20E',
-            brandRed: '#EA3650',
-            brandGreen: '#E2F8F0',
-            brandGreenBorder: '#D2EFE4',
-            brandTeal: '#09ABB1'
+            brandBlue: '#37314F',
+            brandYellow: '#C0912B',
+            brandRed: '#92205D',
+            brandGreen: '#17635F',
+            brandGreenBorder: '#17635F33',
+            brandTeal: '#17635F',
+            brandPurple: '#37314F',
+            brandOrange: '#C0912B',
+            brandMagenta: '#92205D',
           },
           fontFamily: {
             sans: ['Clash Grotesk', 'sans-serif'],
@@ -61,21 +64,21 @@
 
       <!-- Left Wings (Home, Downloads, Result) -->
       <div id="scorebar-left" class="scorebar-wing flex items-center justify-end space-x-1.5 pr-2">
-        <!-- Home (Outline Red) -->
+        <!-- Home (Outline Magenta) -->
         <a href="index.html"
-          class="scorebar-btn bg-[#FDF2F4] text-brandRed border border-brandRed/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#fbdde1] transition-colors">
+          class="scorebar-btn bg-[#F9ECF2] text-[#92205D] border border-[#92205D]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f2d8e4] transition-colors">
           <span>Home</span>
           <i class="fi fi-rr-home text-lg shrink-0 mt-0.5"></i>
         </a>
-        <!-- Downloads (Light Blue Outline Style) -->
+        <!-- Downloads (Light Dark Indigo Outline Style) -->
         <a href="downloads.html"
-          class="scorebar-btn bg-[#E8F2FA] text-[#2075BC] border border-[#2075BC]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#d5e6f5] transition-colors">
+          class="scorebar-btn bg-[#F2F0F6] text-[#37314F] border border-[#37314F]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#e4e0ec] transition-colors">
           <span>Downloads</span>
           <i class="fi fi-rr-cloud-download text-lg shrink-0 mt-0.5"></i>
         </a>
-        <!-- Result (Light Orange Outline Style) -->
-        <a href="result.html"
-          class="scorebar-btn bg-[#FDF3E8] text-[#EA8F23] border border-[#EA8F23]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#fbe4cb] transition-colors">
+        <!-- Result (Light Gold Outline Style) -->
+        <a href="results/index.html"
+          class="scorebar-btn bg-[#FAF5EA] text-[#C0912B] border border-[#C0912B]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f3e7ce] transition-colors">
           <span>Result</span>
           <i class="fi fi-rr-list text-lg shrink-0 mt-0.5"></i>
         </a>
@@ -89,21 +92,21 @@
 
       <!-- Right Wings (Updates, Gallery, Contact Us) -->
       <div id="scorebar-right" class="scorebar-wing flex items-center justify-start space-x-1.5 pl-2">
-        <!-- Updates (Solid Teal - Active) -->
+        <!-- Updates (Solid Deep Teal - Active) -->
         <a href="updates.html"
-          class="scorebar-btn bg-[#09ABB1] border border-[#09ABB1] text-white flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide">
+          class="scorebar-btn bg-[#17635F] border border-[#17635F] text-white flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide">
           <span>Updates</span>
           <i class="fi fi-rr-book-alt text-lg shrink-0 mt-0.5"></i>
         </a>
-        <!-- Gallery (Light Green Outline Style) -->
+        <!-- Gallery (Light Gold Outline Style) -->
         <a href="gallery.html"
-          class="scorebar-btn bg-[#F1F9E8] text-[#74B816] border border-[#74B816]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#e2f3cd] transition-colors">
+          class="scorebar-btn bg-[#FAF5EA] text-[#C0912B] border border-[#C0912B]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f3e7ce] transition-colors">
           <span>Gallery</span>
           <i class="fi fi-rr-folder-camera text-lg shrink-0 mt-0.5"></i>
         </a>
-        <!-- Contact Us (Light Purple Outline Style) -->
+        <!-- Contact Us (Light Magenta Outline Style) -->
         <a href="contact.html"
-          class="scorebar-btn bg-[#F6ECFA] text-[#AE3EC9] border border-[#AE3EC9]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#ecd3f7] transition-colors">
+          class="scorebar-btn bg-[#F9ECF2] text-[#92205D] border border-[#92205D]/30 flex items-center justify-between px-3 rounded-xl font-medium text-[13px] tracking-wide hover:bg-[#f2d8e4] transition-colors">
           <span>Contact Us</span>
           <i class="fi fi-rr-headphones text-lg shrink-0 mt-0.5"></i>
         </a>
@@ -117,7 +120,7 @@
     <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex items-center justify-between gap-4">
       <div
         class="flex items-center justify-center border border-neutral-300 rounded-[1.5rem] px-4 sm:px-6 py-1.5 sm:py-2 shrink-0">
-        <img src="asset/sibaq-logo.svg" alt="SIBAQ Logo" class="h-6 sm:h-7 w-auto object-contain">
+        <img src="asset/logo-logo.png" alt="SIBAQ Logo" class="h-6 sm:h-7 w-auto object-contain">
       </div>
       <h1
         class="font-sans font-normal text-3xl sm:text-4xl bg-gradient-to-r from-neutral-900 to-neutral-500 bg-clip-text text-transparent tracking-tight text-right">
@@ -208,11 +211,10 @@
       <div class="flex flex-col max-w-[400px] w-full text-center lg:text-left items-center lg:items-start">
         <div class="mb-6 relative">
           <div class="absolute -inset-4 bg-gray-50/50 rounded-full blur-xl -z-10"></div>
-          <img src="asset/sibaq-logo.svg" alt="SIBAQ Logo" class="h-16 md:h-20 w-auto object-contain relative z-10">
+          <img src="asset/logo-logo.png" alt="SIBAQ Logo" class="h-16 md:h-20 w-auto object-contain relative z-10">
         </div>
-        <p class="font-sans font-light text-[14px] md:text-[15px] text-neutral-500 leading-relaxed mb-8">
-          Darul Huda Islamic University, Hidaya Nagar,<br>Chemmad, Tirurangadi PO, Malappuram Dist.<br>Pin: 676306,
-          Kerala, India
+        <p class="font-sans font-light text-[14px] md:text-[15px] text-neutral-500 leading-relaxed mb-8" data-fest="address">
+          Sheikh Fareed Auliya Da'wa College (SFADC),<br>Odamala, Malappuram Dist.<br>Kerala, India
         </p>
         <div class="flex space-x-3 mb-10">
           <a href="#"
@@ -233,7 +235,7 @@
           </a>
         </div>
         <p class="font-sans text-[13px] text-neutral-400">
-          © All rights reserved | Sibaq Committee <span data-fest="copyright-year">2026</span>
+          © All rights reserved | <span data-fest="name">Festival</span> Committee <span data-fest="copyright-year">2026</span>
         </p>
       </div>
 
@@ -246,7 +248,7 @@
         </div>
         <h3 class="font-sans font-medium text-[22px] md:text-2xl text-neutral-800 mb-3">Never Miss Anything</h3>
         <p class="font-sans font-light text-sm text-neutral-400 mb-8 leading-relaxed px-2">
-          Keep Tracking Sibaq Events and be part of the<br>prestigious Art Fest
+          Keep Tracking <span data-fest="name">Festival</span> Events and be part of the<br>prestigious Art Fest
         </p>
         <div class="flex flex-col space-y-3.5 relative z-10">
           <input type="email" placeholder="Enter your email"
@@ -421,10 +423,10 @@
     }
 
     const notificationColors = [
-      { bg: 'bg-[#FDF6ED]', icon: 'bg-[#F29A38]', badge: 'bg-[#FBE3CC]', badgeText: 'text-[#D87D17]' }, // Orange
-      { bg: 'bg-[#FDF2F4]', icon: 'bg-[#E3354E]', badge: 'bg-[#FBDDE1]', badgeText: 'text-[#C92A42]' }, // Pink
-      { bg: 'bg-[#EFF5FA]', icon: 'bg-[#2075BC]', badge: 'bg-[#D5E6F5]', badgeText: 'text-[#1A609A]' }, // Blue
-      { bg: 'bg-[#E6F7F6]', icon: 'bg-[#09ABB1]', badge: 'bg-[#C9F0EE]', badgeText: 'text-[#078A8F]' }, // Teal
+      { bg: 'bg-[#FAF5EA]', icon: 'bg-[#C0912B]', badge: 'bg-[#FAF5EA]', badgeText: 'text-[#C0912B]' }, // Gold
+      { bg: 'bg-[#F9ECF2]', icon: 'bg-[#92205D]', badge: 'bg-[#F9ECF2]', badgeText: 'text-[#92205D]' }, // Magenta
+      { bg: 'bg-[#F2F0F6]', icon: 'bg-[#37314F]', badge: 'bg-[#F2F0F6]', badgeText: 'text-[#37314F]' }, // Indigo
+      { bg: 'bg-[#EBF3F2]', icon: 'bg-[#17635F]', badge: 'bg-[#EBF3F2]', badgeText: 'text-[#17635F]' }, // Teal
     ];
 
     function renderUpdates() {
@@ -454,11 +456,11 @@
           <div class="flex flex-col md:flex-row gap-8 lg:gap-16 items-center bg-white">
             <div class="w-full md:w-1/2 flex flex-col items-start space-y-4">
               <p class="text-gray-400 text-sm font-medium">${featured.date || formatDateForFeatured(featured.createdAt?.seconds)}</p>
-              <h2 class="text-4xl md:text-5xl font-medium text-[#E3354E] leading-[1.15] tracking-tight">${featured.title}</h2>
+              <h2 class="text-4xl md:text-5xl font-medium text-[#92205D] leading-[1.15] tracking-tight">${featured.title}</h2>
               <p class="text-gray-600 text-[15px] leading-relaxed line-clamp-4">${featured.content || featured.description || ''}</p>
               <button onclick="openAlertDetail('${featured.id}')" class="flex items-center gap-3 border border-gray-300 rounded-full py-2 px-5 hover:bg-gray-50 transition-colors mt-2 cursor-pointer">
                 <span class="text-sm font-medium text-gray-800">View More</span>
-                <div class="w-6 h-6 rounded-full bg-[#fbdde1] text-[#E3354E] flex items-center justify-center">
+                <div class="w-6 h-6 rounded-full bg-[#F9ECF2] text-[#92205D] flex items-center justify-center">
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg>
                 </div>
               </button>
