@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,9 +8,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="asset/5Rect.png">
   <script src="../fest-favicon.js"></script>
-  <!-- Fontshare Clash Grotesk Font CDN -->
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700,900&display=swap"
-    rel="stylesheet">
+  <!-- Cobe Font Family -->
   <!-- Tailwind CSS v3 -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Iconify -->
@@ -31,7 +29,7 @@
             brandMagenta: '#92205D',
           },
           fontFamily: {
-            sans: ['Clash Grotesk', 'sans-serif'],
+            sans: ['Cobe', 'sans-serif'],
           },
           animation: {
             'fade-in': 'fadeIn 0.5s ease-out forwards',
@@ -59,6 +57,7 @@
   <link rel='stylesheet'
     href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 
+<script type="module" src="/device-tracker.js"></script>
 </head>
 
 <body class="bg-white min-h-screen flex flex-col overflow-x-hidden font-sans select-none relative">
@@ -135,47 +134,53 @@
   </div>
 
   <!-- Filter Section -->
-  <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 pt-6 pb-6 relative z-30">
-    <div class="bg-gray-50/90 border border-gray-200/60 rounded-3xl p-5 md:p-6 shadow-xs space-y-4">
+  <div class="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 pt-6 pb-4 relative z-30">
+    <div class="w-full bg-gray-50/90 border border-gray-200/60 rounded-3xl p-5 md:p-6 shadow-xs space-y-4">
       <!-- Top Row: Search Input & Dropdown Selects -->
       <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
         <!-- Search Input Box -->
-        <div class="relative flex-1">
+        <div class="relative flex-1 min-w-0">
           <i class="fi fi-rr-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-base"></i>
           <input type="text" id="search-programs" oninput="filterSchedules()" placeholder="Search events..."
             class="w-full pl-11 pr-4 py-3 bg-white border border-gray-200/80 rounded-2xl text-sm font-medium text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#17635F]/20 focus:border-[#17635F] transition-all shadow-2xs">
         </div>
 
         <!-- Filter Dropdowns Row -->
-        <div class="grid grid-cols-3 gap-3 w-full lg:w-auto shrink-0">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full lg:w-auto shrink-0 sm:min-w-[420px]">
           <!-- Date Dropdown -->
-          <div class="relative">
+          <div class="relative w-full">
             <select id="filter-date" onchange="filterSchedules()"
-              class="w-full pl-9 pr-8 py-3 bg-white border border-gray-200/80 rounded-2xl text-xs font-bold text-gray-700 cursor-pointer appearance-none shadow-2xs hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#17635F]/20 transition-all">
+              class="w-full pl-9 pr-8 py-3 bg-white border border-gray-200/80 rounded-2xl text-xs font-semibold text-gray-700 cursor-pointer appearance-none shadow-2xs hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#17635F]/20 transition-all">
               <option value="">Date</option>
             </select>
-            <i class="fi fi-rr-calendar absolute left-3 top-1/2 -translate-y-1/2 text-[#92205D] text-sm pointer-events-none"></i>
-            <i class="fi fi-rr-angle-small-down absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-sm"></i>
+            <i
+              class="fi fi-rr-calendar absolute left-3 top-1/2 -translate-y-1/2 text-[#92205D] text-sm pointer-events-none"></i>
+            <i
+              class="fi fi-rr-angle-small-down absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-sm"></i>
           </div>
 
           <!-- Venue Dropdown -->
-          <div class="relative">
+          <div class="relative w-full">
             <select id="filter-venue" onchange="filterSchedules()"
-              class="w-full pl-9 pr-8 py-3 bg-white border border-gray-200/80 rounded-2xl text-xs font-bold text-gray-700 cursor-pointer appearance-none shadow-2xs hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#17635F]/20 transition-all">
+              class="w-full pl-9 pr-8 py-3 bg-white border border-gray-200/80 rounded-2xl text-xs font-semibold text-gray-700 cursor-pointer appearance-none shadow-2xs hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#17635F]/20 transition-all">
               <option value="">Venue</option>
             </select>
-            <i class="fi fi-rr-marker absolute left-3 top-1/2 -translate-y-1/2 text-[#C0912B] text-sm pointer-events-none"></i>
-            <i class="fi fi-rr-angle-small-down absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-sm"></i>
+            <i
+              class="fi fi-rr-marker absolute left-3 top-1/2 -translate-y-1/2 text-[#C0912B] text-sm pointer-events-none"></i>
+            <i
+              class="fi fi-rr-angle-small-down absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-sm"></i>
           </div>
 
           <!-- Category / Section Dropdown -->
-          <div class="relative">
+          <div class="relative w-full">
             <select id="filter-section" onchange="filterSchedules()"
-              class="w-full pl-9 pr-8 py-3 bg-white border border-gray-200/80 rounded-2xl text-xs font-bold text-gray-700 cursor-pointer appearance-none shadow-2xs hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#17635F]/20 transition-all">
+              class="w-full pl-9 pr-8 py-3 bg-white border border-gray-200/80 rounded-2xl text-xs font-semibold text-gray-700 cursor-pointer appearance-none shadow-2xs hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#17635F]/20 transition-all">
               <option value="">Category</option>
             </select>
-            <i class="fi fi-rr-label absolute left-3 top-1/2 -translate-y-1/2 text-[#17635F] text-sm pointer-events-none"></i>
-            <i class="fi fi-rr-angle-small-down absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-sm"></i>
+            <i
+              class="fi fi-rr-label absolute left-3 top-1/2 -translate-y-1/2 text-[#17635F] text-sm pointer-events-none"></i>
+            <i
+              class="fi fi-rr-angle-small-down absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-sm"></i>
           </div>
         </div>
       </div>
@@ -183,11 +188,11 @@
       <!-- Bottom Row: Date Quick Filter Pills -->
       <div class="flex items-center gap-2 pt-1 border-t border-gray-100">
         <button onclick="setDateQuickFilter('all')" id="btn-filter-all"
-          class="px-5 py-1.5 rounded-full text-xs font-bold transition-all bg-[#92205D] text-white shadow-xs">All</button>
+          class="px-5 py-1.5 rounded-full text-xs font-semibold transition-all bg-[#92205D] text-white shadow-xs">All</button>
         <button onclick="setDateQuickFilter('today')" id="btn-filter-today"
-          class="px-5 py-1.5 rounded-full text-xs font-bold transition-all bg-white text-gray-600 border border-gray-200/80 hover:bg-gray-100">Today</button>
+          class="px-5 py-1.5 rounded-full text-xs font-semibold transition-all bg-white text-gray-600 border border-gray-200/80 hover:bg-gray-100">Today</button>
         <button onclick="setDateQuickFilter('tomorrow')" id="btn-filter-tomorrow"
-          class="px-5 py-1.5 rounded-full text-xs font-bold transition-all bg-white text-gray-600 border border-gray-200/80 hover:bg-gray-100">Tomorrow</button>
+          class="px-5 py-1.5 rounded-full text-xs font-semibold transition-all bg-white text-gray-600 border border-gray-200/80 hover:bg-gray-100">Tomorrow</button>
       </div>
     </div>
   </div>
@@ -275,7 +280,20 @@
   <!-- Realtime Data Retrieval & Grouping Script -->
   <script>
     let rawPrograms = [];
+    let venuesMap = {};
     let currentQuickFilter = 'all';
+
+    // Helper to resolve venue name from program object & venues collection map
+    function getProgramVenue(p) {
+      if (!p) return 'TBA';
+      if (p.venueName) return p.venueName;
+      if (p.venue) return p.venue;
+      if (p.venueId && venuesMap[p.venueId]) return venuesMap[p.venueId];
+      if (p.place) return p.place;
+      if (p.subStage) return p.subStage;
+      if (p.venueType) return p.venueType;
+      return 'TBA';
+    }
 
     function setDateQuickFilter(filter) {
       currentQuickFilter = filter;
@@ -296,11 +314,11 @@
     function getSectionBadgeColor(sectionName) {
       if (!sectionName) return 'bg-[#37314F] text-white';
       const sec = sectionName.toUpperCase();
-      if (sec.includes('BIDĀYA') || sec.includes('BIDAYA')) return 'bg-[#92205D] text-white';
-      if (sec.includes('ŪLĀ') || sec.includes('ULA')) return 'bg-[#17635F] text-white';
-      if (sec.includes('THĀNIYA') || sec.includes('THANIYA')) return 'bg-[#37314F] text-white';
-      if (sec.includes('THĀNAWIYYA') || sec.includes('THANAWIYYA')) return 'bg-[#C0912B] text-white';
-      if (sec.includes('ĀLIYA') || sec.includes('ALIYA')) return 'bg-[#92205D] text-white';
+      if (sec.includes('BIDÄ€YA') || sec.includes('BIDAYA')) return 'bg-[#92205D] text-white';
+      if (sec.includes('ÅªLÄ€') || sec.includes('ULA')) return 'bg-[#17635F] text-white';
+      if (sec.includes('THÄ€NIYA') || sec.includes('THANIYA')) return 'bg-[#37314F] text-white';
+      if (sec.includes('THÄ€NAWIYYA') || sec.includes('THANAWIYYA')) return 'bg-[#C0912B] text-white';
+      if (sec.includes('Ä€LIYA') || sec.includes('ALIYA')) return 'bg-[#92205D] text-white';
       if (sec.includes('KULLIYYA') || sec.includes('KULLIYYAH')) return 'bg-[#17635F] text-white';
       return 'bg-[#C0912B] text-white';
     }
@@ -318,7 +336,7 @@
           const day = parseInt(parts[2], 10);
           return `${month} ${day}, ${year}`;
         }
-      } catch (e) {}
+      } catch (e) { }
       return 'TBA';
     }
 
@@ -348,6 +366,19 @@
 
     // Listen to Firebase updates
     if (window.db) {
+      // Listen to venues collection to map venueId -> venue name
+      window.db.collection('venues').onSnapshot(snap => {
+        venuesMap = {};
+        snap.docs.forEach(doc => {
+          const d = doc.data();
+          venuesMap[doc.id] = d.name || d.place || 'Venue';
+        });
+        if (rawPrograms.length > 0) {
+          populateFilterDropdowns();
+          renderSchedules();
+        }
+      }, err => console.error("Venues read error:", err));
+
       window.db.collection('programs').where('status', '==', true).onSnapshot(snap => {
         rawPrograms = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
@@ -385,7 +416,7 @@
 
       const uniqueSections = [...new Set(rawPrograms.map(p => p.section).filter(Boolean))].sort();
       const uniqueDates = [...new Set(rawPrograms.map(p => formatDateNice(p.time)).filter(d => d && d !== 'TBA'))].sort();
-      const uniqueVenues = [...new Set(rawPrograms.map(p => p.venue).filter(Boolean))].sort();
+      const uniqueVenues = [...new Set(rawPrograms.map(p => getProgramVenue(p)).filter(v => v && v !== 'TBA'))].sort();
 
       // Category / Section
       let secHtml = '<option value="">Category</option>';
@@ -431,7 +462,7 @@
       const filtered = rawPrograms.filter(p => {
         if (sectionVal && p.section !== sectionVal) return false;
         if (searchVal && !p.name.toLowerCase().includes(searchVal)) return false;
-        if (venueVal && p.venue !== venueVal) return false;
+        if (venueVal && getProgramVenue(p) !== venueVal) return false;
         if (dateVal && formatDateNice(p.time) !== dateVal) return false;
 
         if (currentQuickFilter === 'today' && !isSameDate(p.time, today)) return false;
@@ -458,7 +489,7 @@
         const sectionTag = p.section || p.category || 'GENERAL';
         const badgeClass = getSectionBadgeColor(sectionTag);
         const descText = p.conceptNote || p.description || 'No description available';
-        const venueText = p.venue || 'TBA';
+        const venueText = getProgramVenue(p);
         const durationText = p.duration || '30 min';
 
         html += `
@@ -466,8 +497,8 @@
             <div>
               <!-- Header: Program Name & Category Tag -->
               <div class="flex justify-between items-start mb-2 gap-3">
-                <h3 class="font-sans font-extrabold text-base md:text-lg text-gray-900 uppercase tracking-tight leading-snug group-hover:text-[#17635F] transition-colors">${p.name || 'UNNAMED PROGRAM'}</h3>
-                <span class="text-[10px] font-extrabold ${badgeClass} px-3 py-1 rounded-lg uppercase tracking-wider shrink-0 shadow-2xs">${sectionTag}</span>
+                <h3 class="font-sans font-semibold text-base md:text-lg text-gray-900 uppercase tracking-tight leading-snug group-hover:text-[#17635F] transition-colors">${p.name || 'UNNAMED PROGRAM'}</h3>
+                <span class="text-[10px] font-semibold ${badgeClass} px-2.5 py-1 rounded-lg uppercase tracking-wider shrink-0 shadow-2xs">${sectionTag}</span>
               </div>
 
               <!-- Subtitle / Concept note -->
@@ -479,19 +510,19 @@
               <!-- Date & Time Row -->
               <div class="grid grid-cols-2 gap-2">
                 <!-- Date Pill -->
-                <div class="flex items-center gap-2 bg-gray-50 border border-gray-100/80 px-3 py-2 rounded-xl text-xs font-semibold text-gray-700">
+                <div class="flex items-center gap-2 bg-gray-50 border border-gray-100/80 px-3 py-2 rounded-xl text-xs font-medium text-gray-700">
                   <i class="fi fi-rr-calendar text-[#92205D] text-sm"></i>
                   <span class="truncate">${dateStr}</span>
                 </div>
                 <!-- Time Pill -->
-                <div class="flex items-center gap-2 bg-gray-50 border border-gray-100/80 px-3 py-2 rounded-xl text-xs font-semibold text-gray-700">
+                <div class="flex items-center gap-2 bg-gray-50 border border-gray-100/80 px-3 py-2 rounded-xl text-xs font-medium text-gray-700">
                   <i class="fi fi-rr-clock text-[#17635F] text-sm"></i>
                   <span class="truncate">${timeStr}</span>
                 </div>
               </div>
 
               <!-- Venue & Duration Row -->
-              <div class="flex items-center justify-between bg-gray-50 border border-gray-100/80 px-3 py-2 rounded-xl text-xs font-semibold text-gray-700">
+              <div class="flex items-center justify-between bg-gray-50 border border-gray-100/80 px-3 py-2 rounded-xl text-xs font-medium text-gray-700">
                 <div class="flex items-center gap-2 truncate">
                   <i class="fi fi-rr-marker text-[#C0912B] text-sm shrink-0"></i>
                   <span class="truncate">${venueText}</span>

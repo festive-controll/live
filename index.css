@@ -8,7 +8,7 @@ html {
 body {
   background-color: #ffffff;
   color: #111111;
-  font-family: 'Clash Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Cobe', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* FIFA 26 Scorebar transition styling */
@@ -87,8 +87,7 @@ body {
 
   .scorebar-wing {
     gap: 4px;
-    space-x: 0 !important;
-    /* Reset tailwind space-x */
+    /* Reset spacing */
   }
 
   .scorebar-btn {
@@ -140,6 +139,7 @@ body {
   padding: 1px;
   background: linear-gradient(135deg, #37314F, #C0912B, #17635F, #92205D);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
@@ -243,8 +243,8 @@ body {
 #splash-screen {
   position: fixed;
   inset: 0;
-  background-color: #17635F;
-  background-image: radial-gradient(circle at center, #1e7c77 0%, #17635F 70%, #114c49 100%);
+  background-color: #ffffff;
+  background-image: none;
   z-index: 99999;
   display: flex;
   align-items: center;
@@ -263,9 +263,10 @@ body {
 }
 
 #splash-logo {
-  height: 120px;
+  height: 220px;
+  max-width: 90vw;
   width: auto;
-  filter: brightness(0) invert(1); /* Makes the logo white */
+  filter: none;
   animation: logoZoom 5s ease-in-out forwards;
 }
 

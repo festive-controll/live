@@ -1,8 +1,8 @@
-(function() {
+(function () {
     const publicPaths = ['/', '/index.html', '/downloads.html', '/gallery.html', '/updates.html', '/schedule.html', '/contact.html', '/result.html', '/results/index.html'];
-    const isPublicPage = window.location.pathname.includes('/public/') || 
-                         publicPaths.includes(window.location.pathname) ||
-                         (document.body && document.body.classList.contains('public-site'));
+    const isPublicPage = window.location.pathname.includes('/public/') ||
+        publicPaths.includes(window.location.pathname) ||
+        (document.body && document.body.classList.contains('public-site'));
 
     // Only inject 80% zoom CSS on Admin Panel pages, NOT on public website pages
     if (!isPublicPage) {
@@ -39,7 +39,7 @@
         // 1. Dynamic Favicon & Apple Touch Icon Update
         if (logo512 || logo192) {
             const primaryLogo = logo512 || logo192;
-            
+
             // Find existing icon link elements
             const iconLinks = document.querySelectorAll('link[rel*="icon"]');
             if (iconLinks.length > 0) {
@@ -178,11 +178,11 @@
                 }
             ]
         };
-        
+
         try {
             const blob = new Blob([JSON.stringify(manifestObj, null, 2)], { type: 'application/json' });
             const manifestUrl = URL.createObjectURL(blob);
-            
+
             if (existingManifest) {
                 existingManifest.href = manifestUrl;
             } else {
@@ -199,8 +199,13 @@
     // Expose function globally
     window.updatePageFaviconAndManifest = updatePageFaviconAndManifest;
 
-    // Start a listener automatically if Firebase is available
+    let listenerStarted = false;
+
+    // Start a listener automatically if Firebase is available, else fallback to REST
     function initListener() {
+        if (listenerStarted) return;
+        listenerStarted = true;
+
         if (typeof firebase !== 'undefined' && firebase.apps && firebase.apps.length > 0) {
             try {
                 const db = firebase.firestore();
@@ -211,13 +216,28 @@
                 }, err => {
                     console.warn("Favicon sync error:", err);
                 });
+                return;
             } catch (e) {
                 console.error("Error setting up automatic favicon listener:", e);
             }
-        } else {
-            // Retry if Firebase isn't initialized yet
-            setTimeout(initListener, 100);
         }
+
+        // Direct fetch via REST API with zero timeout loop
+        fetch('https://firestore.googleapis.com/v1/projects/festie-s1u2h3/databases/(default)/documents/config/festData')
+            .then(res => res.json())
+            .then(json => {
+                if (json && json.fields) {
+                    const doc = json.fields;
+                    const data = {};
+                    for (const key in doc) {
+                        if (doc[key].stringValue !== undefined) data[key] = doc[key].stringValue;
+                        else if (doc[key].booleanValue !== undefined) data[key] = doc[key].booleanValue;
+                        else if (doc[key].integerValue !== undefined) data[key] = doc[key].integerValue;
+                    }
+                    updatePageFaviconAndManifest(data);
+                }
+            })
+            .catch(err => console.warn("Favicon REST fetch error:", err));
     }
 
     // Run when the DOM is ready or immediately

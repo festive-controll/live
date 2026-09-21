@@ -333,6 +333,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof firebase !== 'undefined' && firebase.apps && firebase.apps.length) {
       try {
         const db = firebase.firestore();
+        try {
+          db.enablePersistence({ synchronizeTabs: true }).catch(() => {});
+        } catch (e) {}
         db.collection('config').doc('website').onSnapshot(doc => {
           if (!doc.exists) return;
           const config = doc.data();
@@ -506,7 +509,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const style = document.createElement('style');
       style.id = 'website-offline-style';
       style.innerHTML = `
-        @import url('https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700&display=swap');
+        /* Cobe font family */
         
         @keyframes error-slide-up { from{opacity:0;transform:translateY(24px) scale(0.98)} to{opacity:1;transform:translateY(0) scale(1)} }
         @keyframes error-float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
@@ -531,7 +534,7 @@ document.addEventListener('DOMContentLoaded', () => {
             animation: error-slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both !important;
             position: relative !important;
             z-index: 10 !important;
-            font-family: 'Clash Grotesk', sans-serif !important;
+            font-family: 'Cobe', sans-serif !important;
             display: flex;
             flex-direction: column;
             align-items: center;

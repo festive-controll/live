@@ -26,7 +26,10 @@ let allPrograms = [];
 let allResults = [];
 let allTeams = [];
 let allCandidates = [];
+let allRegistrations = [];
+let allVenues = [];
 let isResultPresent = false;
+window.currentViewCandidate = null;
 
 let activeTab = 'all';
 let activeSection = 'ALL';
@@ -167,7 +170,34 @@ function fetchResultsData() {
     if (candSnap && !candSnap.empty) {
       allCandidates = candSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     }
+    if (window.currentViewCandidate) {
+      renderStudentProfileView(window.currentViewCandidate);
+    }
   }, err => console.warn("Candidates load error:", err));
+
+  // Registrations collection listener
+  db.collection('registrations').onSnapshot(regSnap => {
+    if (regSnap && !regSnap.empty) {
+      allRegistrations = regSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    } else {
+      allRegistrations = [];
+    }
+    if (window.currentViewCandidate) {
+      renderStudentProfileView(window.currentViewCandidate);
+    }
+  }, err => console.warn("Registrations load error:", err));
+
+  // Venues collection listener
+  db.collection('venues').onSnapshot(venueSnap => {
+    if (venueSnap && !venueSnap.empty) {
+      allVenues = venueSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    } else {
+      allVenues = [];
+    }
+    if (window.currentViewCandidate) {
+      renderStudentProfileView(window.currentViewCandidate);
+    }
+  }, err => console.warn("Venues load error:", err));
 
   db.collection('programResults').onSnapshot(snapshot => {
     allResults = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -182,6 +212,9 @@ function fetchResultsData() {
           useFallbackData();
         } else {
           processDataAndRender();
+          if (window.currentViewCandidate) {
+            renderStudentProfileView(window.currentViewCandidate);
+          }
         }
       }, err => useFallbackData());
     }, err => useFallbackData());
@@ -578,6 +611,42 @@ window.setStudentLoginTab = function(mode) {
   }
 };
 
+function compareProgramCodes(codeARaw, codeBRaw) {
+  const codeA = String(codeARaw || '').trim();
+  const codeB = String(codeBRaw || '').trim();
+  if (!codeA) return 1;
+  if (!codeB) return -1;
+
+  const matchA = codeA.match(/^([A-Za-z]+)[-_\s]*(\d+)(.*)$/);
+  const matchB = codeB.match(/^([A-Za-z]+)[-_\s]*(\d+)(.*)$/);
+
+  if (matchA && matchB) {
+    const prefixA = matchA[1].toUpperCase();
+    const prefixB = matchB[1].toUpperCase();
+    const catA = prefixA[0];
+    const catB = prefixB[0];
+
+    if (catA !== catB) return catA.localeCompare(catB);
+
+    const subA = prefixA.slice(1);
+    const subB = prefixB.slice(1);
+
+    if (subA !== subB) {
+      if (subA.startsWith('X') && subB.startsWith('Y')) return -1;
+      if (subA.startsWith('Y') && subB.startsWith('X')) return 1;
+      return subA.localeCompare(subB);
+    }
+
+    const numA = parseInt(matchA[2], 10);
+    const numB = parseInt(matchB[2], 10);
+    if (numA !== numB) return numA - numB;
+
+    return matchA[3].localeCompare(matchB[3]);
+  }
+
+  return codeA.localeCompare(codeB, undefined, { numeric: true, sensitivity: 'base' });
+}
+
 window.executeStudentSearch = function(customQuery) {
   const inputEl = document.getElementById('student-chest-input');
   const errorEl = document.getElementById('student-search-error');
@@ -592,16 +661,53 @@ window.executeStudentSearch = function(customQuery) {
   }
 
   const cleanNum = query.replace(/\D/g, '');
+  const queryLower = query.toLowerCase();
 
   // 1. Search in candidates array (Firestore candidates collection)
   let matchedCandidate = allCandidates.find(c => {
     const chestStr = String(c.chestNo || c.chest || c.candidateId || c.id || '').trim();
     const chestNum = chestStr.replace(/\D/g, '');
     const cName = String(c.name || c.candidateName || '').toLowerCase();
-    return chestStr.toLowerCase() === query.toLowerCase() || (cleanNum !== '' && chestNum === cleanNum) || cName.includes(query.toLowerCase());
+    return chestStr.toLowerCase() === queryLower || 
+           (cleanNum !== '' && chestNum === cleanNum) || 
+           (chestStr && `#${chestStr.toLowerCase()}` === queryLower) ||
+           (cName && cName.includes(queryLower));
   });
 
-  // 2. Search inside allPrograms winners list if not found
+  // 2. Search inside registrations collection
+  if (!matchedCandidate && allRegistrations.length > 0) {
+    for (const r of allRegistrations) {
+      const chests = Array.isArray(r.chestNumbers) ? r.chestNumbers.map(c => String(c).trim()) : (r.chestNo || r.chest ? [String(r.chestNo || r.chest).trim()] : []);
+      const names = Array.isArray(r.candidateNames) ? r.candidateNames.map(n => String(n).trim()) : (r.candidateName ? [String(r.candidateName).trim()] : []);
+      const candIds = Array.isArray(r.candidateIds) ? r.candidateIds.map(String) : (r.candidateId ? [String(r.candidateId)] : []);
+
+      const chestMatchIdx = chests.findIndex(c => {
+        const cNum = c.replace(/\D/g, '');
+        return c.toLowerCase() === queryLower || (cleanNum !== '' && cNum === cleanNum) || `#${c.toLowerCase()}` === queryLower;
+      });
+
+      const nameMatchIdx = names.findIndex(n => n.toLowerCase().includes(queryLower));
+      const idMatchIdx = candIds.findIndex(id => id.toLowerCase() === queryLower || (cleanNum !== '' && id.replace(/\D/g, '') === cleanNum));
+
+      const matchedIdx = chestMatchIdx !== -1 ? chestMatchIdx : (nameMatchIdx !== -1 ? nameMatchIdx : idMatchIdx);
+      if (matchedIdx !== -1) {
+        const cChest = chests[matchedIdx] || cleanNum || query;
+        const cName = names[matchedIdx] || r.candidateName || (cleanNum ? `Candidate #${cleanNum}` : query);
+        const cId = candIds[matchedIdx] || r.candidateId || ('C' + cChest);
+
+        matchedCandidate = {
+          id: cId,
+          chestNo: cChest,
+          name: cName,
+          team: r.team || 'Unassigned',
+          section: r.section || 'General'
+        };
+        break;
+      }
+    }
+  }
+
+  // 3. Search inside allPrograms winners or candidates list
   if (!matchedCandidate) {
     for (const prog of allPrograms) {
       if (Array.isArray(prog.winners)) {
@@ -609,7 +715,7 @@ window.executeStudentSearch = function(customQuery) {
           const wId = String(win.candidateId || win.chestNo || win.chest || '').trim();
           const wNum = wId.replace(/\D/g, '');
           const wName = (win.candidateName || '').toLowerCase();
-          return wId.toLowerCase() === query.toLowerCase() || (cleanNum !== '' && wNum === cleanNum) || wName.includes(query.toLowerCase());
+          return wId.toLowerCase() === queryLower || (cleanNum !== '' && wNum === cleanNum) || wName.includes(queryLower);
         });
         if (w) {
           matchedCandidate = {
@@ -622,19 +728,42 @@ window.executeStudentSearch = function(customQuery) {
           break;
         }
       }
+      if (Array.isArray(prog.candidates)) {
+        const c = prog.candidates.find(candObj => {
+          if (typeof candObj === 'object' && candObj !== null) {
+            const cId = String(candObj.id || candObj.chestNo || candObj.chest || '').trim();
+            const cNum = cId.replace(/\D/g, '');
+            const cName = (candObj.name || '').toLowerCase();
+            return cId.toLowerCase() === queryLower || (cleanNum !== '' && cNum === cleanNum) || cName.includes(queryLower);
+          } else {
+            const cStr = String(candObj).trim();
+            return cStr.toLowerCase() === queryLower || (cleanNum !== '' && cStr.replace(/\D/g, '') === cleanNum);
+          }
+        });
+        if (c) {
+          matchedCandidate = {
+            id: (typeof c === 'object' ? c.id : '') || 'C' + (cleanNum || query),
+            chestNo: cleanNum || query,
+            name: (typeof c === 'object' ? c.name : '') || `Candidate #${cleanNum || query}`,
+            team: (typeof c === 'object' ? c.team : '') || 'Unassigned',
+            section: prog.category || 'General'
+          };
+          break;
+        }
+      }
     }
   }
 
-  // 3. Search inside fallback candidates if still not found
+  // 4. Search inside fallback candidates if still not found
   if (!matchedCandidate && fallbackCandidates.length > 0) {
     matchedCandidate = fallbackCandidates.find(c => {
       const cStr = String(c.chestNo || '').trim();
       const cNum = cStr.replace(/\D/g, '');
-      return cStr.toLowerCase() === query.toLowerCase() || (cleanNum !== '' && cNum === cleanNum);
+      return cStr.toLowerCase() === queryLower || (cleanNum !== '' && cNum === cleanNum);
     });
   }
 
-  // 4. Dynamic Fallback Candidate Generator for any numeric chest number (e.g. 103, 101, 104, etc.)
+  // 5. Dynamic Fallback Candidate Generator if numeric query entered
   if (!matchedCandidate && (cleanNum !== '' || query.length >= 2)) {
     const chestDisplay = cleanNum || query;
     const teamNames = ['Alpha Gladiators', 'Royal Titans', 'Phoenix Warriors', 'Emerald Knights'];
@@ -652,6 +781,7 @@ window.executeStudentSearch = function(customQuery) {
 
   if (matchedCandidate) {
     if (errorEl) errorEl.classList.add('hidden');
+    window.currentViewCandidate = matchedCandidate;
     renderStudentProfileView(matchedCandidate);
   } else {
     if (errorEl) {
@@ -691,6 +821,7 @@ function getFormattedDateTime(prog) {
 }
 
 function renderStudentProfileView(cand) {
+  if (!cand) return;
   const loginCard = document.getElementById('student-login-card');
   const profileCard = document.getElementById('student-profile-card');
 
@@ -707,7 +838,7 @@ function renderStudentProfileView(cand) {
   const avatarEl = document.getElementById('student-avatar');
 
   const candName = cand.name || cand.candidateName || 'Candidate Profile';
-  const chestNo = cand.chestNo || cand.chest || '---';
+  const chestNo = String(cand.chestNo || cand.chest || '---').replace(/^#/, '');
   const teamName = cand.team || cand.teamName || 'Unassigned';
   const secName = cand.section || cand.category || 'General';
 
@@ -716,73 +847,145 @@ function renderStudentProfileView(cand) {
   if (teamEl) teamEl.textContent = teamName;
   if (secEl) secEl.textContent = secName;
 
-  const initials = candName.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase() || 'S';
+  const initials = candName.split(' ').filter(Boolean).map(n => n[0]).join('').substring(0, 2).toUpperCase() || 'S';
   if (avatarEl) avatarEl.textContent = initials;
 
-  // Gather real registered programs with real venue, date, time & concept note from Firestore
+  // Gather real registered programs from Firestore
   let candidatePrograms = [];
+  const seenProgKeys = new Set();
 
-  // A. Check explicit programs array on real candidate document
+  const candIdStr = String(cand.id || '').trim();
+  const chestNoStr = String(chestNo).trim();
+  const cleanChestNum = chestNoStr.replace(/\D/g, '');
+  const candNameLower = candName.toLowerCase().trim();
+  const candTeamLower = teamName.toLowerCase().trim();
+
+  // Helper to resolve venue name
+  function resolveProgVenue(prog, reg) {
+    if (prog && prog.venue) return prog.venue;
+    if (prog && prog.venueId && allVenues.length > 0) {
+      const foundV = allVenues.find(v => v.id === prog.venueId);
+      if (foundV && (foundV.name || foundV.venueName)) return foundV.name || foundV.venueName;
+    }
+    if (prog && prog.venueName) return prog.venueName;
+    if (prog && prog.venueType) return prog.venueType + (prog.subStage ? ` (${prog.subStage})` : '');
+    if (prog && prog.stage) return prog.stage;
+    if (reg && reg.venue) return reg.venue;
+    if (reg && reg.stage) return reg.stage;
+    return 'Venue TBD';
+  }
+
+  // A. Match from allRegistrations collection
+  if (Array.isArray(allRegistrations) && allRegistrations.length > 0) {
+    allRegistrations.forEach(r => {
+      const rCandIds = Array.isArray(r.candidateIds) ? r.candidateIds.map(String) : (r.candidateId ? [String(r.candidateId)] : []);
+      const rChests = Array.isArray(r.chestNumbers) ? r.chestNumbers.map(c => String(c).trim()) : (r.chestNo || r.chest ? [String(r.chestNo || r.chest).trim()] : []);
+      const rNames = Array.isArray(r.candidateNames) ? r.candidateNames.map(n => String(n).toLowerCase().trim()) : (r.candidateName ? [String(r.candidateName).toLowerCase().trim()] : []);
+
+      const matchId = candIdStr && rCandIds.includes(candIdStr);
+      const matchChest = cleanChestNum !== '' && rChests.some(c => c === chestNoStr || c.replace(/\D/g, '') === cleanChestNum);
+      const matchName = candNameLower !== '' && rNames.some(n => n === candNameLower || (candNameLower.length > 3 && (n.includes(candNameLower) || candNameLower.includes(n))));
+      const matchTeam = !candTeamLower || candTeamLower === 'unassigned' || !r.team || String(r.team).toLowerCase().trim() === candTeamLower;
+
+      if (matchId || matchChest || (matchName && matchTeam)) {
+        const pId = r.programId || r.progId || r.id;
+        const pCode = r.programCode || r.code;
+        const pName = r.programName || r.name;
+
+        let prog = allPrograms.find(p => 
+          (pId && (p.id === pId || p.progId === pId)) ||
+          (pCode && String(p.code || '').trim().toLowerCase() === String(pCode).trim().toLowerCase()) ||
+          (pName && String(p.name || '').trim().toLowerCase() === String(pName).trim().toLowerCase())
+        ) || {};
+
+        const code = pCode || prog.code || prog.id || 'PRG';
+        const name = pName || prog.name || 'Untitled Program';
+        const venue = resolveProgVenue(prog, r);
+        const dateTime = getFormattedDateTime(prog);
+        const topic = r.topic || r.conceptNote || prog.conceptNote || prog.topic || prog.description || prog.rules || '';
+
+        const key = (String(code).trim() + '_' + String(name).trim()).toLowerCase();
+        if (!seenProgKeys.has(key)) {
+          seenProgKeys.add(key);
+          candidatePrograms.push({ name, code, venue, dateTime, topic });
+        }
+      }
+    });
+  }
+
+  // B. Match from candidate document explicit programs array
   const rawProgs = cand.programs || cand.registeredPrograms || cand.events || [];
   if (Array.isArray(rawProgs) && rawProgs.length > 0) {
     rawProgs.forEach((p, idx) => {
       let found = null;
       if (typeof p === 'string') {
         found = allPrograms.find(ap => ap.id === p || ap.code === p || (ap.name || '').toLowerCase() === p.toLowerCase());
-        if (found) {
-          candidatePrograms.push({
-            name: found.name,
-            code: found.code || found.id,
-            venue: found.venue || found.venueName || found.stage || 'Venue TBD',
-            dateTime: getFormattedDateTime(found),
-            topic: found.conceptNote || found.topic || found.description || found.rules || ''
-          });
-        } else {
-          candidatePrograms.push({
-            name: p,
-            code: `${101 + idx}`,
-            venue: 'Venue TBD',
-            dateTime: 'Schedule TBD',
-            topic: ''
-          });
+        const name = found ? found.name : p;
+        const code = (found ? (found.code || found.id) : `${101 + idx}`);
+        const venue = found ? resolveProgVenue(found, null) : 'Venue TBD';
+        const dateTime = found ? getFormattedDateTime(found) : 'Schedule TBD';
+        const topic = found ? (found.conceptNote || found.topic || found.description || found.rules || '') : '';
+
+        const key = (String(code).trim() + '_' + String(name).trim()).toLowerCase();
+        if (!seenProgKeys.has(key)) {
+          seenProgKeys.add(key);
+          candidatePrograms.push({ name, code, venue, dateTime, topic });
         }
       } else if (typeof p === 'object' && p !== null) {
         found = allPrograms.find(ap => ap.id === p.id || ap.code === p.code || (ap.name || '').toLowerCase() === (p.name || '').toLowerCase());
         const realObj = found || p;
-        candidatePrograms.push({
-          name: realObj.name || realObj.programName || realObj.title || 'Program',
-          code: realObj.code || realObj.programCode || realObj.id || '',
-          venue: realObj.venue || realObj.venueName || realObj.stage || 'Venue TBD',
-          dateTime: getFormattedDateTime(realObj),
-          topic: realObj.conceptNote || realObj.topic || realObj.description || realObj.rules || ''
-        });
+        const name = realObj.name || realObj.programName || realObj.title || 'Program';
+        const code = realObj.code || realObj.programCode || realObj.id || '';
+        const venue = resolveProgVenue(realObj, p);
+        const dateTime = getFormattedDateTime(realObj);
+        const topic = realObj.conceptNote || realObj.topic || realObj.description || realObj.rules || '';
+
+        const key = (String(code).trim() + '_' + String(name).trim()).toLowerCase();
+        if (!seenProgKeys.has(key)) {
+          seenProgKeys.add(key);
+          candidatePrograms.push({ name, code, venue, dateTime, topic });
+        }
       }
     });
   }
 
-  // B. Check candidate references inside Firestore allPrograms (winners or candidates array)
+  // C. Match from allPrograms winners or candidates array
   allPrograms.forEach((prog) => {
     const isWinner = Array.isArray(prog.winners) && prog.winners.some(w =>
-      w.candidateId === cand.id ||
-      String(w.chestNo || w.chest || '').trim() === String(chestNo).trim() ||
-      (w.candidateName || '').toLowerCase() === candName.toLowerCase()
+      (candIdStr && w.candidateId === candIdStr) ||
+      (cleanChestNum !== '' && String(w.chestNo || w.chest || '').replace(/\D/g, '') === cleanChestNum) ||
+      (candNameLower !== '' && (w.candidateName || '').toLowerCase().trim() === candNameLower)
     );
-    const isCandidate = Array.isArray(prog.candidates) && prog.candidates.some(c =>
-      c === cand.id || String(c).trim() === String(chestNo).trim() || (typeof c === 'object' && ((c.name || '').toLowerCase() === candName.toLowerCase() || String(c.chestNo || '').trim() === String(chestNo).trim()))
-    );
+    const isCandidate = Array.isArray(prog.candidates) && prog.candidates.some(c => {
+      if (typeof c === 'object' && c !== null) {
+        const cId = String(c.id || c.candidateId || '').trim();
+        const cChest = String(c.chestNo || c.chest || '').replace(/\D/g, '');
+        const cName = (c.name || c.candidateName || '').toLowerCase().trim();
+        return (candIdStr && cId === candIdStr) || (cleanChestNum !== '' && cChest === cleanChestNum) || (candNameLower !== '' && cName === candNameLower);
+      }
+      const cStr = String(c).trim();
+      return (candIdStr && cStr === candIdStr) || (cleanChestNum !== '' && cStr.replace(/\D/g, '') === cleanChestNum);
+    });
 
     if (isWinner || isCandidate) {
-      if (!candidatePrograms.some(cp => cp.name === prog.name)) {
+      const code = prog.code || prog.id || '';
+      const name = prog.name || 'Program';
+      const key = (String(code).trim() + '_' + String(name).trim()).toLowerCase();
+      if (!seenProgKeys.has(key)) {
+        seenProgKeys.add(key);
         candidatePrograms.push({
           name: prog.name,
           code: prog.code || prog.id,
-          venue: prog.venue || prog.venueName || prog.stage || 'Venue TBD',
+          venue: resolveProgVenue(prog, null),
           dateTime: getFormattedDateTime(prog),
           topic: prog.conceptNote || prog.topic || prog.description || prog.rules || ''
         });
       }
     }
   });
+
+  // Sort candidate programs by program code
+  candidatePrograms.sort((a, b) => compareProgramCodes(a.code, b.code));
 
   // Render ONLY programs assigned directly in Firebase for candidate
   const listContainer = document.getElementById('student-results-list');
@@ -836,6 +1039,7 @@ function renderStudentProfileView(cand) {
 }
 
 window.resetStudentSearch = function() {
+  window.currentViewCandidate = null;
   const loginCard = document.getElementById('student-login-card');
   const profileCard = document.getElementById('student-profile-card');
   const inputEl = document.getElementById('student-chest-input');

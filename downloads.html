@@ -8,9 +8,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="asset/5Rect.png">
   <script src="../fest-favicon.js"></script>
-  <!-- Fontshare Clash Grotesk Font CDN -->
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700,900&display=swap"
-    rel="stylesheet">
+  <!-- Cobe Font Family -->
   <!-- Tailwind CSS v3 -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Iconify -->
@@ -33,7 +31,7 @@
             brandMagenta: '#92205D',
           },
           fontFamily: {
-            sans: ['Clash Grotesk', 'sans-serif'],
+            sans: ['Cobe', 'sans-serif'],
           },
           animation: {
             'fade-in': 'fadeIn 0.5s ease-out forwards',
@@ -53,6 +51,7 @@
   <!-- Flaticon Uicons -->
   <link rel='stylesheet'
     href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+<script type="module" src="/device-tracker.js"></script>
 </head>
 
 <body class="bg-white min-h-screen flex flex-col overflow-x-hidden font-sans select-none relative">
@@ -235,25 +234,29 @@
           Sheikh Fareed Auliya Da'wa College (SFADC),<br>Odamala, Malappuram Dist.<br>Kerala, India
         </p>
         <div class="flex space-x-3 mb-10">
-          <a href="#"
-            class="w-10 h-10 rounded-full bg-[#EBF3FB] text-[#1877F2] flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md">
+          <a href="https://www.facebook.com/imadodamala" target="_blank" rel="noopener noreferrer"
+            class="w-10 h-10 rounded-full bg-[#EBF3FB] text-[#1877F2] flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md"
+            title="Facebook">
             <span class="iconify w-5 h-5" data-icon="ic:baseline-facebook"></span>
           </a>
-          <a href="#"
-            class="w-10 h-10 rounded-full bg-[#FCECF0] text-[#E4405F] flex items-center justify-center hover:bg-[#E4405F] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md">
+          <a href="https://www.instagram.com/fest_sfadc/" target="_blank" rel="noopener noreferrer"
+            class="w-10 h-10 rounded-full bg-[#FCECF0] text-[#E4405F] flex items-center justify-center hover:bg-[#E4405F] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md"
+            title="Instagram">
             <span class="iconify w-5 h-5" data-icon="mdi:instagram"></span>
           </a>
-          <a href="#"
-            class="w-10 h-10 rounded-full bg-[#E9F9F0] text-[#25D366] flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md">
+          <a href="https://wa.me/918111948902?text=Hi%20fest%20administrator" target="_blank" rel="noopener noreferrer"
+            class="w-10 h-10 rounded-full bg-[#E9F9F0] text-[#25D366] flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md"
+            title="WhatsApp">
             <span class="iconify w-5 h-5" data-icon="ic:baseline-whatsapp"></span>
           </a>
-          <a href="#"
-            class="w-10 h-10 rounded-full bg-[#FFEDED] text-[#FF0000] flex items-center justify-center hover:bg-[#FF0000] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md">
+          <a href="https://www.youtube.com/@imadodamala" target="_blank" rel="noopener noreferrer"
+            class="w-10 h-10 rounded-full bg-[#FFEDED] text-[#FF0000] flex items-center justify-center hover:bg-[#FF0000] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md"
+            title="YouTube">
             <span class="iconify w-5 h-5" data-icon="mdi:youtube"></span>
           </a>
         </div>
         <p class="font-sans text-[13px] text-neutral-400">
-          © All rights reserved | <span data-fest="name">Festival</span> Committee <span data-fest="copyright-year">2026</span>
+          Â© All rights reserved | <span data-fest="name">Festival</span> Committee <span data-fest="copyright-year">2026</span>
         </p>
       </div>
 
@@ -261,7 +264,7 @@
       <div
         class="bg-white/80 backdrop-blur-md rounded-[40px] shadow-[0_8px_40px_-12px_rgba(0,0,0,0.08)] border border-gray-50/80 p-8 md:p-10 max-w-md w-full text-center relative z-30 transition-transform duration-500 hover:-translate-y-1 hover:shadow-[0_15px_50px_-12px_rgba(0,0,0,0.12)] group">
         <div class="flex justify-center mb-5 relative">
-          <img src="asset/5Rect.png" alt="Icon"
+          <img src="asset/logoR.png" alt="Icon"
             class="w-10 h-10 object-contain relative z-10 animate-[spin_8s_linear_infinite]">
         </div>
         <h3 class="font-sans font-medium text-[22px] md:text-2xl text-neutral-800 mb-3">Never Miss Anything</h3>
@@ -350,8 +353,11 @@
     try {
       if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
       window.db = firebase.firestore();
+      try {
+        window.db.enablePersistence({ synchronizeTabs: true }).catch(() => {});
+      } catch (e) {}
     } catch (e) {
-      console.warn("Firebase initialization failed, falling back to mock data.", e);
+      console.warn("Firebase initialization failed", e);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -360,10 +366,12 @@
       const tabs = document.querySelectorAll('.category-tab');
 
       // Listen for search
-      searchInput.addEventListener('input', (e) => {
-        searchQuery = e.target.value.toLowerCase().trim();
-        renderDownloads();
-      });
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value.toLowerCase().trim();
+          renderDownloads();
+        });
+      }
 
       // Listen for tabs
       tabs.forEach(tab => {
@@ -388,10 +396,10 @@
           renderDownloads();
         }, err => {
           console.error("Firestore error loading downloads:", err);
-          loadMockData();
+          if (downloadsData.length === 0) loadMockData();
         });
       } else {
-        loadMockData();
+        console.warn("Database not available yet");
       }
     });
 

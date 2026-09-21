@@ -8,9 +8,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="asset/5Rect.png">
   <script src="../fest-favicon.js"></script>
-  <!-- Fontshare Clash Grotesk Font CDN -->
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700,900&display=swap"
-    rel="stylesheet">
+  <!-- Cobe Font Family -->
   <!-- Tailwind CSS v3 -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Iconify -->
@@ -33,7 +31,7 @@
             brandMagenta: '#92205D',
           },
           fontFamily: {
-            sans: ['Clash Grotesk', 'sans-serif'],
+            sans: ['Cobe', 'sans-serif'],
           },
           animation: {
             'fade-in': 'fadeIn 0.5s ease-out forwards',
@@ -57,15 +55,39 @@
     .lightbox-bg {
       background: rgba(0, 0, 0, 0.95);
     }
+
     @keyframes soundwave {
-      0%, 100% { height: 20%; }
-      50% { height: 90%; }
+
+      0%,
+      100% {
+        height: 20%;
+      }
+
+      50% {
+        height: 90%;
+      }
     }
-    .animate-wave-1 { animation: soundwave 1.1s ease-in-out infinite; }
-    .animate-wave-2 { animation: soundwave 0.7s ease-in-out infinite 0.15s; }
-    .animate-wave-3 { animation: soundwave 1.4s ease-in-out infinite 0.3s; }
-    .animate-wave-4 { animation: soundwave 0.9s ease-in-out infinite 0.1s; }
-    .animate-wave-5 { animation: soundwave 1.2s ease-in-out infinite 0.25s; }
+
+    .animate-wave-1 {
+      animation: soundwave 1.1s ease-in-out infinite;
+    }
+
+    .animate-wave-2 {
+      animation: soundwave 0.7s ease-in-out infinite 0.15s;
+    }
+
+    .animate-wave-3 {
+      animation: soundwave 1.4s ease-in-out infinite 0.3s;
+    }
+
+    .animate-wave-4 {
+      animation: soundwave 0.9s ease-in-out infinite 0.1s;
+    }
+
+    .animate-wave-5 {
+      animation: soundwave 1.2s ease-in-out infinite 0.25s;
+    }
+
     .radio-card-bg {
       background: linear-gradient(135deg, #1e1b4b 0%, #31103f 50%, #0f172a 100%);
     }
@@ -75,6 +97,7 @@
   <!-- Flaticon Uicons -->
   <link rel='stylesheet'
     href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+  <script type="module" src="/device-tracker.js"></script>
 </head>
 
 <body class="bg-white min-h-screen flex flex-col overflow-x-hidden font-sans select-none relative">
@@ -253,29 +276,35 @@
           <div class="absolute -inset-4 bg-gray-50/50 rounded-full blur-xl -z-10"></div>
           <img src="asset/logo-logo.png" alt="SIBAQ Logo" class="h-16 md:h-20 w-auto object-contain relative z-10">
         </div>
-        <p class="font-sans font-light text-[14px] md:text-[15px] text-neutral-500 leading-relaxed mb-8" data-fest="address">
+        <p class="font-sans font-light text-[14px] md:text-[15px] text-neutral-500 leading-relaxed mb-8"
+          data-fest="address">
           Sheikh Fareed Auliya Da'wa College (SFADC),<br>Odamala, Malappuram Dist.<br>Kerala, India
         </p>
         <div class="flex space-x-3 mb-10">
-          <a href="#"
-            class="w-10 h-10 rounded-full bg-[#EBF3FB] text-[#1877F2] flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md">
+          <a href="https://www.facebook.com/imadodamala" target="_blank" rel="noopener noreferrer"
+            class="w-10 h-10 rounded-full bg-[#EBF3FB] text-[#1877F2] flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md"
+            title="Facebook">
             <span class="iconify w-5 h-5" data-icon="ic:baseline-facebook"></span>
           </a>
-          <a href="#"
-            class="w-10 h-10 rounded-full bg-[#FCECF0] text-[#E4405F] flex items-center justify-center hover:bg-[#E4405F] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md">
+          <a href="https://www.instagram.com/fest_sfadc/" target="_blank" rel="noopener noreferrer"
+            class="w-10 h-10 rounded-full bg-[#FCECF0] text-[#E4405F] flex items-center justify-center hover:bg-[#E4405F] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md"
+            title="Instagram">
             <span class="iconify w-5 h-5" data-icon="mdi:instagram"></span>
           </a>
-          <a href="#"
-            class="w-10 h-10 rounded-full bg-[#E9F9F0] text-[#25D366] flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md">
+          <a href="https://wa.me/918111948902?text=Hi%20fest%20administrator" target="_blank" rel="noopener noreferrer"
+            class="w-10 h-10 rounded-full bg-[#E9F9F0] text-[#25D366] flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md"
+            title="WhatsApp">
             <span class="iconify w-5 h-5" data-icon="ic:baseline-whatsapp"></span>
           </a>
-          <a href="#"
-            class="w-10 h-10 rounded-full bg-[#FFEDED] text-[#FF0000] flex items-center justify-center hover:bg-[#FF0000] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md">
+          <a href="https://www.youtube.com/@imadodamala" target="_blank" rel="noopener noreferrer"
+            class="w-10 h-10 rounded-full bg-[#FFEDED] text-[#FF0000] flex items-center justify-center hover:bg-[#FF0000] hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-md"
+            title="YouTube">
             <span class="iconify w-5 h-5" data-icon="mdi:youtube"></span>
           </a>
         </div>
         <p class="font-sans text-[13px] text-neutral-400">
-          © All rights reserved | <span data-fest="name">Festival</span> Committee <span data-fest="copyright-year">2026</span>
+          Â© All rights reserved | <span data-fest="name">Festival</span> Committee <span
+            data-fest="copyright-year">2026</span>
         </p>
       </div>
 
@@ -283,7 +312,7 @@
       <div
         class="bg-white/80 backdrop-blur-md rounded-[40px] shadow-[0_8px_40px_-12px_rgba(0,0,0,0.08)] border border-gray-50/80 p-8 md:p-10 max-w-md w-full text-center relative z-30 transition-transform duration-500 hover:-translate-y-1 hover:shadow-[0_15px_50px_-12px_rgba(0,0,0,0.12)] group">
         <div class="flex justify-center mb-5 relative">
-          <img src="asset/5Rect.png" alt="Icon"
+          <img src="asset/logoR.png" alt="Icon"
             class="w-10 h-10 object-contain relative z-10 animate-[spin_8s_linear_infinite]">
         </div>
         <h3 class="font-sans font-medium text-[22px] md:text-2xl text-neutral-800 mb-3">Never Miss Anything</h3>
@@ -310,12 +339,18 @@
       <span id="lightbox-counter"
         class="text-sm font-semibold tracking-wider bg-black/45 px-4 py-1.5 rounded-full backdrop-blur-sm border border-white/5">0
         / 0</span>
-      <button id="close-lightbox"
-        class="w-10 h-10 rounded-full bg-black/45 hover:bg-brandRed hover:text-white border border-white/10 flex items-center justify-center backdrop-blur-sm transition-colors text-white">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-        </svg>
-      </button>
+      <div class="flex items-center gap-3">
+        <button id="rotate-lightbox-btn" onclick="manualRotateLightbox(event)" title="Rotate Left"
+          class="w-10 h-10 rounded-full bg-black/45 hover:bg-white hover:text-black border border-white/10 flex items-center justify-center backdrop-blur-sm transition-colors text-white cursor-pointer">
+          <i class="fi fi-rr-rotate-left text-sm flex items-center justify-center"></i>
+        </button>
+        <button id="close-lightbox"
+          class="w-10 h-10 rounded-full bg-black/45 hover:bg-brandRed hover:text-white border border-white/10 flex items-center justify-center backdrop-blur-sm transition-colors text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- Center Content Slider -->
@@ -345,10 +380,17 @@
 
     <!-- Bottom Caption Bar -->
     <div
-      class="w-full max-w-2xl bg-black/60 border border-white/5 rounded-2xl p-4 text-center backdrop-blur-sm text-white select-none mb-2 z-10">
-      <h4 id="lightbox-caption" class="text-base font-bold truncate">Media Title</h4>
-      <p id="lightbox-album-tag" class="text-xs text-gray-400 mt-1 font-semibold uppercase tracking-widest">Album Tag
-      </p>
+      class="w-full max-w-2xl bg-black/60 border border-white/5 rounded-2xl p-4 text-center backdrop-blur-sm text-white select-none mb-2 z-10 flex items-center justify-between gap-4">
+      <div class="text-left overflow-hidden">
+        <h4 id="lightbox-caption" class="text-base font-bold truncate">Media Title</h4>
+        <p id="lightbox-album-tag" class="text-xs text-gray-400 mt-0.5 font-semibold uppercase tracking-widest">Album
+          Tag</p>
+      </div>
+      <button onclick="downloadCurrentLightboxMedia(event)"
+        class="shrink-0 px-4 py-2 bg-[#134E8E] hover:bg-[#0f3d70] text-white rounded-xl font-semibold text-xs flex items-center gap-2 shadow-md transition-all cursor-pointer">
+        <i class="fi fi-rr-download text-xs"></i>
+        <span>Download </span>
+      </button>
     </div>
   </div>
 
@@ -424,8 +466,11 @@
     try {
       if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
       window.db = firebase.firestore();
+      try {
+        window.db.enablePersistence({ synchronizeTabs: true }).catch(() => { });
+      } catch (e) { }
     } catch (e) {
-      console.warn("Firebase failed to load, falling back to mock data.", e);
+      console.warn("Firebase failed to load", e);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -437,7 +482,7 @@
           renderGalleryMedia();
         }, err => {
           console.error("Firestore loading albums failed: ", err);
-          loadMockAlbums();
+          if (albumsData.length === 0) loadMockAlbums();
         });
 
         window.db.collection('mediaGallery').orderBy('createdAt', 'desc').onSnapshot(snap => {
@@ -445,7 +490,7 @@
           renderGalleryMedia();
         });
       } else {
-        loadMockAlbums();
+        console.warn("Database not available yet");
       }
 
       // Close lightbox listener
@@ -456,6 +501,14 @@
 
       if (closeBtn) {
         closeBtn.addEventListener('click', () => {
+          // Stop any playing video or audio inside the lightbox
+          const viewer = document.getElementById('lightbox-viewer');
+          if (viewer) {
+            viewer.querySelectorAll('video, audio').forEach(el => {
+              el.pause();
+              el.currentTime = 0;
+            });
+          }
           lightbox.classList.remove('active');
           lightbox.classList.add('opacity-0', 'pointer-events-none');
           document.getElementById('lightbox-viewer').classList.add('scale-95');
@@ -763,8 +816,19 @@
         }
 
         let preview = '';
+        const isLandscape = media.orientation === 'landscape';
+
         if (media.type === 'video' || media.type === 'reel' || (media.type && media.type.startsWith('video/'))) {
-          preview = `<div class="absolute inset-0 bg-black/20 flex items-center justify-center z-10"><svg class="w-10 h-10 text-white filter drop-shadow-md" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><video src="${media.url}" class="w-full h-full object-cover"></video>`;
+          const rotateStyle = isLandscape ? 'style="transform: rotate(-90deg) scale(1.35);"' : '';
+          preview = `
+            <div class="absolute inset-0 bg-black/20 flex items-center justify-center z-10 pointer-events-none">
+              <svg class="w-10 h-10 text-white filter drop-shadow-md" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="w-full h-full flex items-center justify-center overflow-hidden bg-black">
+              <video src="${media.url}" class="w-full h-full object-cover transition-transform duration-300" ${rotateStyle}></video>
+            </div>
+            ${isLandscape ? `<span class="absolute top-2.5 left-2.5 z-20 px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-xs text-white text-[10px] font-semibold flex items-center gap-1"><i class="fi fi-rr-rotate-left text-[9px]"></i> Landscape</span>` : ''}
+          `;
         } else {
           preview = `<img src="${media.url}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`;
         }
@@ -781,6 +845,17 @@
       }).join('');
     }
 
+    let currentViewerRotation = 0;
+
+    window.manualRotateLightbox = function (e) {
+      if (e) e.stopPropagation();
+      currentViewerRotation = (currentViewerRotation - 90) % 360;
+      const mediaEl = document.querySelector('#lightbox-viewer video, #lightbox-viewer img');
+      if (mediaEl) {
+        mediaEl.style.transform = `rotate(${currentViewerRotation}deg)`;
+      }
+    };
+
     function launchLightbox(index) {
       currentLightboxIdx = index;
       const lightbox = document.getElementById('lightbox-modal');
@@ -796,6 +871,56 @@
       }
     }
 
+    window.downloadMediaFile = function (e, url, fileName) {
+      if (e) e.stopPropagation();
+      if (!url || url === '#' || url === '') {
+        alert('Download file URL not available.');
+        return;
+      }
+
+      const nameToSave = (fileName || 'gallery_media').trim();
+
+      if (window.Toastify) {
+        Toastify({ text: "Downloading file directly to device...", duration: 2500, style: { background: "#134E8E" } }).showToast();
+      }
+
+      fetch(url)
+        .then(res => {
+          if (!res.ok) throw new Error('Fetch failed');
+          return res.blob();
+        })
+        .then(blob => {
+          const blobUrl = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = blobUrl;
+          const ext = url.split('.').pop().split(/[#?]/)[0];
+          const hasExt = ext && ext.length > 1 && ext.length < 5;
+          a.download = hasExt && !nameToSave.endsWith('.' + ext) ? `${nameToSave}.${ext}` : nameToSave;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+        })
+        .catch(err => {
+          console.warn("Direct blob download failed, fallback to standard link:", err);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = nameToSave;
+          a.target = '_blank';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        });
+    };
+
+    window.downloadCurrentLightboxMedia = function (e) {
+      if (e) e.stopPropagation();
+      const media = activeMediaList[currentLightboxIdx];
+      if (media && media.url) {
+        downloadMediaFile(e, media.url, media.name || 'gallery_media');
+      }
+    };
+
     function navigateLightbox(dir) {
       currentLightboxIdx += dir;
       if (currentLightboxIdx < 0) currentLightboxIdx = activeMediaList.length - 1;
@@ -806,6 +931,9 @@
     function updateLightboxViewer() {
       const media = activeMediaList[currentLightboxIdx];
       if (!media) return;
+
+      const isLandscape = media.orientation === 'landscape';
+      currentViewerRotation = isLandscape ? -90 : 0;
 
       const viewer = document.getElementById('lightbox-viewer');
       const counter = document.getElementById('lightbox-counter');
@@ -825,7 +953,19 @@
         viewer.innerHTML = '<div class="text-white text-sm animate-pulse">Loading item...</div>';
         setTimeout(() => {
           if (media.type === 'video' || media.type === 'reel' || (media.type && media.type.startsWith('video/'))) {
-            viewer.innerHTML = `<video src="${media.url}" controls autoplay class="max-w-full max-h-[70vh] rounded-lg border border-white/5 shadow-2xl"></video>`;
+            if (isLandscape) {
+              viewer.innerHTML = `
+                <div class="w-full h-full flex items-center justify-center p-2 overflow-hidden">
+                  <video src="${media.url}" controls autoplay style="transform: rotate(-90deg);" class="max-h-[60vh] max-w-[80vw] rounded-xl border border-white/10 shadow-2xl transition-transform duration-300 origin-center"></video>
+                </div>
+              `;
+            } else {
+              viewer.innerHTML = `
+                <div class="w-full h-full flex items-center justify-center p-2">
+                  <video src="${media.url}" controls autoplay class="max-w-full max-h-[70vh] rounded-lg border border-white/5 shadow-2xl transition-transform duration-300 origin-center"></video>
+                </div>
+              `;
+            }
           } else if (media.type === 'audio' || media.type === 'radio' || (media.type && media.type.startsWith('audio/'))) {
             viewer.innerHTML = `
               <div class="w-full max-w-md p-6 bg-white rounded-3xl flex flex-col items-center justify-center border border-slate-200 shadow-2xl animate-scale-up text-slate-900">
@@ -840,7 +980,7 @@
               </div>
             `;
           } else {
-            viewer.innerHTML = `<img src="${media.url}" alt="${media.name}" class="max-w-full max-h-[75vh] object-contain rounded-lg border border-white/5 shadow-2xl animate-scale-up">`;
+            viewer.innerHTML = `<img src="${media.url}" alt="${media.name}" class="max-w-full max-h-[75vh] object-contain rounded-lg border border-white/5 shadow-2xl animate-scale-up transition-transform duration-300 origin-center">`;
           }
         }, 100);
       }
