@@ -295,6 +295,26 @@
       return 'TBA';
     }
 
+    // Public schedule is reserved for stage programs. Support both the current
+    // venue-type fields and legacy Y-series program codes.
+    function isStageProgram(program) {
+      if (!program || program.isNonStage === true || program.isStage === false) return false;
+      if (program.isStage === true) return true;
+
+      const type = [program.venueTypeName, program.venueType, program.venue_type, program.progSet]
+        .filter(value => typeof value === 'string')
+        .join(' ')
+        .trim()
+        .toLowerCase()
+        .replace(/[\s_-]+/g, '');
+
+      if (type.includes('nonstage') || type.includes('sport')) return false;
+      if (type.includes('stage')) return true;
+
+      const code = String(program.code || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+      return /^[A-Z]*Y\d+/.test(code);
+    }
+
     function setDateQuickFilter(filter) {
       currentQuickFilter = filter;
       ['all', 'today', 'tomorrow'].forEach(f => {
@@ -380,7 +400,9 @@
       }, err => console.error("Venues read error:", err));
 
       window.db.collection('programs').where('status', '==', true).onSnapshot(snap => {
-        rawPrograms = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        rawPrograms = snap.docs
+          .map(doc => ({ id: doc.id, ...doc.data() }))
+          .filter(isStageProgram);
 
         // Sort chronologically by date-time. Empty dates go to the bottom.
         rawPrograms.sort((a, b) => {
@@ -484,7 +506,9 @@
       let html = '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">';
 
       filtered.forEach(p => {
-        const timeStr = formatTime(p.time);
+        const startTimeStr = formatTime(p.time);
+        const endTimeStr = formatTime(p.endTime);
+        const timeStr = p.endTime ? `${startTimeStr} - ${endTimeStr}` : startTimeStr;
         const dateStr = formatDateNice(p.time);
         const sectionTag = p.section || p.category || 'GENERAL';
         const badgeClass = getSectionBadgeColor(sectionTag);

@@ -1018,20 +1018,6 @@ function renderStudentProfileView(cand) {
             </div>
           </div>
 
-          <!-- Actions: Real Venue Badge & Concept Note Button -->
-          <div class="flex items-center gap-2 shrink-0 self-end sm:self-center">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#FAF5EA] text-[#C0912B] font-normal text-xs rounded-xl border border-[#C0912B]/30 shadow-2xs">
-              <span class="iconify text-xs" data-icon="solar:map-point-bold"></span>
-              <span>${p.venue}</span>
-            </span>
-
-            <button onclick="openConceptNoteModal('${p.name.replace(/'/g, "\\'")}', '${p.code}', '${(p.topic || '').replace(/'/g, "\\'")}')"
-              class="px-3 py-1.5 bg-sky-50 hover:bg-sky-100 text-sky-700 font-normal text-xs rounded-xl border border-sky-200/80 transition-all flex items-center gap-1.5 shadow-2xs cursor-pointer active:scale-95">
-              <span class="iconify text-sm text-sky-600" data-icon="solar:document-text-bold"></span>
-              <span>Concept Note</span>
-            </button>
-          </div>
-
         </div>
       `).join('');
     }
@@ -1135,5 +1121,4 @@ window.closeConceptNoteModal = function() {
     }
   }
 };
-
 

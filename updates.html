@@ -430,6 +430,13 @@
       return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
     }
 
+    function getVisibleUpdateText(text) {
+      return String(text || '')
+        .replace(/\{[^{}]*\}[.,;:]?\s*/g, '')
+        .replace(/%7B[\s\S]*?%7D[.,;:]?\s*/gi, '')
+        .trim();
+    }
+
     const notificationColors = [
       { bg: 'bg-[#FAF5EA]', icon: 'bg-[#C0912B]', badge: 'bg-[#FAF5EA]', badgeText: 'text-[#C0912B]' }, // Gold
       { bg: 'bg-[#F9ECF2]', icon: 'bg-[#92205D]', badge: 'bg-[#F9ECF2]', badgeText: 'text-[#92205D]' }, // Magenta
@@ -465,7 +472,7 @@
             <div class="w-full md:w-1/2 flex flex-col items-start space-y-4">
               <p class="text-gray-400 text-sm font-medium">${featured.date || formatDateForFeatured(featured.createdAt?.seconds)}</p>
               <h2 class="text-4xl md:text-5xl font-medium text-[#92205D] leading-[1.15] tracking-tight">${featured.title}</h2>
-              <p class="text-gray-600 text-[15px] leading-relaxed line-clamp-4">${featured.content || featured.description || ''}</p>
+              <p class="text-gray-600 text-[15px] leading-relaxed line-clamp-4">${getVisibleUpdateText(featured.content || featured.description)}</p>
               <button onclick="openAlertDetail('${featured.id}')" class="flex items-center gap-3 border border-gray-300 rounded-full py-2 px-5 hover:bg-gray-50 transition-colors mt-2 cursor-pointer">
                 <span class="text-sm font-medium text-gray-800">View More</span>
                 <div class="w-6 h-6 rounded-full bg-[#F9ECF2] text-[#92205D] flex items-center justify-center">
@@ -535,22 +542,26 @@
 
       let textContent = item.content || item.description || '';
 
-      // Basic URL regex to find link
+      // Find the first URL in the update text and remove template remnants
+      // such as a trailing encoded closing brace (%7D).
       const urlRegex = /(https?:\/\/[^\s]+)|(www\.[^\s]+)|([a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\/[^\s]*)?)/g;
-      let linkUrl = '';
-
       const match = textContent.match(urlRegex);
-      if (match && match.length > 0) {
-        // Just take the first match that looks like a valid URL
-        linkUrl = match[0];
-        if (!linkUrl.startsWith('http')) linkUrl = 'https://' + linkUrl;
+      let linkUrl = match && match.length > 0 ? match[0] : '';
+      if (linkUrl) {
+        linkUrl = linkUrl
+          .replace(/[.,;:!?]+$/g, '')
+          .replace(/(?:%7D|})+$/gi, '')
+          .replace(/[.,;:!?]+$/g, '');
+        if (!/^https?:\/\//i.test(linkUrl)) linkUrl = 'https://' + linkUrl;
       }
 
-      document.getElementById('alert-detail-desc').innerText = textContent;
+      // Braced URLs are link metadata; keep them out of the visible message.
+      const visibleText = getVisibleUpdateText(textContent);
+      document.getElementById('alert-detail-desc').innerText = visibleText;
 
       const linkContainer = document.getElementById('alert-detail-link');
       if (linkUrl) {
-        linkContainer.innerHTML = `<a href="${linkUrl}" target="_blank" class="text-[#2075BC] text-[15px] font-medium underline hover:text-blue-800 transition-colors">View</a>`;
+        linkContainer.innerHTML = `<a href="${linkUrl}" target="_blank" rel="noopener noreferrer" class="text-[#2075BC] text-[15px] font-medium underline hover:text-blue-800 transition-colors">View</a>`;
         linkContainer.classList.remove('hidden');
       } else {
         linkContainer.innerHTML = '';
