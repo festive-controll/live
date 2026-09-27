@@ -7,53 +7,17 @@
   <title>Artfest | Home</title>
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="asset/5Rect.png">
-  <script src="../fest-favicon.js"></script>
+  <script src="/fest-favicon.js"></script>
   <!-- SEO Meta Tags -->
   <meta name="description"
-    content="Explore Artfest - SFADC Rabee' Arts Fest '26. Celebrating cultures, arts, and diversity under SFADC Art Fest 2026.">
+    content="Explore Kauthukam - SFADC Rabee' Arts Fest '26. Celebrating cultures, arts, and diversity under SFADC Art Fest 2026.">
   <meta name="keywords"
-    content="Mā Warā', Art Fest'26, Behind The scene, SFADC Odamala, Artfest, SFADC, Rabee, Arts Fest, SIBAQ, Darul Huda">
+    content="Mā Warā', Art Fest'26, Behind The scene, SFADC Odamala, Kauthukam, SFADC, Rabee, Arts Fest, SIBAQ, Darul Huda">
   <!-- Cobe Font Family -->
-  <!-- Tailwind CSS v3 -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Compiled Tailwind CSS -->
+  <link rel="stylesheet" href="./tailwind.css">
   <!-- Iconify -->
   <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brandBlue: '#37314F',
-            brandYellow: '#C0912B',
-            brandRed: '#92205D',
-            brandGreen: '#17635F',
-            brandGreenBorder: '#17635F33',
-            brandTeal: '#17635F',
-            brandPurple: '#37314F',
-            brandOrange: '#C0912B',
-            brandMagenta: '#92205D',
-          },
-          fontFamily: {
-            sans: ['Cobe', 'sans-serif'],
-          },
-          animation: {
-            'fade-in': 'fadeIn 0.6s ease-out forwards',
-            'marquee': 'marquee 35s linear infinite',
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' },
-            },
-            marquee: {
-              '0%': { transform: 'translateX(0%)' },
-              '100%': { transform: 'translateX(-50%)' },
-            }
-          }
-        }
-      }
-    }
-  </script>
   <!-- Custom CSS -->
   <link rel="stylesheet" href="index.css">
   <!-- Flaticon Uicons -->
@@ -140,10 +104,10 @@
           <img src="asset/logo-logo.png" alt="SIBAQ Logo" class="h-20 w-auto">
         </div>
 
-        <!-- Colorful Title Artfest -->
+        <!-- Colorful Title Kauthukam -->
         <h1
           class="flex flex-wrap font-sans font-medium text-6xl sm:text-7xl md:text-[5.5rem] tracking-[-0.04em] leading-[0.9] py-1 mt-5 mb-4">
-          <span class="custom-temp-gradient hover-scale inline-block" data-fest="name">Artfest</span>
+          <span class="custom-temp-gradient hover-scale inline-block" data-fest="name">Kauthukam</span>
         </h1>
 
         <!-- Subtitles -->
@@ -308,7 +272,7 @@
 
       <!-- Heading -->
       <h2 class="font-sans font-semibold text-lg md:text-xl text-neutral-800 tracking-wide mb-6">
-        <span data-fest="name">Artfest</span> - SFADC Rabee' Arts Fest <span data-fest="year-short">'26</span>,
+        <span data-fest="name">Kauthukam</span> - SFADC Rabee' Arts Fest <span data-fest="year-short">'26</span>,
       </h2>
 
       <!-- Description Text wrapper -->
@@ -657,7 +621,14 @@
       <!-- Content Container -->
       <div class="w-full flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
 
-        <!-- Left Image (Removed due to missing asset) -->
+        <!-- Left College Image -->
+        <div class="w-full lg:w-[45%]">
+          <img
+            src="https://res.cloudinary.com/da6fjyirm/image/upload/v1790481913/DJI_20260106170036_0163_D-10mb_lxfpdt.jpg"
+            alt="Aerial view of Sheikh Fareed Auliya Da'wa College, Odamala"
+            class="w-full h-64 md:h-80 lg:h-[360px] object-cover rounded-2xl shadow-sm"
+            loading="lazy">
+        </div>
 
         <!-- Right Content -->
         <div class="w-full lg:w-[55%] flex flex-col text-left py-4 lg:pr-6">
@@ -790,8 +761,7 @@
         <div class="w-10 h-10 bg-white border border-gray-200 rounded-xl flex items-center justify-center shadow-sm">
           <img src="asset/5Rect.png" alt="Emblem" class="w-6 h-6 object-contain" data-fest="logo">
         </div>
-        <span class="font-sans font-semibold text-lg text-gray-900 tracking-tight" data-fest="title"><span
-            data-fest="name">Festival</span> <span data-fest="year-short">'26</span></span>
+        <span class="font-sans font-semibold text-lg text-gray-900 tracking-tight">Festival'26</span>
       </div>
       <button id="mobile-menu-close" class="p-2 text-gray-500 hover:text-gray-900 transition-colors">
         <i class="fi fi-rr-cross text-xl"></i>

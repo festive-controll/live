@@ -350,11 +350,16 @@ document.addEventListener('DOMContentLoaded', () => {
           // 2. Handle Page Navigation Visibility & Result Present Toggle
           const isResultPresent = config.resultPresent === true;
           
-          const targetResultHref = isResultPresent ? '../results/index.html' : 'results/index.html';
+          const targetResultHref = isResultPresent
+            ? 'https://result.mawara26.online/'
+            : 'results/index.html';
 
           // Dynamically route Result buttons across scorebars & menus
-          const resultButtons = document.querySelectorAll('a[href*="result.html"], a[href*="results/index.html"], a[href*="results/"]');
+          // Keep a stable marker because an ON -> OFF change must still find links
+          // after their href has been replaced with the external live-results URL.
+          const resultButtons = document.querySelectorAll('[data-result-link], a[href*="result.html"], a[href*="results/index.html"], a[href*="results/"]');
           resultButtons.forEach(btn => {
+            btn.dataset.resultLink = 'true';
             btn.setAttribute('href', targetResultHref);
 
             // Toggle button aesthetic: Outline (ON) vs Inline/Solid (OFF Coming Soon)
@@ -724,4 +729,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   syncWebsiteVisibilityConfig();
 });
-
